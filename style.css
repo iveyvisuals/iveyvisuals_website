@@ -11,4 +11,40 @@ body {
     padding: 4rem;
   }
 
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', sans-serif;
+    margin-top: 100px;
+    gap: 20px;
+  }
+  
+  .rotating-words {
+    height: 4rem;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .rotating-words span {
+    display: block;
+    height: 4rem;
+    animation: slide 10s steps(5) infinite;
+  }
+  
+  @keyframes slide {
+    0%   { transform: translateY(0%); }
+    20%  { transform: translateY(-100%); }
+    40%  { transform: translateY(-200%); }
+    60%  { transform: translateY(-300%); }
+    80%  { transform: translateY(-400%); }
+    100% { transform: translateY(-500%); }
+  }
+  
+  .static-word {
+    color: #6e2e2e; /* deep red that fits your brand */
+  }
   
