@@ -1,50 +1,87 @@
+/* GLOBAL STYLES */
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #fff;
-    color: #000;
-  }
-  
-  header {
-    text-align: center;
-    padding: 4rem;
-  }
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #000;
+}
 
-  .hero-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-    font-weight: bold;
-    font-family: 'Helvetica Neue', sans-serif;
-    margin-top: 100px;
-    gap: 20px;
-  }
-  
-  .rotating-words {
-    height: 4rem;
-    overflow: hidden;
-    display: inline-block;
-    position: relative;
-  }
-  
-  .rotating-words span {
-    display: block;
-    height: 4rem;
-    animation: slide 10s steps(5) infinite;
-  }
-  
-  @keyframes slide {
-    0%   { transform: translateY(0%); }
-    20%  { transform: translateY(-100%); }
-    40%  { transform: translateY(-200%); }
-    60%  { transform: translateY(-300%); }
-    80%  { transform: translateY(-400%); }
-    100% { transform: translateY(-500%); }
-  }
-  
-  .static-word {
-    color: #6e2e2e; /* deep red that fits your brand */
-  }
-  
+@font-face {
+  font-family: 'AppleMyungjo';
+  src: url('fonts/apple-myungjo.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'LastChristmas';
+  src: url('fonts/LastChristmas_PERSONAL_USE_ONLY.otf') format('opentype');
+}
+
+/* FULLSCREEN HERO SECTION */
+.hero-fullscreen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* MAIN TEXT BLOCK */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8vw;
+  font-weight: bold;
+  gap: 0;
+  line-height: 1;
+}
+
+/* ROTATING WORDS */
+.rotating-words {
+  display: flex;
+  flex-direction: column;
+  height: 1em;
+  overflow: hidden;
+  text-align: right;
+  font-family: 'AppleMyungjo', serif;
+  color: #000;
+}
+
+.rotating-words span {
+  display: block;
+  height: 1em;
+  white-space: nowrap;
+  animation: smoothSlide 10s ease-in-out infinite;
+}
+
+/* STATIC "DESIGN" */
+.static-word {
+  font-family: 'LastChristmas', cursive;
+  margin-left: 0.3rem;
+  color: #6e2e2e;
+}
+
+/* ROTATION ANIMATION */
+@keyframes smoothSlide {
+  0%   { transform: translateY(0%); }
+  10%  { transform: translateY(0%); }
+
+  20%  { transform: translateY(-100%); }
+  30%  { transform: translateY(-100%); }
+
+  40%  { transform: translateY(-200%); }
+  50%  { transform: translateY(-200%); }
+
+  60%  { transform: translateY(-300%); }
+  70%  { transform: translateY(-300%); }
+
+  80%  { transform: translateY(-400%); }
+  90%  { transform: translateY(-400%); }
+
+  100% { transform: translateY(-500%); }
+}
+
