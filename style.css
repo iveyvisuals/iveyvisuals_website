@@ -21,26 +21,29 @@ body {
 .hero-fullscreen {
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #fff;
-  padding: 0;
-  margin: 0;
-  position: relative;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff; /* keeps the rest of the screen clean */
 }
+
 
 /* MAIN TEXT BLOCK */
 .hero-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 8vw;
-  font-weight: bold;
+  align-items: center;
   gap: 0;
+  width: 100%;
+  max-width: 1200px;
+  font-size: 7vw; /* Bigger text */
+  font-weight: bold;
   line-height: 1;
+  margin-bottom: 2rem;
 }
 
 /* ROTATING WORDS */
+
 .rotating-words {
   display: flex;
   flex-direction: column;
@@ -48,7 +51,12 @@ body {
   overflow: hidden;
   text-align: right;
   font-family: 'AppleMyungjo', serif;
-  color: #000;
+  color: black;
+  flex: 1;
+  align-items: flex-end;
+  align-self: flex-end;
+  line-height: 1;
+  font-size: 7vw;
 }
 
 .rotating-words span {
@@ -59,10 +67,14 @@ body {
 }
 
 /* STATIC "DESIGN" */
+
 .static-word {
   font-family: 'LastChristmas', cursive;
-  margin-left: 0.3rem;
   color: #6e2e2e;
+  flex: 1;
+  text-align: left;
+  margin-left: 0.3rem;
+  font-size: 13vw;
 }
 
 /* ROTATION ANIMATION */
@@ -84,4 +96,64 @@ body {
 
   100% { transform: translateY(-500%); }
 }
+
+.about-photo {
+  width: 400px;
+  height: auto;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+
+.hero-box {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  background: radial-gradient(
+    circle,
+    #fef8f8 0%,
+    #f4dada 40%,
+    #a35a5a 100%
+  );
+  border-radius: 30px;
+  padding: 4rem 3rem;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Centered hero text still looks great */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 6vw;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Button */
+.cta-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #6e2e2e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #531f1f;
+}
+
+
+
+
 
