@@ -153,6 +153,35 @@ body {
   background-color: #531f1f;
 }
 
+.header {
+  max-width: 1400px;
+  width: 90vw;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 45px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #6e2e2e;
+}
 
 
 
