@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,131 +9,118 @@
   <title>IveyVisuals Design Co.</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+
 <body>
+  <!-- logo and nav buttons -->
+  <header>
+    <img src="assets/IveyVisualsLogoSVG.svg" alt="logo" style="height: 80px; max-width: 200px;">
+    <nav>
+      <a href="index.html" class="nav-button">Home</a>
+      <a href="#portfolio" class="nav-button">Portfolio</a>
+      <a href="#about" class="nav-button">About</a>
+      <a href="#contact" class="nav-button">Contact</a>
+    </nav>
+  </header>
 
-
-
-
-<!-- Hero Page Section -->
-
-
-  <table border="0" style="border-collapse: collapse; width: 100%; height: 1015px;">
-    <tbody>
-      <tr style="height: 39.5px;">
-        <td colspan="2" style="width: 28.6123%; padding: 60px;"><img src="assets/IveyVisualsLogoSVG.svg" alt="logo"></td>
-        <td style="width: 14.3062%; padding: 10px;"></td>
-        <td style="width: 14.3062%; padding: 10px;"><a href="#home" class="nav-button">Home</a></td>
-        <td style="width: 14.3062%; padding: 10px;"><a href="#portfolio" class="nav-button">Portfolio</a></td>
-        <td style="width: 14.3062%; padding: 10px;"><a href="#about" class="nav-button">About</a></td>
-        <td style="width: 14.1631%; padding: 10px;"><a href="#contact" class="nav-button">Contact</a></td>
-      </tr>
-
-      <tr style="height: 0px;">
-        <td colspan="7" rowspan="3" style="width: 100%; padding: 10px;">
-          <section class="hero-fullscreen">
-            <div class="hero-box">
-              <div class="hero-container">
-                <div class="rotating-words">
-                  <span>BRANDS</span>
-                  <span>MOTION</span>
-                  <span>WEB</span>
-                  <span>GRAPHIC</span>
-                  <span>LOGO</span>
-                </div>
-                <span class="static-word">design</span>
-              </div>
-              <button class="cta-button">Let’s Design Something Together</button>
+  <!-- rotating word animation -->
+  <main id="home">
+    <td colspan="7" rowspan="3" style="width: 100%; padding: 10px;">
+      <section class="hero-fullscreen">
+        <div class="hero-box">
+          <div class="hero-container">
+            <div class="rotating-words">
+              <span>brand</span>
+              <span>motion</span>
+              <span>web</span>
+              <span>graphic</span>
+              <span>logo</span>
             </div>
-          </section>
-        </td>
-      </tr>
+            <span class="static-word">design</span>
+          </div>
+          <button class="cta-button">Let’s Design Something Together</button>
+        </div>
+      </section>
+  </main>
 
+  <!-- portfolio section -->
+  <section id="portfolio" class="portfolio-section">
+    <h2> Portfolio </h2>
 
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="assets/Placeholder.png" alt="Web Design">
+        <a href="web.html" class="nav-button">WEB DESIGN</a>
+      </div>
 
+      <div class="portfolio-item">
+        <img src="assets/Placeholder.png" alt="Graphic Design">
+        <a href="graphic.html" class="nav-button">GRAPHIC DESIGN</a>
+      </div>
 
-<!-- Portfolio Section -->
+      <div class="portfolio-item">
+        <img src="assets/Placeholder.png" alt="Logo Design">
+        <a href="logo.html" class="nav-button">LOGO DESIGN</a>
+      </div>
 
+      <div class="portfolio-item">
+        <img src="assets/Placeholder.png" alt="Logo Design">
+        <a href="brand.html" class="nav-button">BRAND DESIGN</a>
+      </div>
 
-      <tr style="height: 31.3125px;"></tr>
-      <tr style="height: 196.688px;"></tr>
-      <tr style="height: 39.5px;">
-        <td colspan="7" style="width: 100%; padding: 10px;">PORTFOLIO</td>
-      </tr>
-      <tr style="height: 193.5px;">
-        <td style="width: 14.3062%; padding: 10px;"></td>
-        <td style="width: 14.3062%; padding: 10px;"><img src="assets/Placeholder.png" alt="logo"><a href="#webdesign" class="nav-button">WEB DESIGN</a></td>
-        <td style="width: 14.3062%; padding: 10px;"><img src="assets/Placeholder.png" alt="logo"><a href="#graphicdesign" class="nav-button">GRAPHIC DESIGN</a></td>
-        <td style="width: 14.3062%; padding: 10px;"><img src="assets/Placeholder.png" alt="logo"><a href="#logodesign" class="nav-button">LOGO DESIGN</a></td>
-        <td style="width: 14.3062%; padding: 10px;"><img src="assets/Placeholder.png" alt="logo"><a href="#motiondesign" class="nav-button">MOTION DESIGN</a></td>
-        <td style="width: 14.3062%; padding: 10px;"><img src="assets/Placeholder.png" alt="logo"><a href="#branddesign" class="nav-button">BRAND DESIGN</a></td>
-        <td style="width: 14.1631%; padding: 10px;"></td>
-      </tr>
+      <div class="portfolio-item">
+        <img src="assets/Placeholder.png" alt="Logo Design">
+        <a href="motion.html" class="nav-button">MOTION DESIGN</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- about section -->
+  <section id="about" class="about-section">
+    <div class="about-image">
+      <img src="assets/headshot.jpg" alt="Headshot">
+    </div>
+    <div class="about-text">
+      <img src="assets/IveyVisualsLogoSVG.svg" alt="logo" class="about-logo">
+      <h3>About IveyVisuals Design Co.</h3>
+      <p>IveyVisuals Design Co. is a multi-disciplinary design studio rooted in storytelling, strategy, and standout visuals. We specialize in crafting bold, intentional brands through clean web design, motion graphics, and timeless creative direction. Whether you're launching a business or refreshing your visual identity, we bring your vision to life with clarity, creativity, and purpose.</p>
+      <p>At IveyVisuals, we believe great design doesn’t just look good — it connects, communicates, and elevates. From logos and branding to fully custom websites, every pixel is placed with meaning.</p>
+    </div>
+  </section>
 
+  <!-- contact section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <div class="contact-intro">
+        <h2>Let’s get to<br>know<br>your vision.</h2>
+      </div>
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="project">Project Idea:</label>
+          <input type="text" name="project" id="project" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea name="description" id="description" rows="5" required></textarea>
+          <br><a href="#submit" class="nav-button">Submit</a><br>
+        </div>
+      </form>
 
+    </div>
 
-      <tr style="height: 39.5px;">
-        <td colspan="7" style="padding: 10px; width: 100%;"></td>
-      </tr>
-      <tr style="height: 39.8281px;">
-        <td style="width: 14.3062%; padding: 10px;"></td>
-        <td style="padding: 10px; width: 28.6123%;" colspan="2" rowspan="4">
-          <img src="assets/headshot.jpg" alt="headshot" class="about-photo">
-        </td>
-        <td style="width: 14.3062%; padding: 10px;"></td>
-        <td style="padding: 10px; width: 28.6123%;" colspan="2" rowspan="4">
-          <p><img src="assets/IveyVisualsLogoSVG.svg" alt="logo">About IveyVisuals Design Co.&nbsp;</p>
-          <p>IveyVisuals Design Co. is a multi-disciplinary design studio rooted in storytelling, strategy, and standout visuals. We specialize in crafting bold, intentional brands through clean web design, motion graphics, and timeless creative direction. Whether you're launching a business or refreshing your visual identity, we bring your vision to life with clarity, creativity, and purpose.</p>
-          <p>At IveyVisuals, we believe great design doesn't just look good — it connects, communicates, and elevates. From logos and branding to fully custom websites, every pixel is placed with meaning.</p>
-        </td>
-        <td style="width: 14.1631%; padding: 10px;"></td>
-      </tr>
-      <tr style="height: 39.5px;"></tr>
-      <tr style="height: 39.8281px;"></tr>
-      <tr style="height: 39.8438px;"></tr>
-      <tr style="height: 39.5px;">
-        <td colspan="7" style="padding: 10px; width: 100%;"></td>
-      </tr>
-
-
-
-
-
-      
-      <!-- Contact Form Section -->
-      <tr style="height: 39.5px;">
-        <td style="width: 14.3062%; padding: 10px;"></td>
-        <td colspan="2" rowspan="5" style="padding: 10px; width: 28.6123%;">
-          Let's get to know your vision.
-        </td>
-        <td style="width: 14.3062%; padding: 10px;"></td>
-        <td colspan="2" style="padding: 10px; width: 28.6123%;">
-          Name:<br />
-          <input type="text" name="name" style="width: 100%; padding: 8px;">
-        </td>
-        <td style="width: 14.1631%; padding: 10px;"></td>
-      </tr>
-      <tr style="height: 39.5px;">
-        <td></td>
-        <td colspan="2" style="padding: 10px;">
-          Project Idea:<br />
-          <input type="text" name="project" style="width: 100%; padding: 8px;">
-        </td>
-        <td></td>
-      </tr>
-      <tr style="height: 39.5px;">
-        <td></td>
-        <td colspan="2" rowspan="3" style="padding: 10px;">
-          Description:<br />
-          <textarea name="description" rows="5" style="width: 100%; padding: 8px;"></textarea>
-        </td>
-        <td></td>
-      </tr>
-      <tr style="height: 39.5px;"></tr>
-      <tr style="height: 39.5px;"></tr>
-    </tbody>
-  </table>
-
+  </section>
+  
 </body>
 </html>
 
