@@ -111,7 +111,65 @@ body {
   object-fit: cover;
 }
 
+.hero-box {
+  max-width: 1300px;
+  margin: auto;
+  padding: 4rem 2rem;
+  text-align: center;
+  background-image: url('assets/coverpage.png'); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+}
 
+.hero-overlay {
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.2); /* optional color tint */
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-box {
+  position: relative;
+  max-width: 1300px;
+  height: 500px;
+  margin: auto;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.hero-blur {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/coverpage.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  transform: scale(1.05); /* avoids edge clipping */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #3d0e0e; /* or any text color */
+  padding: 2rem;
+  text-align: center;
+}
+
+
+/*
 .hero-box {
   width: 100%;
   max-width: 1200px;
@@ -131,6 +189,7 @@ body {
   justify-content: center;
   animation: fadeIn 1s ease-in-out;
 }
+*/
 
 /* Centered hero text still looks great */
 .hero-container {
@@ -145,7 +204,7 @@ body {
 
 /* Button */
 .cta-button {
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   background-color: #6e2e2e;
   color: white;
