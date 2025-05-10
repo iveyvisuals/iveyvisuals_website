@@ -258,6 +258,8 @@ body {
   border: 1px solid #6e2e2e;
   border-radius: 20px;
   transition: all 0.3s ease;
+  margin-top: 1rem; /* 👈 this creates space between image and button */
+  display: inline-block; /* ensures margin-top works */
 }
 
 .nav-button:hover {
@@ -304,7 +306,7 @@ body {
 }
 
 .about-image img {
-  width: 350px;
+  width: 450px;
   border-radius: 2rem;
 }
 
@@ -319,11 +321,11 @@ body {
 
 .about-logo {
   width: 400px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 section.about-section {
-  margin-top: 4rem;
+  margin-top: 0;
   padding: 2rem;
 }
 
@@ -418,6 +420,65 @@ html {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+
+h2 {
+  font-size: 5rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+.contact-section h2 {
+  font-size: 5rem;
+}
+
+.brandheader {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.brandheader h1 {
+  font-size: 3rem; /* or adjust size */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.brandheader p {
+  max-width: 800px;
+  margin: 0 auto; /* centers the paragraph */
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+.portfolio-item img {
+  transition: transform 0.3s ease;
+}
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-section {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+
+
 
 
 
