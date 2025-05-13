@@ -93,8 +93,13 @@
       <div class="contact-intro">
         <h2>Let’s get to<br>know<br>your vision.</h2>
       </div>
-      <form class="contact-form">
+
+
+
+      <!-- Code for the form -->
+      <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
         <div class="form-group">
+          <input type="hidden" name="access_key" value="59aea069-0bed-4d17-b0ea-f3a3c36b14b6">
           <label for="name">Name:</label>
           <input type="text" name="name" id="name" required>
         </div>
@@ -105,16 +110,14 @@
         </div>
   
         <div class="form-group">
-          <label for="project">Project Idea:</label>
-          <input type="text" name="project" id="project" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="description">Description:</label>
+          <label for="description">Message:</label>
           <textarea name="description" id="description" rows="5" required></textarea>
-          <br><a href="#submit" class="nav-button">Submit</a><br>
+
+          <button class="nav-button" type="submit">Submit Form</button>
         </div>
       </form>
+
+
 
     </div>
 
