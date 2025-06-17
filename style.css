@@ -11,7 +11,6 @@ body {
   margin: 0;
   padding: 0;
   background: #fff;
-  color: #000;
 }
 
 @font-face {
@@ -202,11 +201,14 @@ body {
   line-height: 1;
 }
 
+
+
 /* Button */
 .cta-button {
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
   background-color: #6e2e2e;
+  font-family: 'Lexend', sans-serif;
   color: white;
   border: none;
   border-radius: 12px;
@@ -240,7 +242,7 @@ body {
 .nav-links a {
   text-decoration: none;
   color: #000;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -255,23 +257,24 @@ body {
   text-decoration: none;
   padding: 8px 16px;
   color: #000;
-  border: 1px solid #6e2e2e;
+  border: 0px solid #fff;
   border-radius: 20px;
   transition: all 0.3s ease;
-  margin-top: 1rem; /* 👈 this creates space between image and button */
+  margin-top: 1rem; /* this creates space between image and button */
   display: inline-block; /* ensures margin-top works */
 }
 
 .nav-button:hover {
   background-color: #6e2e2e;
   color: white;
+  border: 1px solid #6e2e2e;
+  border-radius: 20px;
 }
 
 .portfolio-section {
-  min-height: 100vh;
-  max-width: 1200px;         /* match .hero-box width */
-  margin: 4rem auto;
-  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;       /* was 4rem, now tighter */
+  padding: 0 2rem 2rem;
 }
 
 .portfolio-grid {
@@ -294,15 +297,14 @@ body {
 
 
 .about-section {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  max-width: 1300px;
-  margin: 5rem auto;
-  padding: 0 2rem;
-  flex-wrap: wrap; /* ensures responsiveness */
+  max-width: 1200px;
+  margin: 0 auto 20px auto; /* reduced spacing below */
+  padding: 40px 20px 20px;  /* reduced bottom padding */
+  flex-wrap: wrap;
 }
 
 .about-image img {
@@ -473,8 +475,18 @@ h3 {
 .cta-section {
   display: flex;
   justify-content: center;
-  padding: 2rem;
-  margin-top: 3rem;
+  padding: 1.5rem;
+  margin-top: 1rem; /* was 3rem */
+}
+
+.graphic-image img {
+  width: 450px;
+  border-radius: 2rem;
+}
+
+.branding-image img {
+  width: 450px;
+  border-radius: 2rem;
 }
 
 

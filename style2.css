@@ -1,0 +1,26 @@
+.about-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+  
+.graphic-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+  
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+  
