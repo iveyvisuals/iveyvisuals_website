@@ -21,11 +21,13 @@
       <a href="index.html" class="nav-button">Home</a>
       <a href="#portfolio" class="nav-button">Portfolio</a>
       <a href="#about" class="nav-button">About</a>
-      <a href="#contact" class="nav-button">Book Now</a>
+      <a href="https://www.instagram.com/iveyvisuals" class="nav-button" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="#contact" class="nav-button nav-cta">Book Now</a>
+
     </nav>
   </header>
 
-  <!-- rotating word animation -->
+
   <section id="home" class="hero-box fade-in">
     <div class="hero-blur"></div>
     <div class="hero-content">
@@ -40,46 +42,21 @@
         </div>
         <span class="static-word">design</span>
       </div>
-      <button class="cta-button">Let's Design Together!</button>
+      
+      <a href="#contact" class="cta-button">Let's Design Together!</a>
     </div>
   </section>
 
-  <!-- portfolio section
-  <section id="portfolio" class="portfolio-section fade-in">
-    <h2> Portfolio </h2>
 
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="assets/interlude.jpg" alt="Web Design">
-        <a href="web.html" class="nav-button">WEB DESIGN</a>
-      </div>
-
-      <div class="portfolio-item">
-        <img src="assets/merch.JPG" alt="Graphic Design">
-        <a href="graphic.html" class="nav-button">GRAPHIC DESIGN</a>
-      </div>
-
-      <div class="portfolio-item">
-        <img src="assets/logo.jpg" alt="Logo Design">
-        <a href="logo.html" class="nav-button">LOGO DESIGN</a>
-      </div>
-
-      <div class="portfolio-item">
-        <img src="assets/enhanced.jpg" alt="Logo Design">
-        <a href="brand.html" class="nav-button">BRAND DESIGN</a>
-      </div>
-
-      <div class="portfolio-item">
-        <img src="assets/graphic.jpg" alt="Logo Design">
-        <a href="motion.html" class="nav-button">MOTION DESIGN</a>
-      </div>
-    </div>
-  </section>
-   -->
 
   <section class="mission-section fade-in">
-    <h2 class="tagline">Illuminating the Vision</h2>
-    <p class="subheading">Bringing light to your story through every form of design.</p>
+    <div id="portfolio">
+
+      <h2 class="tagline">Illuminating the Vision</h2>
+      <p class="subheading">Bringing light to your story through every form of design.</p>
+
+    </div>
+
   </section>
 
 
@@ -146,7 +123,7 @@
     <div class="parallax-overlay">
       <div class="parallax-content">
         <div class="parallax-image fade-in">
-          <img src="assets/coverpage.png" alt="Web Design Mockup">
+          <img src="assets/branddesign.jpg" alt="Web Design Mockup">
         </div>
         <div class="parallax-text fade-in">
           <h2>Logo Design</h2>
@@ -166,7 +143,7 @@
     <div class="parallax-overlay">
       <div class="parallax-content">
         <div class="parallax-image fade-in">
-          <img src="assets/graphic.jpg" alt="Web Design Mockup">
+          <img src="assets/motion.jpg" alt="Web Design Mockup">
         </div>
         <div class="parallax-text fade-in">
           <h2>Motion Design</h2>
@@ -188,17 +165,32 @@
 
 
   <!-- about section -->
-  <section id="about" class="about-section fade-in">
-    <div class="about-image">
-      <img src="assets/headshot.jpg" alt="Headshot">
+
+
+
+  <section class="about-section fade-in">
+    <div id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <img src="assets/IveyVisualsLogoSVG.svg" alt="IveyVisuals Logo" class="about-logo" />
+        <h2>About IveyVisuals Design Co.</h2>
+
+
+        <p> Hi, I'm Isabella — the founder of IveyVisuals Design Co.</p>
+        <p> IveyVisuals is a multidisciplinary design studio that specializes in building visual identities that are clean, creative, and full of intention. </p>
+        <p> I started IveyVisuals out of desire to bring a new approach to design. My goal was to move away from design that’s just about looks, and toward something more meaningful, collaborative, and story-driven. I believe our imaginations are layered and complex, and your ideas deserve to shine in a way that feels true to you. </p>
+        <p> I can’t wait to hear your story and help you share it through design. </p>
+
+        <div style="text-align: right;">
+        <img src="assets/signature.png" alt="signature" class="signature" />
+        </div>
+  
+      </div>
+      <div class="about-image">
+        <img src="assets/headshot.jpg" alt="Isabella Villaroman" />
+      </div>
     </div>
-    <div class="about-text">
-      <img src="assets/IveyVisualsLogoSVG.svg" alt="logo" class="about-logo">
-      <h3>About IveyVisuals Design Co.</h3>
-      <p> Hi, I'm Isabella Villaroman and I am the founder of IveyVisuals Design Co.</p>
-      <p>IveyVisuals Design Co. is a multi-disciplinary design studio rooted in storytelling, strategy, and standout visuals. We specialize in crafting bold, intentional brands through clean web design, motion graphics, and timeless creative direction. Whether you're launching a business or refreshing your visual identity, we bring your vision to life with clarity, creativity, and purpose.</p>
-      <p>At IveyVisuals, we believe great design doesn’t just look good — it connects, communicates, and elevates. From logos and branding to fully custom websites, every pixel is placed with meaning.</p>
-    </div>
+  </div>
   </section>
 
 
@@ -207,7 +199,7 @@
   <section id="contact" class="contact-section fade-in">
     <div class="contact-container">
       <div class="contact-intro">
-        <h2>Let’s get to<br>know<br>your vision.</h2>
+        <h2>Let’s get<br>to know<br>your vision.</h2>
       </div>
 
 
@@ -224,6 +216,20 @@
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" required>
         </div>
+
+        <!--
+        <div class="form-group">
+          <label for="service">Service:</label>
+          <select name="service" id="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Web Design">Web Design</option>
+            <option value="Brand Design">Brand Design</option>
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Logo Design">Logo Design</option>
+            <option value="Motion Design">Motion Design</option>
+          </select>
+        </div>
+      -->
   
         <div class="form-group">
           <label for="description">Message:</label>
@@ -233,10 +239,17 @@
         </div>
       </form>
 
-
-
     </div>
 
+
+
+  </section>
+
+
+  <section>
+    <div class="watermark fade-in"> 
+      <p> © 2025 IveyVisuals Design Co.</p>
+    </div>
 
   </section>
 
@@ -246,4 +259,35 @@
 </html>
 
  
- 
+   <!-- portfolio section
+  <section id="portfolio" class="portfolio-section fade-in">
+    <h2> Portfolio </h2>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="assets/interlude.jpg" alt="Web Design">
+        <a href="web.html" class="nav-button">WEB DESIGN</a>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="assets/merch.JPG" alt="Graphic Design">
+        <a href="graphic.html" class="nav-button">GRAPHIC DESIGN</a>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="assets/logo.jpg" alt="Logo Design">
+        <a href="logo.html" class="nav-button">LOGO DESIGN</a>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="assets/enhanced.jpg" alt="Logo Design">
+        <a href="brand.html" class="nav-button">BRAND DESIGN</a>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="assets/graphic.jpg" alt="Logo Design">
+        <a href="motion.html" class="nav-button">MOTION DESIGN</a>
+      </div>
+    </div>
+  </section>
+   -->
