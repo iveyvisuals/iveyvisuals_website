@@ -10,12 +10,21 @@ html, body {
   overflow-x: hidden;
 }
 
+
+/* FIX THIS */
+
+
 body {
   font-family: 'Lexend', sans-serif;
   margin: 0;
   padding: 0;
   background: #fff;
+  src: url('fonts/Lexend-VariableFont_wght.ttf') ;
+
 }
+
+
+/* ---------- */
 
 @font-face {
   font-family: 'AppleMyungjo';
