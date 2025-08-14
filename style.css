@@ -54,7 +54,7 @@ body {
   align-items: center;
   gap: 0;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   font-size: 7vw; /* Bigger text */
   font-weight: bold;
   line-height: 1;
@@ -197,7 +197,7 @@ body {
 
 /* Button */
 .cta-button {
-  transform: translateX(-30px);
+  transform: translateX(-30%);
   display: block;
   margin: 1rem auto 0 auto; /* top, auto (left/right), bottom */
   width: fit-content;
@@ -473,6 +473,8 @@ h3 {
   color: #000; /* dark maroon from header */
 }
 
+/* PARALLAX SECTION */
+
 
 .parallax-section {
   background-size: cover;
@@ -495,8 +497,9 @@ h3 {
   padding: 2rem;
 }
 
+
 .parallax-content {
-  max-width: 1200px;
+  max-width: 75%; /* !!!!!!!!!!!!!  1200 px, 75%*/
   display: flex;
   gap: 5rem;
   flex-wrap: wrap;
@@ -513,7 +516,7 @@ h3 {
 
 .parallax-text {
   flex: 1;
-  min-width: 300px;
+  min-width: 25%; /* !!!!!!!!!!!!! 300 px, 25%*/ 
 }
 
 .parallax-text h2 {
