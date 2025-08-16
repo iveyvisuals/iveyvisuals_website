@@ -746,7 +746,6 @@ h3 {
   text-align: center;
 }
 
-/* */
 
 .pill-label {
   display: inline-block;
@@ -759,6 +758,126 @@ h3 {
   font-weight: 500;
   margin-bottom: 1em;
 }
+
+/* Media Queries - August 16 Edits */ 
+
+
+/* MEDIA QUERY: that fixes the PORTFOLIO SECTION when downsized */ 
+/* from 0-900 pixels, do this */
+
+@media (max-width: 900px) {
+  .parallax-section {
+    background-attachment: scroll;  /* iOS-safe */
+    height: auto;                    /* let content define height */
+    min-height: 60vh;                /* optional: give it some presence */
+    padding: 2rem 1rem;              /* breathing room */
+  }
+
+  .parallax-overlay {
+    position: relative;
+    z-index: 1;                      /* keep text above bg */
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.8);  /* prevent image from fighting text */
+  }
+
+  .parallax-content {
+    max-width: 94%;
+    gap: 1.25rem;
+    flex-direction: column;          /* stack text and image */
+    justify-content: center;
+  }
+
+  .parallax-text,
+  .parallax-image { 
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .parallax-text h2 { 
+    font-size: clamp(1.5rem, 5.5vw, 2.25rem); 
+  }
+  .parallax-text p { 
+    font-size: 1rem; 
+  }
+}
+
+
+/* MEDIA QUERY: for nav menu */ 
+
+.nav-mobile { display: none; }
+
+/* --- Mobile breakpoint --- */
+@media (max-width: 849px) {
+
+  .nav-button { display: none; }
+  
+  /* header layout */
+  header, .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 1rem;
+    position: relative;
+  }
+
+  .logo { height: 34px; }
+
+  /* show hamburger, hide desktop links */
+  .nav-desktop { display: none; }
+
+  .nav-mobile { 
+    display: block; 
+    position: relative;
+    
+  }
+
+  /* hamburger button */
+  .nav-mobile summary {
+    width: 36px; height: 28px; cursor: pointer; list-style: none; position: relative;
+  }
+  .nav-mobile summary::-webkit-details-marker { display: none; }
+  .nav-mobile summary::before,
+  .nav-mobile summary::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 2px; background: #6e2e2e;
+  }
+  .nav-mobile summary::before { top: 6px; box-shadow: 0 8px 0 0 #6e2e2e; } 
+
+  /* dropdown panel */
+  .nav-mobile nav {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: #fff; padding: 0.5rem 1rem;
+    box-shadow: 0 12px 24px rgba(0,0,0,.08); border-radius: 0 0 16px 16px;
+    z-index: 20;
+  }
+  .nav-mobile[open] nav { display: block; }
+
+  .nav-mobile nav a {
+    display: block; padding: 0.9rem 0; font-size: 1.05rem; color: #000; text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+  .nav-mobile nav a:last-child { border-bottom: 0; }
+
+  /* book now pill in the list */
+  .nav-mobile nav .nav-cta {
+    background: #6e2e2e; color: #fff !important; border-radius: 999px;
+    text-align: center; margin-top: 0.5rem; padding: 0.7rem 1rem; font-weight: 600;
+  }
+}
+
+@media (max-width: 475px) {
+  .mission-section .tagline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7d2629; /* Your bold red brand color */
+  margin-bottom: 1rem;
+  margin-top: 0;
+  max-width: 100%;
+}
+}
+
+
+
+
 
 
 

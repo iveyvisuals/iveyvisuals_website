@@ -34,3 +34,509 @@
     transform: scale(1.05); /* avoids edge clipping */
     z-index: 1;
   }
+
+
+
+
+  /* AUGUST 15 CHANGES - DELETE IF THIS BREAKS THE SITE */
+
+/* ===== Mobile fixes & responsive overrides ===== */
+
+/* 0) General fluid media */
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* 1) Remove hard positioning that breaks centering */
+.cta-button {
+  transform: none;              /* was translateX(-30%) */
+  width: 100%;
+  max-width: 22rem;
+  margin: 1rem auto 0 auto;     /* true center */
+}
+
+/* 2) Consolidate hero sizing so it can breathe on small screens */
+.hero-fullscreen { min-height: 100vh; height: auto; }
+.hero-box { height: min(70vh, 560px); }    /* avoid always-500px on short phones */
+.hero-content { padding: 1.25rem; }
+
+/* 3) Avoid iOS issues with parallax on mobile */
+@media (max-width: 900px) {
+  .parallax-section { background-attachment: scroll; }
+}
+
+/* 4) Make headings scale instead of staying huge */
+h2 { font-size: clamp(1.75rem, 6vw, 3rem); }
+h3 { font-size: clamp(1.25rem, 4.5vw, 2rem); }
+.contact-section h2 { font-size: clamp(1.75rem, 6.5vw, 3rem); }
+
+/* 5) Navigation spacing that wraps cleanly */
+header { padding: 1rem 1.25rem; }
+.nav-links { flex-wrap: wrap; gap: 1rem; }
+
+/* 6) Portfolio: switch from fixed widths to a responsive grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0;
+}
+.portfolio-item { max-width: none; } /* remove 22% cap */
+.portfolio-item img { width: 100%; }
+
+/* 7) About and media blocks: allow shrinking */
+.about-image img,
+.graphic-image img,
+.branding-image img,
+.about-photo {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* 8) Rotating words and script headline: scale down a bit on smaller screens */
+.hero-container { font-size: clamp(1.75rem, 6vw, 3.5rem); }
+.rotating-words { font-size: clamp(1.5rem, 8vw, 3rem); }
+.static-word { font-size: clamp(2rem, 12vw, 5rem); }
+
+/* 9) Section paddings tighter on small screens */
+.brandheader { padding: 1.5rem 1rem; }
+.mission-section { padding: 3rem 1.25rem; }
+.contact-section { padding: 2.5rem 1.25rem; }
+
+/* ===== Tablet breakpoint ===== */
+@media (max-width: 900px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-container { gap: 2rem; }
+  .parallax-content {
+    max-width: 92%;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .parallax-text h2 { font-size: clamp(1.5rem, 5.5vw, 2.25rem); }
+  .parallax-image { max-width: 420px; }
+}
+
+/* ===== Phone breakpoint ===== */
+@media (max-width: 600px) {
+  header { padding: 0.75rem 1rem; }
+  .nav-cta { padding: 6px 14px; }
+
+  .hero-box { height: auto; min-height: 60vh; border-radius: 0; }
+  .hero-overlay { padding: 2rem 1rem; }
+
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-section { padding: 0 1rem 1.25rem; }
+
+  .about-section,
+  .about-container { padding: 2rem 1rem; }
+  .about-text { max-width: 100%; }
+
+  .parallax-content { max-width: 94%; gap: 1.25rem; }
+  .parallax-text { min-width: 100%; }
+  .parallax-image { min-width: 100%; max-width: 100%; }
+
+  .btn { padding: 0.65rem 1.1rem; }
+
+  /* ensure no sideways scroll from rogue elements */
+  html, body { overflow-x: hidden; }
+}
+
+
+/* Mobile header layout like your second screenshot */
+@media (max-width: 600px) {
+  /* works whether you used header or .header */
+  header, .header {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;     /* stack pieces vertically */
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* put links first, center them in one thin row */
+  .nav-links {
+    order: 1;
+    display: flex;
+    flex-wrap: wrap;            /* wrap if it gets tight */
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;               /* tighter spacing */
+    width: 100%;
+  }
+  .nav-links a { 
+    font-size: 0.95rem; 
+    line-height: 1; 
+  }
+
+  /* logo sits under the links */
+  .logo { 
+    order: 2; 
+    height: 36px;               /* smaller logo on mobile */
+    margin: 0 auto;
+  }
+
+  /* Book Now as a small centered pill under the logo */
+  .nav-cta {
+    order: 3;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    margin: 0.25rem 0 0;
+    align-self: center;
+  }
+}
+
+/* Header like your second screenshot on phones */
+@media (max-width: 600px) {
+  /* stack but put nav above the logo */
+  header, .header {
+    display: flex;
+    flex-direction: column-reverse; /* nav first, logo second */
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* one thin centered row of links */
+  .nav-links {
+    display: flex;
+    flex-wrap: nowrap;       /* do not wrap to a new line */
+    white-space: nowrap;     /* keep items on one line */
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    width: auto;             /* shrink to content */
+    margin: 0 auto;
+  }
+  .nav-links a {
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 0;              /* keep them slim */
+  }
+
+  /* smaller logo under the links */
+  .logo { height: 34px; margin: 0 auto; }
+
+}
+
+/* --- Parallax: safe mobile behavior --- */
+.parallax-section { 
+  position: relative; 
+  overflow: hidden;           /* keep bg from bleeding out */
+  isolation: isolate;         /* create a stacking context */
+}
+
+/* Desktop/tablet keep the effect */
+@media (min-width: 901px) {
+  .parallax-section { 
+    background-attachment: fixed; 
+    height: 100vh;            /* OK on large screens */
+  }
+}
+
+/* Phones/tablets: disable fixed bg & fixed heights */
+@media (max-width: 900px) {
+  .parallax-section {
+    background-attachment: scroll;  /* iOS-safe */
+    height: auto;                    /* let content define height */
+    min-height: 60vh;                /* optional: give it some presence */
+    padding: 2rem 1rem;              /* breathing room */
+  }
+
+  .parallax-overlay {
+    position: relative;
+    z-index: 1;                      /* keep text above bg */
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.9);  /* prevent image from fighting text */
+  }
+
+  .parallax-content {
+    max-width: 94%;
+    gap: 1.25rem;
+    flex-direction: column;          /* stack text and image */
+    justify-content: center;
+  }
+
+  .parallax-text,
+  .parallax-image { 
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .parallax-text h2 { 
+    font-size: clamp(1.5rem, 5.5vw, 2.25rem); 
+  }
+  .parallax-text p { 
+    font-size: 1rem; 
+  }
+}
+
+
+
+
+
+/* AUGUST 15 CHANGES - DELETE IF THIS BREAKS THE SITE */
+
+/* ===== Mobile fixes & responsive overrides ===== */
+
+/* 0) General fluid media */
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* 3) Avoid iOS issues with parallax on mobile */
+@media (max-width: 900px) {
+  .parallax-section { background-attachment: scroll; }
+}
+
+/* 4) Make headings scale instead of staying huge */
+h2 { font-size: clamp(1.75rem, 6vw, 3rem); }
+h3 { font-size: clamp(1.25rem, 4.5vw, 2rem); }
+.contact-section h2 { font-size: clamp(1.75rem, 6.5vw, 3rem); }
+
+/* 5) Navigation spacing that wraps cleanly */
+header { padding: 1rem 1.25rem; }
+.nav-links { flex-wrap: wrap; gap: 1rem; }
+
+/* 6) Portfolio: switch from fixed widths to a responsive grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0;
+}
+.portfolio-item { max-width: none; } /* remove 22% cap */
+.portfolio-item img { width: 100%; }
+
+/* 7) About and media blocks: allow shrinking */
+.about-image img,
+.graphic-image img,
+.branding-image img,
+.about-photo {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* 9) Section paddings tighter on small screens */
+.brandheader { padding: 1.5rem 1rem; }
+.mission-section { padding: 3rem 1.25rem; }
+.contact-section { padding: 2.5rem 1.25rem; }
+
+/* ===== Tablet breakpoint ===== */
+@media (max-width: 900px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-container { gap: 2rem; }
+  .parallax-content {
+    max-width: 92%;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .parallax-text h2 { font-size: clamp(1.5rem, 5.5vw, 2.25rem); }
+  .parallax-image { max-width: 420px; }
+}
+
+/* ===== Phone breakpoint ===== */
+@media (max-width: 600px) {
+  header { padding: 0.75rem 1rem; }
+  .nav-cta { padding: 6px 14px; }
+
+  .hero-box { height: auto; min-height: 60vh; border-radius: 0; }
+  .hero-overlay { padding: 2rem 1rem; }
+
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-section { padding: 0 1rem 1.25rem; }
+
+  .about-section,
+  .about-container { padding: 2rem 1rem; }
+  .about-text { max-width: 100%; }
+
+  .parallax-content { max-width: 94%; gap: 1.25rem; }
+  .parallax-text { min-width: 100%; }
+  .parallax-image { min-width: 100%; max-width: 100%; }
+
+  .btn { padding: 0.65rem 1.1rem; }
+
+  /* ensure no sideways scroll from rogue elements */
+  html, body { overflow-x: hidden; }
+}
+
+
+/* Mobile header layout like your second screenshot */
+@media (max-width: 600px) {
+  /* works whether you used header or .header */
+  header, .header {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;     /* stack pieces vertically */
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* put links first, center them in one thin row */
+  .nav-links {
+    order: 1;
+    display: flex;
+    flex-wrap: wrap;            /* wrap if it gets tight */
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;               /* tighter spacing */
+    width: 100%;
+  }
+  .nav-links a { 
+    font-size: 0.95rem; 
+    line-height: 1; 
+  }
+
+  /* logo sits under the links */
+  .logo { 
+    order: 2; 
+    height: 36px;               /* smaller logo on mobile */
+    margin: 0 auto;
+  }
+
+  /* Book Now as a small centered pill under the logo */
+  .nav-cta {
+    order: 3;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    margin: 0.25rem 0 0;
+    align-self: center;
+  }
+}
+
+/* Header like your second screenshot on phones */
+@media (max-width: 600px) {
+  /* stack but put nav above the logo */
+  header, .header {
+    display: flex;
+    flex-direction: column-reverse; /* nav first, logo second */
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* one thin centered row of links */
+  .nav-links {
+    display: flex;
+    flex-wrap: nowrap;       /* do not wrap to a new line */
+    white-space: nowrap;     /* keep items on one line */
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    width: auto;             /* shrink to content */
+    margin: 0 auto;
+  }
+  .nav-links a {
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 0;              /* keep them slim */
+  }
+
+  /* smaller logo under the links */
+  .logo { height: 34px; margin: 0 auto; }
+
+}
+
+/* --- Parallax: safe mobile behavior --- */
+.parallax-section { 
+  position: relative; 
+  overflow: hidden;           /* keep bg from bleeding out */
+  isolation: isolate;         /* create a stacking context */
+}
+
+/* Desktop/tablet keep the effect */
+@media (min-width: 901px) {
+  .parallax-section { 
+    background-attachment: fixed; 
+    height: 100vh;            /* OK on large screens */
+  }
+}
+
+/* Phones/tablets: disable fixed bg & fixed heights */
+@media (max-width: 900px) {
+  .parallax-section {
+    background-attachment: scroll;  /* iOS-safe */
+    height: auto;                    /* let content define height */
+    min-height: 60vh;                /* optional: give it some presence */
+    padding: 2rem 1rem;              /* breathing room */
+  }
+
+  .parallax-overlay {
+    position: relative;
+    z-index: 1;                      /* keep text above bg */
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.9);  /* prevent image from fighting text */
+  }
+
+  .parallax-content {
+    max-width: 94%;
+    gap: 1.25rem;
+    flex-direction: column;          /* stack text and image */
+    justify-content: center;
+  }
+
+  .parallax-text,
+  .parallax-image { 
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .parallax-text h2 { 
+    font-size: clamp(1.5rem, 5.5vw, 2.25rem); 
+  }
+  .parallax-text p { 
+    font-size: 1rem; 
+  }
+}
+
+
+
+
+
+
+/* MEDIA QUERY that fixes the top of the nav bar along the top */
+
+@media (max-width: 900px) {
+  header, .header {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;     /* stack pieces vertically */
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo { 
+    order: 2; 
+    height: 36px;               /* smaller logo on mobile */
+    margin: 0 auto;
+  }
+  
+    .nav-links {
+    order: 1;
+    display: flex;
+    flex-wrap: wrap;            /* wrap if it gets tight */
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;               /* tighter spacing */
+    width: 100%;
+  }
+  .nav-links a { 
+    font-size: 0.95rem; 
+    line-height: 1; 
+  }
+
+    .nav-cta {
+    order: 3;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    margin: 0.25rem 0 0;
+    align-self: center;
+  }
+
+
+}
+
+@media (max-width: 529px){
+    .nav-cta {
+    align-self: center;
+  }
+}
