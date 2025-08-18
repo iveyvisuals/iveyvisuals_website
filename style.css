@@ -846,6 +846,12 @@ h3 {
 /* --- Mobile breakpoint */
 @media (max-width: 849px) {
 
+    .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .nav-button { display: none; } /* hides the normal nav buttons that are usually along the top of the screen */
   
   /* header layout */
