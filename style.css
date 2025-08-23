@@ -956,6 +956,11 @@ h3 {
   .hero-svg { display: block; }
 }
 
+@media (max-width: 849px) {
+  .hero-blur { display: none; }
+  
+}
+
 
 
 
