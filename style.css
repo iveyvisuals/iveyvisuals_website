@@ -170,6 +170,8 @@ body {
   z-index: 1;
 }
 
+
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -294,7 +296,7 @@ body {
 
 .portfolio-grid {
   display: flex;
-  gap: 1rem;               /* Increase or decrease to your taste */
+  gap: 1rem;             
   justify-content: center; /* Centers the whole row */
   padding: 0;
 }
@@ -320,11 +322,11 @@ body {
 }
 
 #portfolio {
-  scroll-margin-top: 120px; /* adjust to match or slightly exceed your header height */
+  scroll-margin-top: 120px; 
 }
 
 #about {
-  scroll-margin-top: 30px; /* adjust to match or slightly exceed your header height */
+  scroll-margin-top: 30px; 
 }
 
 
@@ -578,7 +580,7 @@ h3 {
 .mission-section .tagline {
   font-size: 4rem;
   font-weight: 700;
-  color: #7d2629; /* Your bold red brand color */
+  color: #7d2629; 
   margin-bottom: 1rem;
   margin-top: 0;
 }
@@ -765,34 +767,7 @@ h3 {
 /* Media Queries - August 16 Edits */ 
 
 
-/* MEDIA QUERY: fixes the animated logo */
-@media (max-width: 900px){
 
-
-  .cta-button {
-  display: block;
-  margin: 1rem auto 0 auto; 
-  width: fit-content;
-  
-  padding: 0.75rem 1.5rem;
-  background-color: #6e2e2e;
-  font-family: 'Lexend', sans-serif;
-  color: white;
-  border: none;
-  border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  text-decoration: none;
-  align-items: center;
-}
-
-.cta-button:hover {
-  background-color: #531f1f;
-}
-
-
-}
 
 
 
@@ -841,7 +816,7 @@ h3 {
 
 .nav-mobile { display: none; }
 
-/* --- Mobile breakpoint */
+/* Mobile breakpoint */
 @media (max-width: 849px) {
 
   /*turn off the fade in*/
@@ -946,14 +921,6 @@ h3 {
   }
 
 
-  /* the static script word "design" now below */
-  .static-word {
-    margin: 0.35rem 0 0;
-    text-align: center;
-    font-size: clamp(10rem, 14vw, 20rem);
-    line-height: 1.05;
-  }
-
   /* give the hero a little more vertical room */
   .hero-fullscreen,
   .hero-box {
@@ -971,6 +938,30 @@ h3 {
     display: none !important;
   }
 }
+
+
+
+
+/* Mobile: hide big word, show SVG centered over the photo */
+@media (max-width: 849px) {
+  .static-word { display: none !important; }
+}
+
+/* Hide SVG by default */
+.hero-svg { display: none; }
+
+/* On mobile: hide big word, show SVG */
+@media (max-width: 849px) {
+  .static-word { display: none !important; }
+  .hero-svg { display: block; }
+}
+
+
+
+
+
+
+
 
 
 
