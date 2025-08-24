@@ -979,6 +979,7 @@ h3 {
   .portfolio-item {
     max-width: 100%;          /* make images take most of screen width */
     text-align: center;
+    font-size: 1.5rem;
     
   }
 
