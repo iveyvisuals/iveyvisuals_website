@@ -11,7 +11,7 @@ html, body {
 }
 
 
-/* FIX THIS */
+
 
 
 body {
@@ -24,7 +24,7 @@ body {
 }
 
 
-/* ---------- */
+
 
 @font-face {
   font-family: 'AppleMyungjo';
@@ -199,7 +199,7 @@ body {
 
 /* Button */
 .cta-button {
-  transform: translateX(-30%);
+  transform: translateX(-15%); 
   display: block;
   margin: 1rem auto 0 auto; 
   width: fit-content;
@@ -826,7 +826,7 @@ h3 {
     transition: none !important;
   }
 
-  .nav-button { display: none; } /* hides the normal nav buttons that are usually along the top of the screen */
+  header .nav-button { display: none; } /* hides the normal nav buttons that are usually along the top of the screen */
   
   /* header layout */
   header, .header {
@@ -929,8 +929,8 @@ h3 {
     padding: 2.25rem 1rem;
   }
 
-  /* center the CTA under the title */
-  .cta-button { display: none; }
+  /*  
+  .cta-button { display: none; } */
 }
 
 @media (max-width: 849px) {
@@ -959,6 +959,45 @@ h3 {
 @media (max-width: 849px) {
   .hero-blur { display: none; }
   
+}
+
+
+/* MEDIA QUERY: changing the explore more section so it stacks rather */ 
+@media (max-width: 849px){
+  .portfolio-section {
+    max-width: 100%; 
+    margin: 1rem auto;
+
+  }
+
+  .portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .portfolio-item {
+    max-width: 100%;          /* make images take most of screen width */
+    text-align: center;
+    
+  }
+
+    .portfolio-item img {
+    width: 100%;
+    
+    border-radius: 2rem;
+  }
+
+  .hero-cta { display: none; }  
+
+  .book-cta {
+    display: block;
+    margin: 1.25rem auto 0;
+    width: fit-content;
+  }
+
+
+
 }
 
 

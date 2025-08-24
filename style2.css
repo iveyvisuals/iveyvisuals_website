@@ -540,3 +540,94 @@ header { padding: 1rem 1.25rem; }
     align-self: center;
   }
 }
+
+
+/* Fix hamburger dropdown alignment & overlap on mobile */
+@media (max-width: 849px) {
+  /* make header the anchor and ensure it can overlay what's below */
+  header, .header {
+    position: relative;
+    z-index: 1000;
+    overflow: visible;
+    padding: 0.75rem 1rem; 
+  }
+
+  .nav-mobile { 
+    position: relative;        /* anchor for the absolute panel */
+    margin-left: auto;         /* stays on the right */
+  }
+
+  /* the dropdown panel */
+  .nav-mobile nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);     /* sit just under the icon */
+    right: 1rem;               /* align with header padding */
+    left: auto;
+    width: min(88vw, 320px);   /* keep within the screen */
+    max-height: 70vh;          /* avoid going off-screen vertically */
+    overflow-y: auto;
+
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,.12);
+    z-index: 2000;             /* above hero/background */
+  }
+  .nav-mobile[open] nav { display: block; }
+
+  /* optional: nicer dividers and tap targets */
+  .nav-mobile nav a {
+    display: block;
+    padding: 0.9rem 0.25rem;
+    font-size: 1.05rem;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+  .nav-mobile nav a:last-child { border-bottom: 0; }
+
+  .nav-mobile nav .nav-cta {
+    background: #6e2e2e; color: #fff !important;
+    border-radius: 999px; text-align: center;
+    margin-top: 0.5rem; padding: 0.7rem 1rem; font-weight: 600;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERY: fixes the animated logo */
+@media (max-width: 900px){
+
+
+  .cta-button {
+  display: block;
+  margin: 1rem auto 0 auto; 
+  width: fit-content;
+  
+  padding: 0.75rem 1.5rem;
+  background-color: #6e2e2e;
+  font-family: 'Lexend', sans-serif;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  align-items: center;
+}
+
+.cta-button:hover {
+  background-color: #531f1f;
+}
+
+
