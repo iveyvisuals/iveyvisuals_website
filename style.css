@@ -518,7 +518,7 @@ h3 {
 
 .parallax-text {
   flex: 1;
-  min-width: 25%; /* !!!!!!!!!!!!! 300 px, 25%*/ 
+  min-width: 50%; /* !THIS WAS CHANGED!!!!!!!!!!!! Original is 300 px, 25%*/ 
 }
 
 .parallax-text h2 {
@@ -769,15 +769,10 @@ h3 {
 
 /* Media Queries - August 16 Edits */ 
 
-
-
-
-
-
 /* MEDIA QUERY: that fixes the PORTFOLIO SECTION when downsized */ 
 /* from 0-900 pixels, do this */
 
-@media (max-width: 900px) {
+@media (max-width: 1077px) {
   .parallax-section {
     background-attachment: scroll;  
     height: auto;                    
