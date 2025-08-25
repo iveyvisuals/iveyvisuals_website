@@ -860,11 +860,21 @@ h3 {
     position: relative;
   }
   .nav-mobile summary::-webkit-details-marker { display: none; }
+
   .nav-mobile summary::before,
   .nav-mobile summary::after {
-    content: ""; position: absolute; left: 0; right: 0; height: 2px; background: #6e2e2e;
+    content: ""; 
+    position: absolute; 
+    left: 0; right: 0; 
+    height: 2px; 
+    background: #6e2e2e;
+    border-radius: 2rem;
   }
-  .nav-mobile summary::before { top: 6px; box-shadow: 0 8px 0 0 #6e2e2e; } 
+  .nav-mobile summary::before { 
+    top: 8px; 
+    box-shadow: 0 8px 0 0 #6e2e2e;
+    border-radius: 1rem;
+   } 
 
   /* dropdown panel */
   .nav-mobile nav {
