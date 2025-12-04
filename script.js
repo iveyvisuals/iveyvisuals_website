@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const navMobile = document.querySelector('.nav-mobile');
 const navToggle = document.querySelector('.nav-toggle');
 const navSheet  = document.querySelector('.nav-sheet');
-
+const navLinks  = navSheet.querySelectorAll('a');
 
 
 
@@ -30,7 +30,12 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', isOpen);
 });
 
-
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navMobile.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
 
   
 
