@@ -841,12 +841,7 @@ h3 {
     position: relative;
   }
 
-  .nav-mobile nav {
-    right: 0;
-    left: auto;            /* anchor to the right */
-  }
-
-  /* hamburger button */
+    /* hamburger button */
   .nav-mobile summary {
     width: 36px; 
     height: 28px; 
@@ -854,6 +849,22 @@ h3 {
     list-style: none; 
     position: relative;
   }
+
+  .nav-mobile nav {
+    right: 0;
+    left: auto;            /* anchor to the right */
+  }
+
+  /* hamburger button (after)
+  .nav-mobile summary {
+    width: 36px; 
+    height: 28px; 
+    cursor: pointer; 
+    list-style: none; 
+    position: relative;
+  }
+  */
+
   .nav-mobile summary::-webkit-details-marker { display: none; }
 
   .nav-mobile summary::before,
