@@ -38,7 +38,9 @@
     <a href="index.html">
       <img src="assets/IveyVisualsLogoSVG.svg" alt="logo" style="height: 80px; max-width: 200px;">
     </a>
-    <nav>
+
+
+    <nav class="nav-desktop"> <!-- remove class="nav-desktop if doesnt work"-->
       <a href="index.html" class="nav-button">Home</a>
       <a href="#portfolio" class="nav-button">Portfolio</a>
       <a href="#about" class="nav-button">About</a>
@@ -47,13 +49,16 @@
 
     </nav>
 
-    <details class="nav-mobile">
+      <!-- mobile nav wrapper -->
+    <div class="nav-mobile">
+    <!-- hamburger button -->
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"></button>
 
     
     <!-- hamburger nav bar -->
     
     <summary aria-label="Menu"></summary>
-      <nav>
+      <nav class="nav-sheet"> <!-- remove class='nav-sheet' if doesnt work-->
         <a href="#home">Home</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#about">About</a>

@@ -833,79 +833,114 @@ h3 {
   .logo { height: 34px; }
 
   /* show hamburger, hide desktop links */
-  .nav-desktop { display: none; }
+/* hide desktop links on mobile */
+.nav-desktop { display: none; }
 
-  .nav-mobile { 
-    display: block; 
-    margin-left: auto;
-    position: relative;
-  }
+/* show mobile wrapper */
+.nav-mobile {
+  display: block;
+  margin-left: auto;
+  position: relative;
+}
 
-    /* hamburger button */
-  .nav-mobile summary {
-    width: 36px; 
-    height: 28px; 
-    cursor: pointer; 
-    list-style: none; 
-    position: relative;
-  }
+/* hamburger button */
+.nav-toggle {
+  width: 36px;
+  height: 28px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  position: relative;
+  padding: 0;
+}
 
-  .nav-mobile nav {
-    right: 0;
-    left: auto;            /* anchor to the right */
-  }
+/* hide default outline on tap but keep keyboard focus if you want */
+.nav-toggle:focus { outline: none; }
 
-  /* hamburger button (after)
-  .nav-mobile summary {
-    width: 36px; 
-    height: 28px; 
-    cursor: pointer; 
-    list-style: none; 
-    position: relative;
-  }
-  */
+/* three lines */
+.nav-toggle::before,
+.nav-toggle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #6e2e2e;
+  border-radius: 2rem;
+}
+.nav-toggle::before {
+  top: 8px;
+  box-shadow: 0 8px 0 0 #6e2e2e;
+}
 
-  .nav-mobile summary::-webkit-details-marker { display: none; }
+/* SHEET */
+.nav-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-  .nav-mobile summary::before,
-  .nav-mobile summary::after {
-    content: ""; 
-    position: absolute; 
-    left: 0; right: 0; 
-    height: 2px; 
-    background: #6e2e2e;
-    border-radius: 2rem;
-  }
-  .nav-mobile summary::before { 
-    top: 8px; 
-    box-shadow: 0 8px 0 0 #6e2e2e;
-    border-radius: 1rem;
-   } 
+  width: 100%;
+  box-sizing: border-box;
 
-  /* dropdown panel */
-  .nav-mobile nav {
-    display: none;
-    position: absolute; 
-    top: calc(100%+8px); 
-    left: auto; right: 0;
-    background: #fff; padding: 0.5rem 1rem;
-    box-shadow: 0 12px 24px rgba(0,0,0,.08); border-radius: 0 0 16px 16px;
-    z-index: 20;
-    width: 50vw;
-  }
-  .nav-mobile[open] nav { display: block; }
+  background: #fff;
+  padding: 1.25rem 1.5rem 2rem;
+  box-shadow: 0 -12px 24px rgba(0,0,0,.16);
+  border-radius: 24px 24px 0 0;
+  z-index: 40;
 
-  .nav-mobile nav a {
-    display: block; padding: 0.9rem 0; font-size: 1.05rem; color: #000; text-decoration: none;
-    border-bottom: 1px solid #eee;
-  }
-  .nav-mobile nav a:last-child { border-bottom: 0; }
+  max-height: 80vh;
+  overflow-y: auto;
 
-  /* book now pill in the list */
-  .nav-mobile nav .nav-cta {
-    background: #6e2e2e; color: #fff !important; border-radius: 999px;
-    text-align: center; margin-top: 0.5rem; padding: 0.7rem 1rem; font-weight: 600;
-  }
+  /* animation base state: hidden */
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform .35s ease,
+    opacity .35s ease,
+    visibility 0s linear .35s;
+}
+
+/* when open */
+.nav-mobile.open .nav-sheet {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    transform .35s ease,
+    opacity .35s ease,
+    visibility 0s;
+}
+
+/* links inside sheet */
+.nav-sheet a {
+  display: block;
+  padding: 0.9rem 0;
+  font-size: 1.05rem;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+.nav-sheet a:last-child {
+  border-bottom: 0;
+}
+
+/* book now pill */
+.nav-sheet .nav-cta {
+  background: #6e2e2e;
+  color: #fff !important;
+  border-radius: 999px;
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+}
+
+  
+
 }
 
 
