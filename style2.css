@@ -630,4 +630,18 @@ header { padding: 1rem 1.25rem; }
   background-color: #531f1f;
 }
 
+function myFunction() {
+  var x = document.getElementByID("link");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  
+  }
+  }
 
+
+
+
+
+}
