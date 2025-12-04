@@ -867,11 +867,15 @@ h3 {
   height: 2px;
   background: #6e2e2e;
   border-radius: 2rem;
+  top: 8px;
+  
+  
 }
 .nav-toggle::before {
   top: 8px;
   box-shadow: 0 8px 0 0 #6e2e2e;
 }
+
 
 /* SHEET */
 .nav-sheet {
