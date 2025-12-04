@@ -21,20 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
 const navMobile = document.querySelector('.nav-mobile');
 const navToggle = document.querySelector('.nav-toggle');
 const navSheet  = document.querySelector('.nav-sheet');
-const navLinks  = navSheet.querySelectorAll('a');
+
+
+
 
 navToggle.addEventListener('click', () => {
   const isOpen = navMobile.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', isOpen);
 });
 
-// optional: close sheet when a link is clicked
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navMobile.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
+
 
   
 

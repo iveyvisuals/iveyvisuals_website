@@ -854,10 +854,7 @@ h3 {
   padding: 0;
 }
 
-/* hide default outline on tap but keep keyboard focus if you want */
-.nav-toggle:focus { outline: none; }
-
-/* three lines */
+/* two lines */
 .nav-toggle::before,
 .nav-toggle::after {
   content: "";
@@ -867,13 +864,28 @@ h3 {
   height: 2px;
   background: #6e2e2e;
   border-radius: 2rem;
-  top: 8px;
-  
-  
+  transition: transform 0.25s ease, top 0.25s ease, opacity 0.25s ease;
 }
+
+/* top line */
 .nav-toggle::before {
-  top: 8px;
-  box-shadow: 0 8px 0 0 #6e2e2e;
+  top: 10px;
+}
+
+/* bottom line */
+.nav-toggle::after {
+  top: 18px;
+}
+
+/* when menu is open, turn the two lines into an X */
+.nav-mobile.open .nav-toggle::before {
+  top: 14px;                 /* move to middle */
+  transform: rotate(45deg);
+}
+
+.nav-mobile.open .nav-toggle::after {
+  top: 14px;                 /* same vertical position */
+  transform: rotate(-45deg);
 }
 
 
