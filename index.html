@@ -124,6 +124,25 @@
   @keyframes drift{to{transform:translateX(-100%)}}
   .portfolio .more{text-align:center;margin-top:72px}
 
+  /* ---------- content creation showcase ---------- */
+  .content-showcase{padding-block:clamp(60px,8vw,100px);background:var(--cream)}
+  .content-showcase .wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+  .content-showcase-head{margin-bottom:clamp(32px,4vw,52px)}
+  .content-showcase-head .label{margin-bottom:10px}
+  .content-showcase-head h2{font-size:clamp(2rem,3.8vw,3.4rem)}
+  .content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:800px){.content-grid{grid-template-columns:1fr}}
+  .content-item{position:relative;overflow:hidden;border-radius:4px;cursor:pointer}
+  .content-item img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+  .content-item:hover img{transform:scale(1.04)}
+  .content-overlay{position:absolute;inset:0;background:rgba(101,12,5,.88);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,3vw,36px);opacity:0;transition:opacity .35s ease}
+  .content-item:hover .content-overlay{opacity:1}
+  .content-overlay-tag{font-family:var(--sans);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,220,213,.6);margin-bottom:10px}
+  .content-overlay-title{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2rem);color:var(--cream);line-height:1.1;margin-bottom:10px}
+  .content-overlay-desc{font-family:var(--sans);font-size:.88rem;color:rgba(236,220,213,.75);line-height:1.6;margin-bottom:20px;max-width:30ch}
+  .content-overlay-link{display:inline-flex;align-items:center;gap:8px;background:var(--cream);color:var(--wine);font-family:var(--sans);font-size:.82rem;font-weight:500;padding:.6em 1.3em;border-radius:999px;width:fit-content;transition:background .2s,color .2s}
+  .content-overlay-link:hover{background:var(--blush)}
+
   /* ---------- 3. logo carousel ---------- */
   .logos{background:var(--blush);padding:50px 0 56px}
   .logos .label{text-align:center;margin-bottom:30px;color:var(--muted)}
@@ -443,6 +462,46 @@
     </div>
   </div>
 </section>
+
+<!-- CONTENT CREATION SHOWCASE -->
+<section class="content-showcase">
+  <div class="wrap">
+    <div class="content-showcase-head">
+      <p class="label">Content Creation</p>
+      <h2 class="display">Behind Every Brand, <em>A Story Worth Telling.</em></h2>
+    </div>
+    <div class="content-grid">
+      <div class="content-item">
+        <img src="img/contentcreation_portfolio1.jpg" alt="Kevin Lynn Holmes content creation by IveyVisuals">
+        <div class="content-overlay">
+          <div class="content-overlay-tag">Content Creation · Real Estate</div>
+          <div class="content-overlay-title">Kevin Lynn Holmes</div>
+          <div class="content-overlay-desc">Lifestyle and property content that captures the luxury feel of Kevin's brand and connects with high-end buyers.</div>
+          <a href="#" class="content-overlay-link">Watch Video ↗</a>
+        </div>
+      </div>
+      <div class="content-item">
+        <img src="img/contentcreation_portfolio2.jpg" alt="Tony's Burgers content creation by IveyVisuals">
+        <div class="content-overlay">
+          <div class="content-overlay-tag">Content Creation · Food & Beverage</div>
+          <div class="content-overlay-title">Tony's Burgers</div>
+          <div class="content-overlay-desc">Mouth-watering food content and social videos that show off Tony's menu and bring the restaurant's energy to life online.</div>
+          <a href="#" class="content-overlay-link">Watch Video ↗</a>
+        </div>
+      </div>
+      <div class="content-item">
+        <img src="img/contentcreation_portfolio3.jpg" alt="Liars Barrie content creation by IveyVisuals">
+        <div class="content-overlay">
+          <div class="content-overlay-tag">Content Creation · Hospitality</div>
+          <div class="content-overlay-title">Liars Barrie</div>
+          <div class="content-overlay-desc">Atmospheric behind-the-scenes and event content that captures the vibe of Barrie's favourite spot and keeps their audience coming back.</div>
+          <a href="#" class="content-overlay-link">Watch Video ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- LOGO CAROUSEL -->
 <section class="logos" aria-label="Logos designed by IveyVisuals">
