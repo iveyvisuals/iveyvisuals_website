@@ -72,11 +72,17 @@
   .intro p{color:var(--muted);max-width:56ch;margin:18px auto 0;font-size:1.04rem}
 
   /* ---------- filter menu ---------- */
+  /* ---------- filter menu ---------- */
   .filters{position:sticky;top:96px;z-index:10;background:transparent;padding-block:20px;display:flex;justify-content:center}
+  .filters-outer{position:relative;display:flex;justify-content:center}
+  .filters-outer::after{content:"";position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(90deg,transparent,var(--cream));pointer-events:none;border-radius:0 999px 999px 0;display:none}
+  @media(max-width:860px){.filters{padding-inline:16px}.filters-outer{width:100%}.filters-outer::after{display:block}.filters .wrap{width:100%;justify-content:flex-start}}
   .filters .wrap{position:relative;display:inline-flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;background:rgba(236,220,213,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;padding:6px}
   .filters .wrap::-webkit-scrollbar{display:none}
   .filter-pill{position:absolute;top:6px;height:calc(100% - 12px);background:#fff;border-radius:999px;box-shadow:0 2px 8px rgba(20,18,18,.1);transition:left .28s cubic-bezier(.4,0,.2,1),width .28s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:0}
   .filters button{position:relative;z-index:1;background:none;border:0;font:inherit;font-size:.9rem;letter-spacing:.02em;color:var(--muted);padding:.55em 1.3em;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .2s;font-weight:300}
+  .filters button .fs{display:none}
+  @media(max-width:860px){.filters button{font-size:.85rem;padding:.5em 1em}.filters button .fl{display:none}.filters button .fs{display:inline}}
   .filters button:hover{color:var(--ink)}
   .filters button[aria-pressed="true"]{color:var(--ink);font-weight:400}
 
@@ -93,6 +99,14 @@
   .card .img.logo img{width:62%;height:auto;object-fit:contain}
   .card p{display:flex;justify-content:space-between;gap:12px;padding:12px 2px 0;font-size:.86rem;color:var(--muted)}
   .card p b{font-weight:400;color:var(--ink)}
+  .card .img{position:relative}
+  .card-overlay{position:absolute;inset:0;background:rgba(101,12,5,.88);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(16px,2.5vw,28px);opacity:0;transition:opacity .3s ease;border-radius:4px}
+  .card:hover .card-overlay,.card.overlay-open .card-overlay{opacity:1}
+  .card-overlay-tag{font-family:var(--sans);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(236,220,213,.6);margin-bottom:8px}
+  .card-overlay-title{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.8rem);color:var(--cream);line-height:1.1;margin-bottom:8px}
+  .card-overlay-desc{font-family:var(--sans);font-size:.82rem;color:rgba(236,220,213,.75);line-height:1.55;margin-bottom:16px}
+  .card-overlay-link{display:inline-flex;align-items:center;gap:6px;background:var(--cream);color:var(--wine);font-family:var(--sans);font-size:.78rem;font-weight:500;padding:.5em 1.1em;border-radius:999px;width:fit-content;transition:background .2s}
+  .card-overlay-link:hover{background:var(--blush)}
   @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:540px){.grid{grid-template-columns:1fr}}
 
@@ -127,10 +141,10 @@
 <body>
 
 <header><div class="wrap">
-  <a class="logo" href="e-plan.html"><img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co."></a>
+  <a class="logo" href="index.html"><img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co."></a>
   <button class="toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
   <nav class="menu">
-    <a href="e-plan.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html" class="active">Portfolio</a>
     <a href="about.html">About</a>
@@ -147,13 +161,13 @@
   <p>A collection of web design, graphic design and content creation projects for small businesses, brands, events and creatives.</p>
 </div></section>
 
-<nav class="filters" aria-label="Filter projects"><div class="wrap">
+<div class="filters-outer"><nav class="filters" aria-label="Filter projects"><div class="wrap">
   <span class="filter-pill" id="filterPill"></span>
   <button data-filter="all" aria-pressed="true">All</button>
-  <button data-filter="web" aria-pressed="false">Web Design</button>
-  <button data-filter="graphic" aria-pressed="false">Graphic Design</button>
-  <button data-filter="content" aria-pressed="false">Content Creation</button>
-</div></nav>
+  <button data-filter="web" aria-pressed="false"><span class="fl">Web Design</span><span class="fs" aria-hidden="true">Web</span></button>
+  <button data-filter="graphic" aria-pressed="false"><span class="fl">Graphic Design</span><span class="fs" aria-hidden="true">Graphic</span></button>
+  <button data-filter="content" aria-pressed="false"><span class="fl">Content Creation</span><span class="fs" aria-hidden="true">Content</span></button>
+</div></nav></div>
 
 <section class="projects"><div class="wrap grid">
   <!-- web design -->
@@ -162,11 +176,11 @@
   <figure class="card" data-cat="web"><div class="img"><img src="img/studio_laptop.jpg" alt="Graphic design page on a laptop" loading="lazy"></div></figure>
 
   <!-- graphic design -->
-  <figure class="card" data-cat="graphic"><div class="img"><img src="img/branding.jpg" alt="Social media feed on a phone" loading="lazy"></div></figure>
-  <figure class="card" data-cat="graphic"><div class="img"><img src="img/merch.jpg" alt="Merch photoshoot" loading="lazy"></div></figure>
-  <figure class="card" data-cat="graphic"><div class="img"><img src="img/menu.jpg" alt="Food truck menu boards" loading="lazy"></div></figure>
-  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphic.jpg" alt="Passport-style birthday invitation suite" loading="lazy"></div></figure>
-  <figure class="card" data-cat="graphic"><div class="img"><img src="img/branddesign.jpg" alt="Label designs on a notebook" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/branding.jpg" alt="Social media feed on a phone" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Graphic Design · Branding</div><div class="card-overlay-title">Western Ontario Organization of Filipinos</div><div class="card-overlay-desc">Brand identity and social media graphics that celebrate Filipino culture and community across Western Ontario.</div></div></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/merch.jpg" alt="Merch photoshoot" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Graphic Design · Merch</div><div class="card-overlay-title">WOOF Merch Design</div><div class="card-overlay-desc">Custom merchandise design for WOOF — cohesive, on-brand pieces that fans and supporters are proud to wear.</div></div></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/menu.jpg" alt="Food truck menu boards" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Graphic Design · Menu</div><div class="card-overlay-title">Sweet &amp; Sassie Bakeshop</div><div class="card-overlay-desc">Playful, on-brand menu design for Sweet &amp; Sassie Bakeshop that matches their sweet personality and makes ordering a joy.</div></div></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphic.jpg" alt="Passport-style birthday invitation suite" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Graphic Design · Events</div><div class="card-overlay-title">18th Birthday Invitation Suite</div><div class="card-overlay-desc">A passport-themed invitation suite crafted for an unforgettable 18th birthday celebration — every detail designed to impress.</div></div></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/branddesign.jpg" alt="Label designs on a notebook" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Graphic Design · Branding</div><div class="card-overlay-title">Logo Redesign</div><div class="card-overlay-desc">A fresh take on brand identity — modernising existing logos while preserving the essence of what makes each brand unique.</div></div></div></figure>
   <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster1.jpg" alt="Derby Days 2026 — The Chainsmokers poster on a laptop" loading="lazy"></div></figure>
   <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster2.jpg" alt="Bunt event poster on a laptop" loading="lazy"></div></figure>
   <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster3.jpg" alt="Bonanza 2026 — Beltran poster on a laptop" loading="lazy"></div></figure>
@@ -176,22 +190,25 @@
   <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster7.jpg" alt="Wüki — AXO & Phi Gama Delta at TCU poster on a laptop" loading="lazy"></div></figure>
   <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster8.jpg" alt="Lil Tjay — Chi Phi at Alabama poster on a laptop" loading="lazy"></div></figure>
   <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster9.jpg" alt="Woodstock 2026 — Congress poster on a laptop" loading="lazy"></div></figure>
-  <figure class="card" data-cat="graphic"><div class="img"><img src="img/sycuts.jpg" alt="Sycuts Studio logo print" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/sycuts.jpg" alt="Sycuts Studio logo print" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Graphic Design · Branding</div><div class="card-overlay-title">Sycuts</div><div class="card-overlay-desc">Logo and brand identity for Sycuts — a clean, memorable mark that captures the studio's personality and professionalism.</div></div></div></figure>
   <figure class="card" data-cat="graphic"><div class="img logo"><img src="img/Maplevue_PrimaryLogo.png" alt="Maplevue logo" loading="lazy"></div></figure>
   <figure class="card" data-cat="graphic"><div class="img logo"><img src="img/BrainyBrands_PrimaryLogo.png" alt="Brainy Brands logo" loading="lazy"></div></figure>
   <figure class="card" data-cat="graphic"><div class="img logo"><img src="img/evyxn_logo.png" alt="Evyxn logo" loading="lazy"></div></figure>
 
 
   <!-- content creation -->
-  <figure class="card" data-cat="content"><div class="img"><img src="img/Content10.jpg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio1.jpg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio2.jpg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio3.jpg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/Content5.jpeg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/Content6.jpeg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/Content7.jpeg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/Content8.jpeg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/Content9.jpeg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content10.jpg" alt="Kevin Linn Homes content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Real Estate</div><div class="card-overlay-title">Kevin Linn Homes</div><div class="card-overlay-desc">Lifestyle and property content that captures the luxury feel of Kevin's brand and connects with high-end buyers.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content5.jpeg" alt="Mestiza Filipina content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Restaurant</div><div class="card-overlay-title">Mestiza Filipina</div><div class="card-overlay-desc">Vibrant food and culture content that brings the warmth and flavour of Mestiza Filipina to life on social.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content6.jpeg" alt="Tim Hortons content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Food &amp; Beverage</div><div class="card-overlay-title">Tim Hortons</div><div class="card-overlay-desc">Fresh, on-brand content that celebrates everyday moments and keeps Tim Hortons top of mind.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content7.jpeg" alt="Plock Tennis Club content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Sports &amp; Recreation</div><div class="card-overlay-title">Plock Tennis Club</div><div class="card-overlay-desc">Dynamic court-side content that grows the club's community and showcases the energy of the game.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content8.jpeg" alt="Rephr Beauty content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Beauty &amp; Wellness</div><div class="card-overlay-title">Rephr Beauty</div><div class="card-overlay-desc">Clean, editorial beauty content that highlights Rephr's products and speaks directly to their audience.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content9.jpeg" alt="The Cups content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Café</div><div class="card-overlay-title">The Cups</div><div class="card-overlay-desc">Cosy, aesthetic café content that captures the charm of The Cups and keeps their regulars engaged.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio1.jpg" alt="Tony's Burgers content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Food &amp; Beverage</div><div class="card-overlay-title">Tony's Burgers</div><div class="card-overlay-desc">Mouth-watering food content and social videos that bring the restaurant's bold energy to life online.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio2.jpg" alt="Liar's Barrie content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Hospitality</div><div class="card-overlay-title">Liar's Barrie</div><div class="card-overlay-desc">Atmospheric behind-the-scenes and event content that captures the vibe of Barrie's favourite spot.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio3.jpg" alt="Vegholic content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Plant-Based Food</div><div class="card-overlay-title">Vegholic</div><div class="card-overlay-desc">Fresh and appetising plant-based content that showcases Vegholic's menu and mission on social media.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content10.jpeg" alt="Copacabana Steakhouse content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Restaurant</div><div class="card-overlay-title">Copacabana Steakhouse</div><div class="card-overlay-desc">Bold, appetising content that showcases the flavours and atmosphere of Copacabana and drives reservations.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content11.jpeg" alt="Honeydew Labs content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Beauty &amp; Wellness</div><div class="card-overlay-title">Honeydew Labs</div><div class="card-overlay-desc">Clean, aesthetic content that communicates Honeydew Labs' brand values and connects with their wellness audience.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content4.jpeg" alt="Vironails content creation" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Beauty</div><div class="card-overlay-title">Vironails</div><div class="card-overlay-desc">Polished nail content that highlights Vironails' artistry and keeps their social feed looking salon-worthy.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
 </div></section>
 
 <section class="cta"><div class="wrap">
@@ -208,7 +225,7 @@
     </div>
     <div class="footer-col">
       <span class="footer-col-label">Pages</span>
-      <a href="e-plan.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="about.html">About</a>
@@ -274,6 +291,24 @@
   window.addEventListener('hashchange', () => show(location.hash.slice(1) || 'all', false));
   // init pill position after fonts/layout settle
   requestAnimationFrame(() => movePill(buttons.find(b => b.getAttribute('aria-pressed') === 'true')));
+
+  // tap-to-reveal overlay on touch devices
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (!window.matchMedia('(hover:none)').matches) return;
+      const link = e.target.closest('.card-overlay-link');
+      if (link) return;
+      e.preventDefault();
+      const isOpen = card.classList.contains('overlay-open');
+      document.querySelectorAll('.card.overlay-open').forEach(c => c.classList.remove('overlay-open'));
+      if (!isOpen) card.classList.add('overlay-open');
+    });
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.card')) {
+      document.querySelectorAll('.card.overlay-open').forEach(c => c.classList.remove('overlay-open'));
+    }
+  });
 </script>
 <script>
 (function(){
