@@ -80,6 +80,8 @@
   .hero-bg .s5{width:360px;height:140px;background:rgba(224,210,202,.75);top:25%;left:18%;transform:rotate(-30deg);filter:blur(85px)}
   .hero .photo{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;margin-top:-30px}
   .hero-mark{position:absolute;width:clamp(120px,11vw,155px);left:clamp(-90px,-8vw,-56px);bottom:clamp(16px,2.5vw,32px);z-index:3;pointer-events:none;transform:rotate(-15deg);filter:drop-shadow(0 8px 20px rgba(0,0,0,.18))}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(101,12,5,.08);border:1px solid rgba(101,12,5,.18);color:var(--wine);font-size:.78rem;font-family:var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:.5em 1.1em;border-radius:999px;margin-bottom:clamp(18px,2.5vw,28px)}
+  .hero-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--wine);opacity:.7}
   .hero .copy{position:relative;z-index:2}
   .hero .copy h1{font-size:clamp(2.6rem,4.8vw,5.2rem);line-height:1.0;letter-spacing:-.02em;color:var(--ink);margin-bottom:clamp(18px,2.5vw,28px)}
   .hero .copy h1 em{color:var(--wine)}
@@ -94,6 +96,15 @@
   .hero .rotator{display:none}
   .tw-cursor{display:inline-block;width:3px;height:.85em;background:var(--wine);margin-left:3px;vertical-align:middle;border-radius:1px;animation:blink .7s step-end infinite}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  .stats-bar{background:var(--ink);padding:clamp(32px,5vw,56px) clamp(24px,6vw,80px);display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+  .stats-bar::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px);pointer-events:none}
+  .stat{text-align:center;position:relative;z-index:1}
+  .stat+.stat{border-left:1px solid rgba(255,255,255,.1)}
+  .stat-num{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--cream);line-height:1;letter-spacing:-.02em}
+  .stat-num em{font-style:normal;color:var(--blush);font-size:.65em;vertical-align:super;font-weight:700}
+  .stat-num .star{color:#b06070;font-size:.7em;vertical-align:middle}
+  .stat-label{font-family:var(--sans);font-size:.75rem;color:rgba(236,220,213,.5);letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
+  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(2,1fr)}.stat+.stat{border-left:none}.stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}.stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1);padding-top:24px}}
   @media(max-width:860px){.hero{grid-template-columns:1fr;padding-inline:clamp(20px,5vw,48px)}.hero .photo{order:-1}.hero .photo img{aspect-ratio:3/2}}
 
   /* ---------- 2. portfolio carousel ---------- */
@@ -300,6 +311,7 @@
 <div class="hero" id="home">
   <div class="hero-bg"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
   <div class="copy">
+    <div class="hero-badge">Design Studio &amp; UGC Creator &nbsp;·&nbsp; Est. 2025</div>
     <h1 class="display">Your Brand Should Feel Like <em>You</em> On<br><em><span id="tw"></span><span class="tw-cursor"></span></em></h1>
     <p>From your website to your graphics to your content, we bring everything together under one cohesive vision, so you can spend less time figuring it all out and more time growing your business.</p>
     <div class="hero-btns">
@@ -320,6 +332,26 @@
   <div class="ticker-track">
     <span class="ticker-item">WEB DESIGN <span class="ticker-star">★</span> GRAPHIC DESIGN <span class="ticker-star">★</span> CONTENT CREATION <span class="ticker-star">★</span> BRANDING <span class="ticker-star">★</span> LET'S BUILD YOUR BRAND TOGETHER <span class="ticker-star">★</span></span>
     <span class="ticker-item">WEB DESIGN <span class="ticker-star">★</span> GRAPHIC DESIGN <span class="ticker-star">★</span> CONTENT CREATION <span class="ticker-star">★</span> BRANDING <span class="ticker-star">★</span> LET'S BUILD YOUR BRAND TOGETHER <span class="ticker-star">★</span></span>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">50<em>+</em></div>
+    <div class="stat-label">Projects Delivered</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5<span class="star">★</span></div>
+    <div class="stat-label">Client Rating</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Services Offered</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100<em>%</em></div>
+    <div class="stat-label">Story-Driven</div>
   </div>
 </div>
 
