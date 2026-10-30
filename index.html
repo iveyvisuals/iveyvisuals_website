@@ -96,15 +96,14 @@
   .hero .rotator{display:none}
   .tw-cursor{display:inline-block;width:3px;height:.85em;background:var(--wine);margin-left:3px;vertical-align:middle;border-radius:1px;animation:blink .7s step-end infinite}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-  .stats-bar{background:var(--ink);padding:clamp(32px,5vw,56px) clamp(24px,6vw,80px);display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
-  .stats-bar::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px);pointer-events:none}
-  .stat{text-align:center;position:relative;z-index:1}
-  .stat+.stat{border-left:1px solid rgba(255,255,255,.1)}
-  .stat-num{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--cream);line-height:1;letter-spacing:-.02em}
-  .stat-num em{font-style:normal;color:var(--blush);font-size:.65em;vertical-align:super;font-weight:700}
-  .stat-num .star{color:#b06070;font-size:.7em;vertical-align:middle}
-  .stat-label{font-family:var(--sans);font-size:.75rem;color:rgba(236,220,213,.5);letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
-  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(2,1fr)}.stat+.stat{border-left:none}.stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}.stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.1);padding-top:24px}}
+  .stats-bar{background:var(--wine);padding:clamp(40px,6vw,70px) clamp(24px,6vw,80px);display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stat{text-align:center}
+  .stat+.stat{border-left:1px solid rgba(255,255,255,.2)}
+  .stat-num{font-family:var(--sans);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:var(--cream);line-height:1;letter-spacing:-.02em}
+  .stat-num em{font-style:normal;color:rgba(236,220,213,.7);font-size:.65em;vertical-align:super;font-weight:600}
+  .stat-num .star{color:rgba(236,220,213,.8);font-size:.7em;vertical-align:middle}
+  .stat-label{font-family:var(--sans);font-size:.75rem;color:rgba(236,220,213,.55);letter-spacing:.1em;text-transform:uppercase;margin-top:10px}
+  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(2,1fr)}.stat+.stat{border-left:none}.stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}.stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2);padding-top:32px}}
   @media(max-width:860px){.hero{grid-template-columns:1fr;padding-inline:clamp(20px,5vw,48px)}.hero .photo{order:-1}.hero .photo img{aspect-ratio:3/2}}
 
   /* ---------- 2. portfolio carousel ---------- */
@@ -354,12 +353,6 @@
 
   <!-- Story slides up over the pain section -->
   <section id="services" class="story">
-  <div class="ticker ticker-lg" aria-hidden="true">
-    <div class="ticker-track">
-      <span class="ticker-item">ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span></span>
-      <span class="ticker-item">ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span></span>
-    </div>
-  </div>
   <div class="wrap">
   <div class="story-head">
     <h2>You Found <em>The Right Place.</em></h2>
@@ -395,26 +388,28 @@
     </div>
   </div>
   </div>
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">50<em>+</em></div>
-      <div class="stat-label">Projects Delivered</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">5<span class="star">★</span></div>
-      <div class="stat-label">Client Rating</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">5</div>
-      <div class="stat-label">Services Offered</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">100<em>%</em></div>
-      <div class="stat-label">Story-Driven</div>
-    </div>
-  </div>
   </section><!-- /#services -->
 </section><!-- /#pain -->
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">50<em>+</em></div>
+    <div class="stat-label">Projects Delivered</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5<span class="star">★</span></div>
+    <div class="stat-label">Client Rating</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Services Offered</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100<em>%</em></div>
+    <div class="stat-label">Story-Driven</div>
+  </div>
+</div>
 
 <!-- 3. PORTFOLIO CAROUSEL -->
 <section id="work" class="portfolio">
