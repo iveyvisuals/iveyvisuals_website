@@ -287,6 +287,13 @@
 
 
   @media(max-width:860px){
+    .pain-sticky{position:static;height:auto;background-attachment:scroll}
+    .pain-sticky::before{display:none}
+    .pain-header{padding-block:clamp(40px,6vw,56px)}
+    .pain-stage{position:static;min-height:auto;padding-bottom:clamp(24px,4vw,40px)}
+    .pain-card{position:static;transform:none!important;opacity:1!important;pointer-events:auto;width:100%;max-width:100%;margin-bottom:12px;text-align:left;align-items:flex-start;flex-direction:row;gap:14px;border-radius:16px}
+    .pain-num{display:block;font-family:var(--serif);font-weight:400;font-size:1.1rem;color:rgba(236,220,213,.4);flex-shrink:0;margin-top:2px}
+    .pain-spacer{display:none}
     .story{position:static;min-height:auto;box-shadow:none}
     .svc-cards{grid-template-columns:1fr}
   }
@@ -628,21 +635,17 @@
 
   /* Set section height + spacer so story slides in exactly after last card */
   function setHeight(){
+    if(isMobile()){ section.style.height=''; const sp=section.querySelector('.pain-spacer'); if(sp) sp.style.height=''; return; }
     const spacer = section.querySelector('.pain-spacer');
-    const cardZone = N * CARD_SCROLL + 200; // scroll distance for all cards
+    const cardZone = N * CARD_SCROLL + 200;
     if (spacer) spacer.style.height = cardZone + 'px';
-    if(isMobile()){
-      // on mobile story is static so no extra vh needed for it to slide in
-      section.style.height = ((window.innerHeight - 96) + cardZone + 300) + 'px';
-    } else {
-      // pain-sticky in flow (vh-96) + card zone + pain-sticky again (for story slide) + buffer
-      section.style.height = (2 * (window.innerHeight - 96) + cardZone + 300) + 'px';
-    }
+    section.style.height = (2 * (window.innerHeight - 96) + cardZone + 300) + 'px';
   }
   setHeight();
   window.addEventListener('resize', setHeight);
 
   function update(){
+    if(isMobile()) return;
     /* sectionTop in document coords */
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     /* how far we've scrolled past the top of this section */
