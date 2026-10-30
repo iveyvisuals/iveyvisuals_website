@@ -286,6 +286,17 @@
 
 
 
+  @media(max-width:860px){
+    .pain-sticky{position:static;height:auto;background-image:none;background:var(--ink)}
+    .pain-sticky::before{display:none}
+    .pain-header{padding-block:clamp(40px,6vw,64px)}
+    .pain-stage{min-height:auto;position:static;display:flex;flex-direction:column;gap:14px;align-items:stretch;padding-bottom:clamp(32px,5vw,48px)}
+    .pain-card{position:static;transform:none;opacity:1;pointer-events:auto;width:100%;max-width:100%;border-radius:16px;text-align:left;align-items:flex-start;flex-direction:row;gap:14px}
+    .pain-num{display:block;font-family:var(--serif);font-weight:400;font-size:1.1rem;color:rgba(236,220,213,.4);flex-shrink:0;margin-top:1px}
+    .pain-spacer{display:none}
+    .story{position:static;min-height:auto;box-shadow:none}
+    .svc-cards{grid-template-columns:1fr}
+  }
   @media (prefers-reduced-motion:reduce){.reel .row,.belt .row{animation:none}}
   @media(prefers-reduced-motion:no-preference){
     .reveal{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
@@ -620,8 +631,11 @@
   const N = cards.length;
   const CARD_SCROLL = 380; // px of scroll per card reveal
 
+  const isMobile = () => window.innerWidth <= 860;
+
   /* Set section height + spacer so story slides in exactly after last card */
   function setHeight(){
+    if(isMobile()){ section.style.height=''; const sp=section.querySelector('.pain-spacer'); if(sp) sp.style.height=''; return; }
     const spacer = section.querySelector('.pain-spacer');
     const cardZone = N * CARD_SCROLL + 200; // scroll distance for all cards
     if (spacer) spacer.style.height = cardZone + 'px';
@@ -632,6 +646,7 @@
   window.addEventListener('resize', setHeight);
 
   function update(){
+    if(isMobile()) return;
     /* sectionTop in document coords */
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     /* how far we've scrolled past the top of this section */
