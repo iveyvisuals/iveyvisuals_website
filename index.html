@@ -1,272 +1,661 @@
-<!-- FINALIZED DECEMBER 25, 2025 BY ISABELLA VILLAROMAN -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="assets/Official_Favicon.png" />
-  <meta charset="UTF-8" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E · Your plan — IveyVisuals</title>
+<link rel="icon" href="img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  /* Libre Caslon Text for headings (free for commercial use); Lexend is the site's own file */
+  @font-face{font-family:'Lexend';src:url('fonts/Lexend-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-display:swap}
 
-  <!-- META TAGS-->
-  <meta name="description" content="IveyVisuals Design Co. creates graphic, logo, web, brand, and motion design for businesses that want to stand out. Book your next project today.">
-  <meta name="keywords" content="graphic design, web design, branding, motion design, IveyVisuals, logo design, UX design, Barrie design agency">
-  
-  <!-- META PROPERTIES - Social Media -->
-  <meta property="og:title" content="IveyVisuals Design Co.">
-  <meta property="og:description" content="Graphc, Logo, Web, Brand, and Motion Design">
-  <meta property="og:image" content="https://iveyvisuals.com/assets/coverpage.png">
-  <meta property="og:url" content="https://iveyvisuals.com">
-  <meta property="og:type" content="website">
+  /* IveyVisuals brand colours only */
+  :root{
+    --wine:#650c05; --blush:#ecdcd5; --grey:#e7e6e5;
+    --cream:#f5f0ea; --ink:#141212; --muted:#6f6764; --line:#e0d5ce;
+    --serif:'Fraunces', Georgia, serif; --sans:'Lexend', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  em{font-style:normal}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+  section{scroll-margin-top:96px}
 
-  <!-- Important tag that resizes the website according to viewport size -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-  
-  <title>IveyVisuals Design Co.</title>
-  <link rel="stylesheet" href="style.css" />
+  /* shared type */
+  .label{font-size:1.1rem;letter-spacing:.04em;color:var(--wine);margin-bottom:18px}
+  .display{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:.01em;color:var(--ink)}
+  .display em{font-style:normal;color:var(--wine)}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:var(--cream);padding:.95em 1.9em;border-radius:999px;font-size:.88rem;font-weight:400;border:0;cursor:pointer;font-family:inherit;transition:background .25s,color .25s}
+  .btn:hover{background:var(--ink)}
+
+  /* ---------- menu ---------- */
+  header{position:sticky;top:0;z-index:20;background:var(--cream)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:96px;max-width:none;padding-inline:clamp(20px,4.5vw,72px);gap:24px}
+  header .logo img{height:52px}
+  .menu{display:flex;gap:clamp(20px,3vw,48px);font-size:1.02rem;letter-spacing:.02em;color:#5f5a57}
+  .menu a{position:relative;padding:8px 0;transition:color .25s}
+  .menu a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--wine);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+  .menu a:hover{color:var(--ink)}
+  .menu a:hover::after,.menu a.active::after{transform:scaleX(1)}
+  .menu a.active{color:var(--ink)}
+  .nav-cta{display:inline-flex;align-items:center;background:var(--wine);color:var(--cream);padding:.6em 1.4em;border-radius:999px;font-size:.86rem;white-space:nowrap;transition:background .25s}
+  .nav-cta:hover{background:var(--ink);color:var(--cream)}
+  .toggle{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+  .toggle span,.toggle::before,.toggle::after{content:"";position:absolute;left:8px;right:8px;height:1.5px;background:var(--ink)}
+  .toggle::before{top:13px}.toggle span{top:19px}.toggle::after{top:25px}
+  @media (max-width:860px){
+    .toggle{display:block}
+    .nav-cta{display:none}
+    .menu{position:absolute;top:96px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);padding:8px clamp(16px,4vw,48px) 24px;border-bottom:1px solid var(--line);display:none}
+    .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+    .menu a::after{display:none}
+    header.open .menu{display:flex}
+  }
+
+  /* booking banner */
+  .booking-banner{background:var(--wine);color:var(--cream);text-align:center;font-size:.82rem;letter-spacing:.08em;padding:10px 16px;font-family:var(--sans);font-weight:300}
+  .booking-banner a{color:var(--blush);text-decoration:underline;text-underline-offset:3px;transition:opacity .2s}
+  .booking-banner a:hover{opacity:.75}
+
+  /* ---------- 1. hero ---------- */
+  .hero{
+    position:relative;min-height:calc(100svh - 96px);
+    display:grid;grid-template-columns:1fr 1fr;align-items:center;
+    gap:clamp(32px,5vw,64px);
+    padding:clamp(48px,6vw,80px) clamp(48px,7vw,120px);
+    background:var(--blush);
+  }
+  .hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  .hero-bg span{position:absolute;border-radius:50%}
+  .hero-bg .s1{width:720px;height:280px;background:rgba(236,220,213,.9);top:38%;left:-18%;transform:rotate(-16deg);filter:blur(80px)}
+  .hero-bg .s2{width:540px;height:200px;background:rgba(101,12,5,.22);top:52%;left:2%;transform:rotate(-9deg);filter:blur(72px)}
+  .hero-bg .s3{width:480px;height:190px;background:rgba(236,220,213,.65);top:8%;left:6%;transform:rotate(-22deg);filter:blur(90px)}
+  .hero-bg .s4{width:400px;height:160px;background:rgba(101,12,5,.15);top:70%;left:-8%;transform:rotate(-4deg);filter:blur(78px)}
+  .hero-bg .s5{width:360px;height:140px;background:rgba(224,210,202,.75);top:25%;left:18%;transform:rotate(-30deg);filter:blur(85px)}
+  .hero .photo{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;margin-top:-30px}
+  .hero-mark{position:absolute;width:clamp(120px,11vw,155px);left:clamp(-90px,-8vw,-56px);bottom:clamp(16px,2.5vw,32px);z-index:3;pointer-events:none;transform:rotate(-15deg);filter:drop-shadow(0 8px 20px rgba(0,0,0,.18))}
+  .hero .copy{position:relative;z-index:2}
+  .hero .copy h1{font-size:clamp(2.6rem,4.8vw,5.2rem);line-height:1.0;letter-spacing:-.02em;color:var(--ink);margin-bottom:clamp(18px,2.5vw,28px)}
+  .hero .copy h1 em{color:var(--wine)}
+  .hero .copy p{font-size:clamp(.95rem,1.2vw,1.08rem);color:var(--muted);max-width:46ch;line-height:1.65;margin-bottom:clamp(28px,3.5vw,44px)}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--wine);color:var(--cream);padding:.95em 1.9em;border-radius:999px;font-size:.9rem;font-family:inherit;transition:background .25s}
+  .btn-primary:hover{background:var(--ink)}
+  .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--wine);padding:.88em 1.85em;border-radius:999px;font-size:.9rem;font-family:inherit;border:1.5px solid var(--wine);transition:background .25s,color .25s}
+  .btn-outline:hover{background:var(--wine);color:var(--cream)}
+  .hero-polaroid{padding:14px 14px 72px;background:#fff;transform:rotate(3deg);box-shadow:0 48px 100px -20px rgba(101,12,5,.22),0 8px 32px -8px rgba(101,12,5,.14);width:min(100%,480px)}
+  .hero-polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;display:block;max-height:calc(100svh - 220px)}
+  .hero .rotator{display:none}
+  .tw-cursor{display:inline-block;width:3px;height:.85em;background:var(--wine);margin-left:3px;vertical-align:middle;border-radius:1px;animation:blink .7s step-end infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+  @media(max-width:860px){.hero{grid-template-columns:1fr;padding-inline:clamp(20px,5vw,48px)}.hero .photo{order:-1}.hero .photo img{aspect-ratio:3/2}}
+
+  /* ---------- 2. portfolio carousel ---------- */
+  .portfolio{padding-block:clamp(90px,11vw,150px)}
+  .head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+  .head h2{font-size:clamp(2.4rem,4.6vw,4.2rem)}
+  .head p{max-width:34ch;color:var(--muted)}
+  .reel{display:flex;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .reel .row{display:flex;gap:24px;padding-right:24px;animation:drift 80s linear infinite;flex-shrink:0}
+  .reel:hover .row{animation-play-state:paused}
+  .shot{flex-shrink:0;width:clamp(230px,24vw,330px)}
+  @media(max-width:640px){.shot{width:clamp(270px,72vw,310px)}}
+  .shot img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:4px}
+  .shot p{display:flex;justify-content:space-between;padding:12px 2px 0;font-size:.82rem;color:var(--muted)}
+  .shot p b{font-weight:400;color:var(--ink)}
+  @keyframes drift{to{transform:translateX(-100%)}}
+  .portfolio .more{text-align:center;margin-top:72px}
+
+  /* ---------- 3. logo carousel ---------- */
+  .logos{background:var(--blush);padding:50px 0 56px}
+  .logos .label{text-align:center;margin-bottom:30px;color:var(--muted)}
+  .belt{display:flex;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .belt .row{display:flex;align-items:center;gap:clamp(48px,6vw,90px);padding-right:clamp(48px,6vw,90px);animation:drift 45s linear infinite;flex-shrink:0}
+  .belt img{height:clamp(58px,6vw,84px);width:auto;max-width:200px;object-fit:contain;opacity:.9;transition:opacity .3s}
+  .belt img:hover{opacity:1}
+  .belt img.sq{height:clamp(96px,9vw,128px)}
+  .belt img.lg{height:clamp(80px,9vw,120px)}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--wine);padding:14px 0;overflow:hidden;white-space:nowrap}
+  .ticker.ticker-lg{padding:26px 0}
+  .ticker-track{display:inline-flex;animation:ticker 28s linear infinite}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  .ticker-item{font-size:.76rem;letter-spacing:.16em;color:var(--blush);padding-right:clamp(20px,3vw,48px)}
+  .ticker-lg .ticker-item{font-size:1rem;letter-spacing:.18em;padding-right:clamp(20px,3vw,48px)}
+  .ticker-star{margin:0 clamp(10px,1.5vw,20px);color:rgba(236,220,213,.4)}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* ---------- 1b. statement ---------- */
+  .statement{background:var(--wine);padding-block:clamp(56px,8vw,100px);text-align:center}
+  .statement h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3.6rem);line-height:1.08;letter-spacing:.01em;color:var(--blush);margin-bottom:clamp(16px,2vw,24px)}
+  .statement p{font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.6;color:rgba(236,220,213,.75);max-width:560px;margin:0 auto}
+
+  /* ---------- pain points ---------- */
+  .pain-section{position:relative;z-index:1;background:var(--ink)}
+  /* inner sticky container — sticks for the whole scroll journey */
+  .pain-sticky{
+    position:sticky;top:96px;height:calc(100vh - 96px);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    gap:clamp(28px,4vh,48px);overflow:hidden;
+    background:url('img/studio_wall.jpg') center center / cover no-repeat;
+  }
+  /* tint overlay */
+  .pain-sticky::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(15,7,7,.78) 0%,rgba(101,12,5,.5) 100%);
+    z-index:0;
+  }
+  .pain-header{text-align:center;padding-inline:clamp(20px,5vw,80px);position:relative;z-index:1}
+  .pain-header h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,5.5vw,6.4rem);line-height:1.0;color:var(--cream);letter-spacing:-.02em;margin-bottom:16px}
+  .pain-header h2 em{font-weight:300;color:var(--blush)}
+  .pain-header p{font-size:clamp(1rem,1.3vw,1.15rem);color:rgba(245,240,234,.55);letter-spacing:.02em}
+  /* card stage — all cards overlap here, only active one shows */
+  .pain-stage{position:relative;width:100%;max-width:860px;padding-inline:clamp(20px,5vw,80px);min-height:clamp(100px,15vh,160px);z-index:1;display:flex;align-items:center;justify-content:center}
+  .pain-card{
+    position:absolute;
+    width:max-content;max-width:min(1100px,94vw);
+    left:50%;top:50%;
+    border-radius:999px;
+    padding:clamp(8px,1vw,12px) clamp(28px,3vw,44px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:6px;text-align:center;
+    opacity:0;transform:translate(-50%,calc(-50% + 48px));
+    transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);
+    pointer-events:none;
+    background:rgba(245,240,234,.08);
+    backdrop-filter:blur(18px) saturate(1.2);
+    border:1px solid rgba(245,240,234,.14);
+  }
+  .pain-card.active{opacity:1;transform:translate(-50%,-50%);pointer-events:auto}
+  .pain-card.prev{opacity:0;transform:translate(-50%,calc(-50% - 28px)) scale(.98)}
+  .pain-num{display:none}
+  .pain-text{font-family:var(--sans);font-weight:300;font-size:clamp(.9rem,1.4vw,1.2rem);letter-spacing:.01em;color:rgba(245,240,234,.92);line-height:1.4;text-wrap:balance}
+  /* ---------- 2. what we do ---------- */
+  /* sticky inside pain-section — slides up over the dark background like paper */
+  .story{background:var(--blush);padding-block:clamp(40px,5vw,64px);position:sticky;top:96px;z-index:5;min-height:calc(100vh - 96px);box-shadow:0 -24px 60px rgba(0,0,0,.3)}
+  .story-head{text-align:center;margin-bottom:clamp(32px,4vw,52px)}
+  .story-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,4rem);line-height:1.08;color:var(--ink);letter-spacing:.01em;margin-bottom:14px}
+  .story-head h2 em{color:var(--wine)}
+  .story-head p{font-size:clamp(.9rem,1.2vw,1.05rem);color:var(--muted);max-width:52ch;margin:0 auto;line-height:1.65}
+  .svc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,18px)}
+  .svc-card{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:3/4}
+  .svc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 65%;transform:scale(1);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .svc-card:hover img{transform:scale(1.05)}
+  .svc-card:nth-child(1) img{object-position:center 35%;transform:scale(1)}
+  .svc-card:nth-child(1):hover img{transform:scale(1.05)}
+  .svc-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,4,4,.82) 0%,rgba(10,4,4,.3) 50%,transparent 100%);transition:background .4s}
+  .svc-card:hover .svc-card-overlay{background:linear-gradient(to top,rgba(101,12,5,.95) 0%,rgba(101,12,5,.65) 55%,rgba(101,12,5,.2) 100%)}
+  .svc-card-body{position:absolute;bottom:0;left:0;right:0;padding:clamp(20px,2.8vw,36px)}
+  .svc-card-num{font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.55);margin-bottom:10px;display:block}
+  .svc-card-body h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,2.2vw,2rem);color:var(--cream);margin-bottom:10px;line-height:1.1}
+  .svc-card-body p{font-size:.83rem;line-height:1.6;color:rgba(255,255,255,.75);margin-bottom:14px}
+  .svc-card-body a{font-size:.78rem;color:var(--blush);letter-spacing:.04em;border-bottom:1px solid rgba(236,220,213,.4);padding-bottom:2px}
+  @media(max-width:700px){.svc-cards{grid-template-columns:1fr}}
+
+  /* ---------- 5. meet the founder ---------- */
+  .founder{padding-block:clamp(90px,12vw,170px);position:relative}
+  .founder-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  .founder-bg span{position:absolute;border-radius:50%}
+  .founder-bg .f1{width:680px;height:260px;background:rgba(236,220,213,.85);top:20%;right:-10%;transform:rotate(14deg);filter:blur(82px)}
+  .founder-bg .f2{width:500px;height:190px;background:rgba(101,12,5,.18);top:55%;right:5%;transform:rotate(8deg);filter:blur(70px)}
+  .founder-bg .f3{width:420px;height:170px;background:rgba(236,220,213,.6);top:5%;right:12%;transform:rotate(22deg);filter:blur(88px)}
+  .founder-bg .f4{width:360px;height:150px;background:rgba(101,12,5,.12);top:72%;right:-4%;transform:rotate(3deg);filter:blur(76px)}
+  .founder-bg .f5{width:320px;height:130px;background:rgba(224,210,202,.7);top:38%;right:28%;transform:rotate(28deg);filter:blur(84px)}
+  .founder .wrap{position:relative;z-index:1}
+  .founder .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:center}
+  .founder .pic{position:relative}
+  .founder .pic .polaroid{position:relative;width:100%;transform:rotate(-3deg);padding:14px 14px 64px;background:#fff}
+  .founder .pic .polaroid img{aspect-ratio:2/3;width:100%;object-fit:cover}
+  .founder .pic .polaroid span{position:absolute;left:0;right:0;bottom:20px;text-align:center;font-family:var(--serif);font-size:1.3rem;letter-spacing:.04em;color:var(--wine)}
+  .founder .pic .seal{position:absolute;right:-20px;top:-20px;width:96px;height:96px;border-radius:50%;background:transparent;display:grid;place-items:center;z-index:2}
+  .founder .pic .seal img{width:96px}
+  .founder h2{font-size:clamp(2.4rem,4.6vw,4.2rem)}
+  .founder p{color:var(--muted);font-size:1.04rem;max-width:50ch;margin-top:18px}
+  .founder .sig{height:150px;width:auto;margin-top:26px}
+  @media (max-width:860px){.founder .wrap{grid-template-columns:1fr}.founder .pic .seal{right:6px}}
+
+  /* contact + footer */
+  .contact{background:var(--blush);padding-block:clamp(64px,8vw,100px) clamp(24px,3vw,40px)}
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  .contact h2{font-size:clamp(2.4rem,4.6vw,4.2rem)}
+  .contact p{color:var(--muted);margin-top:18px;max-width:56ch}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form .full{grid-column:1/-1}
+  input,textarea{width:100%;background:var(--cream);border:1px solid transparent;color:var(--ink);font:inherit;padding:15px 18px;border-radius:12px;outline:none}
+  select{width:100%;background:var(--cream);border:1px solid transparent;color:var(--ink);font:inherit;padding:15px 48px 15px 18px;border-radius:12px;outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236f6764' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:calc(100% - 18px) center}
+  input:focus,select:focus,textarea:focus{border-color:var(--wine);outline:none}
+  input::placeholder,textarea::placeholder{color:#9a8f8b}
+  .btn-cta{width:100%;display:flex;justify-content:center;align-items:center;gap:10px;background:var(--wine);color:var(--cream);padding:1.15em 2em;border-radius:999px;font-size:1rem;font-weight:400;letter-spacing:.04em;border:0;cursor:pointer;font-family:inherit;transition:background .25s}
+  .btn-cta:hover{background:var(--ink)}
+  .contact-divider{grid-column:1/-1;font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.5vw,3rem);color:var(--ink);margin-block:clamp(16px,2vw,24px) clamp(8px,1vw,16px)}
+  @media (max-width:860px){.contact .wrap,form{grid-template-columns:1fr}}
+  .calendly-section{background:var(--blush);padding-block:clamp(64px,8vw,100px)}
+  .calendly-head{margin-bottom:40px}
+  .calendly-head h2{font-size:clamp(2rem,4vw,3.4rem);margin-top:12px}
+  .calendly-head p{color:var(--muted);margin-top:14px;max-width:44ch}
+  .site-footer{background:var(--wine);padding-block:clamp(56px,7vw,90px) clamp(32px,4vw,48px)}
+  .footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.4fr;gap:clamp(32px,4vw,64px);margin-bottom:clamp(48px,6vw,72px)}
+  .footer-brand .footer-logo{height:48px;filter:brightness(0) invert(1);opacity:.92;margin-bottom:14px}
+  .footer-brand p{color:rgba(245,240,234,.5);font-size:.88rem;line-height:1.65;max-width:26ch}
+  .footer-col{display:flex;flex-direction:column;gap:10px}
+  .footer-col-label{font-size:.7rem;letter-spacing:.12em;color:rgba(245,240,234,.35);text-transform:uppercase;margin-bottom:6px}
+  .footer-col a{font-size:.88rem;color:rgba(245,240,234,.65);transition:color .2s;line-height:1.4}
+  .footer-col a:hover{color:var(--cream)}
+  .footer-btn{display:inline-flex;align-items:center;background:var(--cream);color:var(--wine)!important;padding:.55em 1.3em;border-radius:999px;font-size:.82rem;margin-top:6px;width:fit-content;transition:background .25s!important}
+  .footer-btn:hover{background:var(--blush)!important}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:clamp(24px,3vw,36px);border-top:1px solid rgba(245,240,234,.08);font-size:.76rem;color:rgba(245,240,234,.35)}
+  .footer-bottom img{height:22px;opacity:.3;filter:brightness(0) invert(1)}
+  @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+  @media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+
+  /* ---------- faq ---------- */
+  .faq{background:var(--wine);padding-block:clamp(80px,10vw,130px)}
+  .faq .wrap{max-width:800px}
+  .faq-head{margin-bottom:clamp(40px,5vw,64px)}
+  .faq-head .label{color:rgba(236,220,213,.6)}
+  .faq-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3.6rem);line-height:1.08;color:var(--cream);letter-spacing:.01em;margin-top:12px}
+  .faq-head h2 em{color:var(--blush)}
+  details{border-bottom:1px solid rgba(245,240,234,.15)}
+  details:first-of-type{border-top:1px solid rgba(245,240,234,.15)}
+  summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:clamp(18px,2.5vw,26px) 0;cursor:pointer;list-style:none;font-family:var(--serif);font-weight:400;font-size:clamp(1rem,1.5vw,1.2rem);color:var(--cream)}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";width:20px;height:20px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5f0ea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .3s}
+  details[open] summary::after{transform:rotate(45deg)}
+  .faq-answer{padding-bottom:clamp(18px,2.5vw,26px);color:rgba(245,240,234,.65);font-size:clamp(.9rem,1.2vw,1rem);line-height:1.75;max-width:68ch}
+
+
+
+  @media (prefers-reduced-motion:reduce){.reel .row,.belt .row{animation:none}}
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
+    .reveal.in{opacity:1;transform:none}
+  }
+</style>
 </head>
-
-
 <body>
-  <!-- LOGO AND NAV BUTTONS -->
-  <header>
-    <a href="index.html">
-      <img src="assets/IveyVisualsLogo.png" alt="logo" style="height: 80px; max-width: 200px;">
-    </a>
 
-    <nav class="nav-desktop"> 
-      <a href="index.html" class="nav-button">Home</a>
-      <a href="#portfolio" class="nav-button">Portfolio</a>
-      <a href="#about" class="nav-button">About</a>
-      <a href="https://www.instagram.com/iveyvisuals" class="nav-button" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="#contact" class="nav-button nav-cta">Book Now</a>
-    </nav>
+<header id="top"><div class="wrap">
+  <a class="logo" href="#top"><img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co."></a>
+  <button class="toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="menu">
+    <a href="index.html" class="active">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="contact.html" class="nav-cta">Start a Project</a>
+</div></header>
 
-    <!-- mobile nav wrapper -->
-    <div class="nav-mobile">
-    <!-- hamburger button -->
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"></button>
+<div class="booking-banner">Now Booking Projects for 2027 &nbsp;<span style="opacity:.5">★</span>&nbsp; <a href="contact.html">Reserve Your Spot →</a></div>
 
-    <!-- hamburger nav bar -->
-    <summary aria-label="Menu"></summary>
-      <nav class="nav-sheet"> <
-        <a href="#home">Home</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="https://instagram.com/iveyvisuals">Instagram</a>
-        <a class="nav-cta" href="#contact">Book Now</a>
-      </nav>
-    </details>
-  </header>
-
-
-  <section id="home" class="hero-box fade-in">
-    <div class="hero-blur"></div>
-    <div class="hero-content">
-      <div class="hero-container">
-        <div class="rotating-words">
-          <span>brand</span>
-          <span>motion</span>
-          <span>web</span>
-          <span>graphic</span>
-          <span>logo</span>
-          <span>brand</span>
-        </div>
-        <span class="static-word">design</span>
-      </div>
-      
-      <a href="#contact" class="cta-button hero-cta">Let's Design Together!</a>
+<!-- 1. HERO -->
+<div class="hero" id="home">
+  <div class="hero-bg"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+  <div class="copy">
+    <h1 class="display">Your Brand Should Feel Like <em>You</em> On<br><em><span id="tw"></span><span class="tw-cursor"></span></em></h1>
+    <p>From your website to your graphics to your content, we bring everything together under one cohesive vision, so you can spend less time figuring it all out and more time growing your business.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Let's Design Together →</a>
+      <a href="portfolio.html" class="btn-outline">See Our Work</a>
     </div>
-  </section>
-
-
-
-  <section class="mission-section fade-in">
-    <div id="portfolio">
-
-      <h2 class="tagline">Illuminating the Vision</h2>
-      <p class="subheading">Bringing light to your story through every form of design.</p>
-
+  </div>
+  <div class="photo">
+    <img class="hero-mark" src="img/IconDarkRed.png" alt="">
+    <div class="hero-polaroid">
+      <img src="img/hero.jpg" alt="IveyVisuals brand photoshoot with red heels">
     </div>
-  </section>
+  </div>
+</div>
 
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">WEB DESIGN <span class="ticker-star">★</span> GRAPHIC DESIGN <span class="ticker-star">★</span> CONTENT CREATION <span class="ticker-star">★</span> BRANDING <span class="ticker-star">★</span> LET'S BUILD YOUR BRAND TOGETHER <span class="ticker-star">★</span></span>
+    <span class="ticker-item">WEB DESIGN <span class="ticker-star">★</span> GRAPHIC DESIGN <span class="ticker-star">★</span> CONTENT CREATION <span class="ticker-star">★</span> BRANDING <span class="ticker-star">★</span> LET'S BUILD YOUR BRAND TOGETHER <span class="ticker-star">★</span></span>
+  </div>
+</div>
 
-<!-- PARALLAX SECTION -->
-  <section class="parallax-section" style="background-image: url('assets/interlude.jpg');">
-    <div class="parallax-overlay">
-      <div class="parallax-content">
-        <div class="parallax-image fade-in">
-          <img src="assets/interlude.jpg" alt="Web Design Mockup"> 
-        </div>
-        <div class="parallax-text fade-in">
-          <h2>Web Design</h2>
-          <p>Ready to make your business stand out online? Let’s create an engaging website or app that not only looks amazing but makes it easy for your customers to explore, book, order, and keep coming back for more. </p>
-          <div class="button-group">
-            <a href="web.html" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Book Now</a>
-          </div>
-        </div>
+<!-- 2. PAIN POINTS -->
+<section id="pain" class="pain-section">
+  <div class="pain-sticky">
+    <div class="pain-header">
+      <h2>You've Got A Business.<br><em>Your Brand Should Show It.</em></h2>
+      <p>Be honest — does this sound like you?</p>
+    </div>
+    <div class="pain-stage">
+      <div class="pain-card" data-pain="0"><span class="pain-num">01</span><p class="pain-text">Started a business but don't know where to begin with your brand?</p></div>
+      <div class="pain-card" data-pain="1"><span class="pain-num">02</span><p class="pain-text">Not sure who to turn to for web design, graphic design, and content creation — all in one place?</p></div>
+      <div class="pain-card" data-pain="2"><span class="pain-num">03</span><p class="pain-text">Tired of generic templates that look just like everyone else's?</p></div>
+      <div class="pain-card" data-pain="3"><span class="pain-num">04</span><p class="pain-text">Your brand looks like a side hustle — but you're running a whole business.</p></div>
+      <div class="pain-card" data-pain="4"><span class="pain-num">05</span><p class="pain-text">Been putting off a rebrand because it feels too overwhelming to figure out alone?</p></div>
+    </div>
+  </div>
+  <div class="pain-spacer"></div>
+
+  <!-- Story slides up over the pain section -->
+  <section id="services" class="story"><div class="wrap">
+  <div class="story-head">
+    <h2>You Found <em>The Right Place.</em></h2>
+    <p>Because building a business is already a full-time job. Your website, graphics, and content shouldn't feel like three more.</p>
+  </div>
+  <div class="svc-cards">
+    <div class="svc-card">
+      <img src="img/webdesign_photo.jpg" alt="Web design project by IveyVisuals">
+      <div class="svc-card-overlay"></div>
+      <div class="svc-card-body">
+        <h3>Web Design</h3>
+        <p>Websites and apps that look stunning and make it easy for customers to explore, book, order and keep coming back.</p>
+        <a href="portfolio.html#web">Learn More →</a>
       </div>
     </div>
-  </section>
-
-  <section class="parallax-section" style="background-image: url('assets/enhanced.jpg');">
-    <div class="parallax-overlay">
-      <div class="parallax-content">
-        <div class="parallax-image fade-in">
-          <img src="assets/enhanced.jpg" alt="Web Design Mockup">
-        </div>
-        <div class="parallax-text fade-in">
-          <h2>Brand Design</h2>
-          <p>A strong brand starts with a bold first impression. From logos to style guides, every detail should reflect who you are and what you stand for. Let’s design a brand that speaks for itself with clarity, confidence, and impact. </p>
-          <div class="button-group">
-            <a href="brand.html" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Book Now</a>
-          </div>
-        </div>
+    <div class="svc-card">
+      <img src="img/herophoto2.jpg" alt="Content creation by IveyVisuals">
+      <div class="svc-card-overlay"></div>
+      <div class="svc-card-body">
+        <h3>Content Creation</h3>
+        <p>Styled photos and social content that bring your brand to life and keep your feed looking polished.</p>
+        <a href="portfolio.html#content">Learn More →</a>
       </div>
     </div>
-  </section>
-  
-
-  <section class="parallax-section" style="background-image: url('assets/merch.JPG');">
-    <div class="parallax-overlay">
-      <div class="parallax-content">
-        <div class="parallax-image fade-in">
-          <img src="assets/menu.jpeg" alt="Web Design Mockup">
-        </div>
-        <div class="parallax-text fade-in">
-          <h2>Graphic Design</h2>
-          <p>Graphic design is the backbone to creating an eye-catching and memorable brand.
-            Whether it’s for an event, a campaign, or everyday marketing, each design is crafted to feel cohesive, intentional, and uniquely you. </p>
-          <div class="button-group">
-            <a href="graphic.html" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Book Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="parallax-section" style="background-image: url('assets/coverpage.png');">
-    <div class="parallax-overlay">
-      <div class="parallax-content">
-        <div class="parallax-image fade-in">
-          <img src="assets/branddesign.jpg" alt="Web Design Mockup">
-        </div>
-        <div class="parallax-text fade-in">
-          <h2>Logo Design</h2>
-          <p>Your logo is the heart of your visual identity.
-            It’s what shows up on your packaging, website, social media, and more. It should feel unmistakably you. Let's design a logo that capture your brand’s personality in one clear, lasting impression. </p>
-          <div class="button-group">
-            <a href="logo.html" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Book Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="parallax-section" style="background-image: url('assets/graphic.jpg');">
-    <div class="parallax-overlay">
-      <div class="parallax-content">
-        <div class="parallax-image fade-in">
-          <img src="assets/motion.jpg" alt="Web Design Mockup">
-        </div>
-        <div class="parallax-text fade-in">
-          <h2>Motion Design</h2>
-          <p>Why settle for static?
-            Animated logos add movement and personality to your brand. Whether it's a subtle 2D loop or a bold 3D reveal, your logo can become the centerpiece of your content.
-            
-             </p>
-          <div class="button-group">
-            <a href="motion.html" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Book Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ABOUT SECTION -->
-  <section class="about-section fade-in">
-    <div id="about">
-    <div class="about-container">
-      <div class="about-text">
-        <img src="assets/IveyVisualsLogo.png" alt="IveyVisuals Logo" class="about-logo" />
-        <h2>About IveyVisuals Design Co.</h2>
-
-
-        <p> Hi, I'm Isabella — the founder of IveyVisuals Design Co.</p>
-        <p> IveyVisuals is a multidisciplinary design studio that specializes in building visual identities that are clean, creative, and full of intention. </p>
-        <p> I started IveyVisuals out of desire to bring a new approach to design. My goal was to move away from design that’s solely about looks, and toward something more meaningful, collaborative, and story-driven. I believe our imaginations are layered and complex, and your ideas deserve to shine in a way that feels true to you. </p>
-        <p> I can’t wait to hear your story and help you share it through design. </p>
-
-        <div style="text-align: right;">
-        <img src="assets/signature.png" alt="signature" class="signature" />
-        </div>
-  
-      </div>
-      <div class="about-image">
-        <img src="assets/headshot.jpg" alt="Isabella Villaroman" />
+    <div class="svc-card">
+      <img src="img/logo.jpg" alt="Logo and graphic design by IveyVisuals">
+      <div class="svc-card-overlay"></div>
+      <div class="svc-card-body">
+        <h3>Graphic Design</h3>
+        <p>Posters, menus, invitations and campaigns crafted to feel cohesive, intentional and uniquely you.</p>
+        <a href="portfolio.html#graphic">Learn More →</a>
       </div>
     </div>
   </div>
-  </section>
+  </div></section><!-- /#services -->
+</section><!-- /#pain -->
 
+<!-- STATEMENT TICKER -->
+<div class="ticker ticker-lg" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span></span>
+    <span class="ticker-item">ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span> ILLUMINATING THE VISION <span class="ticker-star">✦</span></span>
+  </div>
+</div>
 
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact-section fade-in">
-    <div class="contact-container">
-      <div class="contact-intro">
-        <h2>Let’s get<br>to know<br>your vision.</h2>
-      </div>
-
-      
-      <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-        <div class="form-group">
-          <input type="hidden" name="access_key" value="59aea069-0bed-4d17-b0ea-f3a3c36b14b6">
-          <label for="name">Name:</label>
-          <input type="text" name="name" id="name" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" name="email" id="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Service:</label>
-          <input type="text" name="service" id="service" required>
-        </div>
-
-  
-        <div class="form-group">
-          <label for="description">Message:</label>
-          <textarea name="description" id="description" rows="5" required></textarea>
-
-          <button class="nav-button" type="submit">Submit Form</button>
-        </div>
-      </form>
+<!-- 3. PORTFOLIO CAROUSEL -->
+<section id="work" class="portfolio">
+  <div class="wrap head">
+    <div><h2 class="display">Where Ideas <em>Take Shape.</em></h2><p style="color:var(--muted);max-width:62ch;margin-top:16px">Explore a collection of websites, graphics, and creative projects I've brought to life for brands with unique stories to tell.</p></div>
+  </div>
+  <div class="reel">
+    <div class="row">
+      <figure class="shot"><img src="img/menu.jpg" alt=""><p><b>Menu Design</b><span>Graphic</span></p></figure>
+      <figure class="shot"><img src="img/interlude.jpg" alt=""><p><b>App Design</b><span>Web</span></p></figure>
+      <figure class="shot"><img src="img/graphic.jpg" alt=""><p><b>Invitation Suite</b><span>Graphic</span></p></figure>
+      <figure class="shot"><img src="img/branding.jpg" alt=""><p><b>Social Media</b><span>Content</span></p></figure>
+      <figure class="shot"><img src="img/enhanced.jpg" alt=""><p><b>Course Platform</b><span>Web</span></p></figure>
+      <figure class="shot"><img src="img/merch.jpg" alt=""><p><b>Merch Design</b><span>Content</span></p></figure>
+      <figure class="shot"><img src="img/branddesign.jpg" alt=""><p><b>Logo Redesigns</b><span>Graphic</span></p></figure>
+      <figure class="shot"><img src="img/web.jpg" alt=""><p><b>App Design</b><span>Web</span></p></figure>
+      <figure class="shot"><img src="img/sycuts.jpg" alt=""><p><b>Sycuts Studio</b><span>Brand</span></p></figure>
     </div>
-  </section>
-
-
-  <section>
-    <div class="watermark fade-in"> 
-      <p> © 2025 IveyVisuals Design Co.</p>
+    <div class="row" aria-hidden="true">
+      <figure class="shot"><img src="img/menu.jpg" alt=""><p><b>Menu Design</b><span>Graphic</span></p></figure>
+      <figure class="shot"><img src="img/interlude.jpg" alt=""><p><b>App Design</b><span>Web</span></p></figure>
+      <figure class="shot"><img src="img/graphic.jpg" alt=""><p><b>Invitation Suite</b><span>Graphic</span></p></figure>
+      <figure class="shot"><img src="img/branding.jpg" alt=""><p><b>Social Media</b><span>Content</span></p></figure>
+      <figure class="shot"><img src="img/enhanced.jpg" alt=""><p><b>Course Platform</b><span>Web</span></p></figure>
+      <figure class="shot"><img src="img/merch.jpg" alt=""><p><b>Merch Design</b><span>Content</span></p></figure>
+      <figure class="shot"><img src="img/branddesign.jpg" alt=""><p><b>Logo Redesigns</b><span>Graphic</span></p></figure>
+      <figure class="shot"><img src="img/web.jpg" alt=""><p><b>App Design</b><span>Web</span></p></figure>
+      <figure class="shot"><img src="img/sycuts.jpg" alt=""><p><b>Sycuts Studio</b><span>Brand</span></p></figure>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- LOGO CAROUSEL -->
+<section class="logos" aria-label="Logos designed by IveyVisuals">
+  
+  <div class="belt">
+    <div class="row">
+      <img class="sq" src="img/Maplevue_PrimaryLogo.png" alt="Maplevue">
+      <img src="img/BrainyBrands_PrimaryLogo.png" alt="Brainy Brands">
+      <img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co.">
+      <img class="lg" src="img/evyxn_logo.png" alt="Evyxn">
+      <img class="sq" src="img/Maplevue_PrimaryLogo.png" alt="">
+      <img src="img/BrainyBrands_PrimaryLogo.png" alt="">
+      <img src="img/IveyVisualsLogo.png" alt="">
+      <img class="lg" src="img/evyxn_logo.png" alt="">
+      <img class="sq" src="img/Maplevue_PrimaryLogo.png" alt="">
+      <img src="img/BrainyBrands_PrimaryLogo.png" alt="">
+      <img src="img/IveyVisualsLogo.png" alt="">
+      <img class="lg" src="img/evyxn_logo.png" alt="">
+    </div>
+    <div class="row" aria-hidden="true">
+      <img class="sq" src="img/Maplevue_PrimaryLogo.png" alt="">
+      <img src="img/BrainyBrands_PrimaryLogo.png" alt="">
+      <img src="img/IveyVisualsLogo.png" alt="">
+      <img class="lg" src="img/evyxn_logo.png" alt="">
+      <img class="sq" src="img/Maplevue_PrimaryLogo.png" alt="">
+      <img src="img/BrainyBrands_PrimaryLogo.png" alt="">
+      <img src="img/IveyVisualsLogo.png" alt="">
+      <img class="lg" src="img/evyxn_logo.png" alt="">
+      <img class="sq" src="img/Maplevue_PrimaryLogo.png" alt="">
+      <img src="img/BrainyBrands_PrimaryLogo.png" alt="">
+      <img src="img/IveyVisualsLogo.png" alt="">
+      <img class="lg" src="img/evyxn_logo.png" alt="">
+    </div>
+  </div>
+  <div style="text-align:center;padding-top:40px"><a href="portfolio.html#graphic" class="btn">View the Whole Portfolio →</a></div>
+</section>
 
+<!-- 5. MEET THE FOUNDER -->
+<section id="founder" class="founder">
+  <div class="founder-bg"><span class="f1"></span><span class="f2"></span><span class="f3"></span><span class="f4"></span><span class="f5"></span></div>
+  <div class="wrap">
+  <div class="pic">
+    <div class="seal"><img src="img/IconDarkRed.png" alt=""></div>
+    <figure class="polaroid"><img src="img/headshot.jpg" alt="Isabella Villaroman, founder of IveyVisuals"><span>Isabella Villaroman</span></figure>
+  </div>
+  <div>
+    
+    <h2 class="display">Hi, I'm <em>Isabella</em></h2>
+    <p>I started IveyVisuals with a desire to approach design differently. To me, good design has never been just about how something looks, but about the meaning behind it, the story it tells, and the connection it creates. I wanted to create a space where creativity feels collaborative, where ideas are explored with intention, and where every detail reflects the person or brand behind it.</p>
+    <p>Our imaginations are layered, complex, and uniquely our own. I believe your ideas deserve to be expressed in a way that feels just as authentic. Through thoughtful design and a shared creative process, my goal is to help you communicate what makes your brand yours.</p>
+    <p>I'd love to hear your story.</p>
+    <img class="sig" src="img/signature.png" alt="Isabella's signature">
+  </div>
+</div></section>
+
+<section class="faq"><div class="wrap">
+  <div class="faq-head">
+    
+    <h2>Got <em>Questions?</em></h2>
+  </div>
+  <details>
+    <summary>How do we work together?</summary>
+    <p class="faq-answer">We start with a discovery call or a quick form submission — from there we chat about your brand and your goals. Then I create a custom package built around your vision, because we believe no two brands should look the same.</p>
+  </details>
+  <details>
+    <summary>How long does a project take?</summary>
+    <p class="faq-answer">Timelines vary by scope. A logo or set of brand graphics typically takes 1–2 weeks, while a full website or brand identity runs 4–8 weeks. You'll always receive a clear timeline before we begin.</p>
+  </details>
+  <details>
+    <summary>How does pricing work?</summary>
+    <p class="faq-answer">Every project is custom-quoted based on your needs — no one-size-fits-all packages here. After our discovery call I'll send a proposal that fits your goals and your budget.</p>
+  </details>
+  <details>
+    <summary>Do you work with clients outside of your area?</summary>
+    <p class="faq-answer">Absolutely. IveyVisuals works with clients remotely across the U.S. and Canada. Most of our collaboration happens over video calls and shared design tools, so wherever you are, we can make it work.</p>
+  </details>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <div><h2 class="display">Let's Get to Know <em>Your Vision</em></h2><p>Tell me about your brand, your event or your idea, and we'll find the right way to bring it to life.</p></div>
+  <div style="grid-column:1/-1">
+    <div class="calendly-inline-widget" data-url="https://calendly.com/isabella-iveyvisuals/30min" style="min-width:320px;height:700px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+  <div class="contact-divider full">Prefer a Message?</div>
+  <form onsubmit="return false" style="grid-column:1/-1">
+    <input placeholder="Your Name *"><input type="email" placeholder="Email Address *">
+    <input placeholder="Brand or Business Name"><input placeholder="Website URL (if you have one)">
+    <select class="full"><option value="" disabled selected>Which service are you interested in? *</option><option>Web Design</option><option>Graphic Design</option><option>Content Creation</option><option>Full Brand Package</option><option>Not sure yet — let's chat</option></select>
+    <select><option value="" disabled selected>Ideal timeline</option><option>ASAP (within 2 weeks)</option><option>1 – 2 months</option><option>2 – 4 months</option><option>Flexible / no rush</option></select>
+    <select><option value="" disabled selected>How did you hear about us?</option><option>Instagram</option><option>Google Search</option><option>Word of mouth / referral</option><option>Community Votes / Award</option><option>LinkedIn</option><option>Other</option></select>
+    <textarea class="full" rows="5" placeholder="Tell me about your project — what are you building, who's it for, and what feeling do you want it to give?"></textarea>
+    <div class="full" style="display:flex;justify-content:center;margin-top:20px"><button class="btn-cta" style="width:auto;padding:1.15em 3em">Let's Start →</button></div>
+  </form>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co." class="footer-logo">
+      <p>Creative services for brands ready to show up — websites, graphics, and content that work together.</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Pages</span>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Services</span>
+      <a href="services.html">Web Design</a>
+      <a href="services.html">Graphic Design</a>
+      <a href="services.html">Content Creation</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Connect</span>
+      <a href="mailto:isabella@iveyvisuals.com">isabella@iveyvisuals.com</a>
+      <a href="https://instagram.com/iveyvisuals">Instagram ↗</a>
+      <a href="contact.html" class="footer-btn">Start a Project →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 IveyVisuals Design Co. All rights reserved.</span>
+    <img src="img/mark.png" alt="">
+  </div>
+</div></footer>
+
+
+
+<script>
+  // mobile menu toggle
+  const header = document.querySelector('header'), toggle = document.querySelector('.toggle');
+  toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', header.classList.toggle('open')));
+  document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => header.classList.remove('open')));
+
+  // underline the menu item for the section you're viewing
+  const links = [...document.querySelectorAll('.menu a')];
+  const spy = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const href = e.target.id === 'home' ? '#top' : '#' + e.target.id;
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === href));
+  }), {rootMargin: '-45% 0px -50% 0px'});
+  ['home', 'work', 'services', 'founder', 'contact'].forEach(id => spy.observe(document.getElementById(id)));
+  // rotating "____ design": slide to the next word and resize the gap to fit it
+  (() => {
+    const box = document.querySelector('.rotator .words'); if (!box) return; const track = box.querySelector('.track');
+    const words = [...track.children];
+    const fit = i => box.style.width = words[i].offsetWidth + 'px';
+    let i = 0;
+    document.fonts.ready.then(() => fit(0));
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setInterval(() => {
+      i++;
+      track.style.transition = '';
+      track.style.transform = `translateY(-${i * 100 / words.length}%)`;
+      fit(i);
+      if (i === words.length - 1) setTimeout(() => {   // last word repeats the first, so jump back silently
+        track.style.transition = 'none';
+        track.style.transform = 'translateY(0)';
+        i = 0;
+      }, 750);
+    }, 2500);
+  })();
+</script>
+<script>
+/* Pain points — scroll-driven card reveal */
+(function(){
+  const section = document.getElementById('pain');
+  if(!section) return;
+  const cards = [...section.querySelectorAll('.pain-card')];
+  const N = cards.length;
+  const CARD_SCROLL = 380; // px of scroll per card reveal
+
+  /* Set section height + spacer so story slides in exactly after last card */
+  function setHeight(){
+    const spacer = section.querySelector('.pain-spacer');
+    const cardZone = N * CARD_SCROLL + 200; // scroll distance for all cards
+    if (spacer) spacer.style.height = cardZone + 'px';
+    // pain-sticky in flow (vh-96) + card zone + pain-sticky again (for story slide) + buffer
+    section.style.height = (2 * (window.innerHeight - 96) + cardZone + 300) + 'px';
+  }
+  setHeight();
+  window.addEventListener('resize', setHeight);
+
+  function update(){
+    /* sectionTop in document coords */
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+    /* how far we've scrolled past the top of this section */
+    const scrolled = window.scrollY - sectionTop;
+    /* card index (-1 = none yet) */
+    const idx = Math.max(-1, Math.min(N - 1, Math.floor(scrolled / CARD_SCROLL)));
+
+    cards.forEach((card, i) => {
+      card.classList.remove('active','prev');
+      if(i === idx) card.classList.add('active');
+      else if(i < idx) card.classList.add('prev');
+    });
+  }
+
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+</script>
+<script>
+(function(){
+  const words = ["Your Website.", "Social Media.", "Every Graphic."];
+  let wi = 0, ci = 0, deleting = false;
+  const el = document.getElementById('tw');
+  function tick() {
+    const word = words[wi];
+    if (!deleting) {
+      el.textContent = word.slice(0, ci + 1);
+      ci++;
+      if (ci === word.length) { deleting = true; setTimeout(tick, 2000); return; }
+      setTimeout(tick, 85);
+    } else {
+      el.textContent = word.slice(0, ci - 1);
+      ci--;
+      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(tick, 450); return; }
+      setTimeout(tick, 40);
+    }
+  }
+  setTimeout(tick, 800);
+})();
+</script>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const sel = 'section h1,section h2,section h3,section p,section .btn,.svc-card,.offer-box,.work-type,.road-polaroid,.card,.site-footer .footer-col,.site-footer .footer-brand';
+  document.querySelectorAll(sel).forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('.svc-cards,.offer-boxes,.work-types,.road-polaroids,.footer-top').forEach(parent => {
+    [...parent.children].forEach((c,i) => { if(c.classList.contains('reveal')) c.style.transitionDelay=(i*.12)+'s'; });
+  });
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+  },{threshold:.08,rootMargin:'0px 0px -48px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+</script>
 </body>
 </html>
-
