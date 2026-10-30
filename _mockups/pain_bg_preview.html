@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Lexend';src:url('fonts/Lexend-VariableFont_wght.ttf') format('truetype');font-weight:100 900}
+  :root{--wine:#650c05;--blush:#ecdcd5;--cream:#f5f0ea;--ink:#141212;--muted:#6f6764;--serif:'Fraunces',Georgia,serif;--sans:'Lexend',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--sans);font-weight:300}
+  .pain-sticky{
+    height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    gap:48px;overflow:hidden;position:relative;
+    background:url('img/studio_wall.jpg') center center / cover no-repeat;
+  }
+  .pain-sticky::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,7,7,.78) 0%,rgba(101,12,5,.5) 100%)}
+  .pain-header{text-align:center;padding-inline:80px;position:relative;z-index:1}
+  .pain-header h2{font-family:var(--serif);font-weight:400;font-size:4.2rem;line-height:1.05;color:var(--cream);letter-spacing:-.02em;margin-bottom:12px}
+  .pain-header h2 em{font-style:italic;font-weight:300;color:var(--blush)}
+  .pain-header p{font-size:.95rem;color:rgba(245,240,234,.55);letter-spacing:.02em}
+  .pain-stage{position:relative;width:100%;max-width:900px;padding-inline:80px;min-height:160px;z-index:1}
+  .pain-card{
+    position:absolute;inset:0;border-radius:20px;
+    padding:22px 36px;display:flex;align-items:center;gap:36px;
+    min-height:80px;
+  }
+  .pain-card[data-pain="0"]{background:var(--blush);opacity:1;transform:translateY(0)}
+  .pain-num{font-size:.78rem;letter-spacing:.14em;color:rgba(20,18,18,.3);flex-shrink:0}
+  .pain-text{font-family:var(--sans);font-weight:300;font-size:1.2rem;letter-spacing:.01em;color:var(--ink);line-height:1.3}
+</style></head><body>
+<div class="pain-sticky">
+  <div class="pain-header">
+    <h2>You've Got A Business.<br><em>Your Brand Should Show It.</em></h2>
+    <p>Be honest — does this sound like you?</p>
+  </div>
+  <div class="pain-stage">
+    <div class="pain-card" data-pain="0">
+      <span class="pain-num">01</span>
+      <p class="pain-text">Started a business but don't know where to begin with your brand?</p>
+    </div>
+  </div>
+</div>
+</body></html>

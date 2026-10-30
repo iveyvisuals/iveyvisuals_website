@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — IveyVisuals Design Co.</title>
+<meta name="description" content="Web design, graphic design and content creation projects by IveyVisuals Design Co.: websites, apps, posters, menus, invitations, logos and social media content.">
+<link rel="icon" href="img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  /* Libre Caslon Text for headings (free for commercial use); Lexend is the site's own file */
+  @font-face{font-family:'Lexend';src:url('fonts/Lexend-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-display:swap}
+
+  /* IveyVisuals brand colours only */
+  :root{
+    --wine:#650c05; --blush:#ecdcd5; --grey:#e7e6e5;
+    --cream:#f5f0ea; --ink:#141212; --muted:#6f6764; --line:#e0d5ce;
+    --serif:'Fraunces', Georgia, serif; --sans:'Lexend', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  em{font-style:normal}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;position:relative}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+
+  .label{font-size:1.1rem;letter-spacing:.04em;color:var(--wine);margin-bottom:18px}
+  .display{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:.01em;color:var(--ink)}
+  .display em{font-style:normal;color:var(--wine)}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--wine);color:var(--cream);padding:.95em 1.9em;border-radius:999px;font-size:.88rem;font-weight:400;border:0;cursor:pointer;font-family:inherit;transition:background .25s,color .25s}
+  .btn:hover{background:var(--ink)}
+
+  /* ---------- menu (same as homepage) ---------- */
+  header{position:sticky;top:0;z-index:20;background:var(--cream)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:96px;max-width:none;padding-inline:clamp(20px,4.5vw,72px);gap:24px}
+  header .logo img{height:52px}
+  .menu{display:flex;gap:clamp(20px,3vw,48px);font-size:1.02rem;letter-spacing:.02em;color:#5f5a57}
+  .menu a{position:relative;padding:8px 0;transition:color .25s}
+  .menu a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--wine);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+  .menu a:hover{color:var(--ink)}
+  .menu a:hover::after,.menu a.active::after{transform:scaleX(1)}
+  .menu a.active{color:var(--ink)}
+  .nav-cta{display:inline-flex;align-items:center;background:var(--wine);color:var(--cream);padding:.6em 1.4em;border-radius:999px;font-size:.86rem;white-space:nowrap;transition:background .25s}
+  .nav-cta:hover{background:var(--ink);color:var(--cream)}
+  .toggle{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+  .toggle span,.toggle::before,.toggle::after{content:"";position:absolute;left:8px;right:8px;height:1.5px;background:var(--ink)}
+  .toggle::before{top:13px}.toggle span{top:19px}.toggle::after{top:25px}
+  @media (max-width:860px){
+    .toggle{display:block}
+    .nav-cta{display:none}
+    .menu{position:absolute;top:96px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);padding:8px clamp(16px,4vw,48px) 24px;border-bottom:1px solid var(--line);display:none}
+    .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+    .menu a::after{display:none}
+    header.open .menu{display:flex}
+  }
+
+  /* ---------- page-level watercolour blobs ---------- */
+  .page-bg{position:absolute;top:0;left:0;right:0;height:900px;pointer-events:none;z-index:0;overflow:visible}
+  .page-bg span{position:absolute;border-radius:50%}
+  .page-bg .b1{width:800px;height:340px;background:rgba(236,220,213,.8);top:5%;left:-14%;transform:rotate(-14deg);filter:blur(100px)}
+  .page-bg .b2{width:580px;height:260px;background:rgba(101,12,5,.12);top:30%;left:4%;transform:rotate(-6deg);filter:blur(90px)}
+  .page-bg .b3{width:680px;height:300px;background:rgba(236,220,213,.65);top:0%;right:-10%;transform:rotate(18deg);filter:blur(110px)}
+  .page-bg .b4{width:500px;height:220px;background:rgba(101,12,5,.09);top:55%;right:0%;transform:rotate(5deg);filter:blur(95px)}
+  .page-bg .b5{width:400px;height:180px;background:rgba(224,210,202,.7);top:20%;left:28%;transform:rotate(-22deg);filter:blur(105px)}
+
+  /* ---------- page intro ---------- */
+  .intro{position:relative;padding-block:clamp(48px,7vw,96px) clamp(56px,7vw,90px);background:transparent;text-align:center}
+  .intro .wrap{position:relative;z-index:1}
+  .intro h1{font-size:clamp(2.8rem,6vw,5.4rem)}
+  .intro p{color:var(--muted);max-width:56ch;margin:18px auto 0;font-size:1.04rem}
+
+  /* ---------- filter menu ---------- */
+  .filters{position:sticky;top:96px;z-index:10;background:transparent;padding-block:20px;display:flex;justify-content:center}
+  .filters .wrap{position:relative;display:inline-flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;background:rgba(236,220,213,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;padding:6px}
+  .filters .wrap::-webkit-scrollbar{display:none}
+  .filter-pill{position:absolute;top:6px;height:calc(100% - 12px);background:#fff;border-radius:999px;box-shadow:0 2px 8px rgba(20,18,18,.1);transition:left .28s cubic-bezier(.4,0,.2,1),width .28s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:0}
+  .filters button{position:relative;z-index:1;background:none;border:0;font:inherit;font-size:.9rem;letter-spacing:.02em;color:var(--muted);padding:.55em 1.3em;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .2s;font-weight:300}
+  .filters button:hover{color:var(--ink)}
+  .filters button[aria-pressed="true"]{color:var(--ink);font-weight:400}
+
+  /* ---------- project grid ---------- */
+  .projects{padding-block:44px clamp(80px,10vw,130px)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,32px) clamp(16px,2vw,28px)}
+  .card{transition:opacity .35s, transform .35s}
+  .card.hide{display:none}
+  .card.fade{opacity:0;transform:translateY(10px)}
+  .card .img{aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:var(--grey)}
+  .card .img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .card:hover .img img{transform:scale(1.03)}
+  .card .img.logo{background:var(--blush);display:grid;place-items:center}
+  .card .img.logo img{width:62%;height:auto;object-fit:contain}
+  .card p{display:flex;justify-content:space-between;gap:12px;padding:12px 2px 0;font-size:.86rem;color:var(--muted)}
+  .card p b{font-weight:400;color:var(--ink)}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:540px){.grid{grid-template-columns:1fr}}
+
+  /* ---------- call to action ---------- */
+  .cta{background:var(--blush);padding-block:clamp(70px,9vw,110px);text-align:center}
+  .cta h2{font-size:clamp(2.2rem,4.4vw,3.8rem)}
+  .cta p{color:var(--muted);margin:16px auto 30px;max-width:44ch}
+  .calendly-section{background:var(--blush);padding-block:clamp(64px,8vw,100px)}
+  .calendly-head{margin-bottom:40px}
+  .calendly-head h2{font-size:clamp(2rem,4vw,3.4rem);margin-top:12px}
+  .calendly-head p{color:var(--muted);margin-top:14px;max-width:44ch}
+  .site-footer{background:var(--wine);padding-block:clamp(56px,7vw,90px) clamp(32px,4vw,48px)}
+  .footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.4fr;gap:clamp(32px,4vw,64px);margin-bottom:clamp(48px,6vw,72px)}
+  .footer-brand .footer-logo{height:48px;filter:brightness(0) invert(1);opacity:.92;margin-bottom:14px}
+  .footer-brand p{color:rgba(245,240,234,.5);font-size:.88rem;line-height:1.65;max-width:26ch}
+  .footer-col{display:flex;flex-direction:column;gap:10px}
+  .footer-col-label{font-size:.7rem;letter-spacing:.12em;color:rgba(245,240,234,.35);text-transform:uppercase;margin-bottom:6px}
+  .footer-col a{font-size:.88rem;color:rgba(245,240,234,.65);transition:color .2s;line-height:1.4}
+  .footer-col a:hover{color:var(--cream)}
+  .footer-btn{display:inline-flex;align-items:center;background:var(--cream);color:var(--wine)!important;padding:.55em 1.3em;border-radius:999px;font-size:.82rem;margin-top:6px;width:fit-content;transition:background .25s!important}
+  .footer-btn:hover{background:var(--blush)!important}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:clamp(24px,3vw,36px);border-top:1px solid rgba(245,240,234,.08);font-size:.76rem;color:rgba(245,240,234,.35)}
+  .footer-bottom img{height:22px;opacity:.3;filter:brightness(0) invert(1)}
+  @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+  @media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.25,.46,.45,.94),transform .75s cubic-bezier(.25,.46,.45,.94)}
+    .reveal.in{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="logo" href="e-plan.html"><img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co."></a>
+  <button class="toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="menu">
+    <a href="e-plan.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="contact.html" class="nav-cta">Start a Project</a>
+</div></header>
+
+<div class="page-bg"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span></div>
+
+<section class="intro"><div class="wrap">
+  
+  <h1 class="display">Featured <em>Projects</em></h1>
+  <p>A collection of web design, graphic design and content creation projects for small businesses, brands, events and creatives.</p>
+</div></section>
+
+<nav class="filters" aria-label="Filter projects"><div class="wrap">
+  <span class="filter-pill" id="filterPill"></span>
+  <button data-filter="all" aria-pressed="true">All</button>
+  <button data-filter="web" aria-pressed="false">Web Design</button>
+  <button data-filter="graphic" aria-pressed="false">Graphic Design</button>
+  <button data-filter="content" aria-pressed="false">Content Creation</button>
+</div></nav>
+
+<section class="projects"><div class="wrap grid">
+  <!-- web design -->
+  <figure class="card" data-cat="web"><div class="img"><img src="img/webdesign_poster1.jpg" alt="Cynthia A. Coaching website on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="web"><div class="img"><img src="img/interlude.jpg" alt="Interlude app screens on two phones" loading="lazy"></div></figure>
+  <figure class="card" data-cat="web"><div class="img"><img src="img/studio_laptop.jpg" alt="Graphic design page on a laptop" loading="lazy"></div></figure>
+
+  <!-- graphic design -->
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/branding.jpg" alt="Social media feed on a phone" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/merch.jpg" alt="Merch photoshoot" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/menu.jpg" alt="Food truck menu boards" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphic.jpg" alt="Passport-style birthday invitation suite" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/branddesign.jpg" alt="Label designs on a notebook" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster1.jpg" alt="Derby Days 2026 — The Chainsmokers poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster2.jpg" alt="Bunt event poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster3.jpg" alt="Bonanza 2026 — Beltran poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster4.jpg" alt="Waka Flocka Flame event poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster5.jpg" alt="Discip — Pike at Auburn poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster6.jpg" alt="Heaven or Hell 2026 — MC4D poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster7.jpg" alt="Wüki — AXO & Phi Gama Delta at TCU poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster8.jpg" alt="Lil Tjay — Chi Phi at Alabama poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/graphicdesign_poster9.jpg" alt="Woodstock 2026 — Congress poster on a laptop" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img"><img src="img/sycuts.jpg" alt="Sycuts Studio logo print" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img logo"><img src="img/Maplevue_PrimaryLogo.png" alt="Maplevue logo" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img logo"><img src="img/BrainyBrands_PrimaryLogo.png" alt="Brainy Brands logo" loading="lazy"></div></figure>
+  <figure class="card" data-cat="graphic"><div class="img logo"><img src="img/evyxn_logo.png" alt="Evyxn logo" loading="lazy"></div></figure>
+
+
+  <!-- content creation -->
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content10.jpg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio1.jpg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio2.jpg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio3.jpg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content5.jpeg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content6.jpeg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content7.jpeg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content8.jpeg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/Content9.jpeg" alt="Content creation" loading="lazy"></div></figure>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <h2 class="display">Let's Get to Know <em>Your Vision</em></h2>
+  <p>Have a project in mind? Tell me about it and we'll find the right way to bring it to life.</p>
+  <a href="contact.html" class="btn">Start a Project →</a>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co." class="footer-logo">
+      <p>Creative services for brands ready to show up — websites, graphics, and content that work together.</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Pages</span>
+      <a href="e-plan.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Services</span>
+      <a href="services.html">Web Design</a>
+      <a href="services.html">Graphic Design</a>
+      <a href="services.html">Content Creation</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Connect</span>
+      <a href="mailto:isabella@iveyvisuals.com">isabella@iveyvisuals.com</a>
+      <a href="https://instagram.com/iveyvisuals">Instagram ↗</a>
+      <a href="contact.html" class="footer-btn">Start a Project →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 IveyVisuals Design Co. All rights reserved.</span>
+    <img src="img/mark.png" alt="">
+  </div>
+</div></footer>
+
+<script>
+  // mobile menu toggle
+  const header = document.querySelector('header'), toggle = document.querySelector('.toggle');
+  toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', header.classList.toggle('open')));
+
+  // category filter: All / Web Design / Graphic Design / Content Creation
+  const buttons = [...document.querySelectorAll('.filters button')];
+  const cards = [...document.querySelectorAll('.card')];
+  const pill = document.getElementById('filterPill');
+
+  function movePill(btn) {
+    const wrap = btn.closest('.wrap');
+    const wrapRect = wrap.getBoundingClientRect();
+    const btnRect = btn.getBoundingClientRect();
+    pill.style.left = (btnRect.left - wrapRect.left) + 'px';
+    pill.style.width = btnRect.width + 'px';
+  }
+
+  function show(filter, push) {
+    if (!buttons.some(b => b.dataset.filter === filter)) filter = 'all';
+    buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === filter));
+    movePill(buttons.find(b => b.dataset.filter === filter));
+    let idx = 0;
+    cards.forEach(c => {
+      const on = filter === 'all' || c.dataset.cat === filter;
+      c.classList.toggle('hide', !on);
+      if (on) {
+        c.classList.remove('in');
+        const delay = idx++ * 60;
+        setTimeout(() => c.classList.add('in'), delay);
+      }
+    });
+    if (push) history.replaceState(null, '', filter === 'all' ? location.pathname : '#' + filter);
+  }
+  buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.filter, true)));
+
+  // the homepage "Learn more" links arrive with #web, #graphic or #content
+  show(location.hash.slice(1) || 'all', false);
+  window.addEventListener('hashchange', () => show(location.hash.slice(1) || 'all', false));
+  // init pill position after fonts/layout settle
+  requestAnimationFrame(() => movePill(buttons.find(b => b.getAttribute('aria-pressed') === 'true')));
+</script>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  // Cards are handled by the filter's show() — only fade non-card elements here
+  const sel = 'section h1,section h2,section h3,section p,section .btn,.site-footer .footer-col,.site-footer .footer-brand';
+  document.querySelectorAll(sel).forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('.footer-top').forEach(parent => {
+    [...parent.children].forEach((c,i) => { if(c.classList.contains('reveal')) c.style.transitionDelay=(i*.12)+'s'; });
+  });
+  // Cards need reveal class but start hidden until show() fires
+  document.querySelectorAll('.card').forEach(c => c.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+  },{threshold:.08,rootMargin:'0px 0px -48px 0px'});
+  document.querySelectorAll('.reveal:not(.card)').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

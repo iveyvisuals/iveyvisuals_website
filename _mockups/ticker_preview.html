@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Lexend';src:url('fonts/Lexend-VariableFont_wght.ttf') format('truetype');font-weight:100 900}
+  :root{--wine:#650c05;--blush:#ecdcd5;--cream:#f5f0ea;--serif:'Fraunces',Georgia,serif;--sans:'Lexend',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--sans)}
+  .wrap{max-width:1240px;margin:0 auto;padding-inline:48px}
+  .ticker{background:var(--wine);padding:14px 0;overflow:hidden;white-space:nowrap}
+  .ticker-track{display:inline-flex;animation:ticker 28s linear infinite}
+  .ticker-item{font-size:.76rem;letter-spacing:.16em;color:var(--blush);padding:0 40px}
+  .ticker-star{margin:0 18px;color:rgba(236,220,213,.4)}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .statement{background:var(--wine);padding-block:80px;text-align:center}
+  .statement h2{font-family:var(--serif);font-weight:400;font-size:3.2rem;line-height:1.08;color:var(--blush);margin-bottom:20px}
+  .statement p{font-size:1.1rem;line-height:1.6;color:rgba(236,220,213,.75);max-width:560px;margin:0 auto}
+</style></head><body>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">WEB DESIGN <span class="ticker-star">★</span> GRAPHIC DESIGN <span class="ticker-star">★</span> CONTENT CREATION <span class="ticker-star">★</span> BRANDING <span class="ticker-star">★</span> LET'S BUILD YOUR BRAND TOGETHER <span class="ticker-star">★</span></span>
+    <span class="ticker-item">WEB DESIGN <span class="ticker-star">★</span> GRAPHIC DESIGN <span class="ticker-star">★</span> CONTENT CREATION <span class="ticker-star">★</span> BRANDING <span class="ticker-star">★</span> LET'S BUILD YOUR BRAND TOGETHER <span class="ticker-star">★</span></span>
+  </div>
+</div>
+<section class="statement"><div class="wrap">
+  <h2>Illuminating the Vision</h2>
+  <p>Designing websites, graphics, and content for small businesses that are ready to elevate their brands online.</p>
+</div></section>
+</body></html>

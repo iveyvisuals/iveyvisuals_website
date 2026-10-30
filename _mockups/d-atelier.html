@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D · Atelier — IveyVisuals</title>
+<link rel="icon" href="img/mark.png">
+<style>
+  /* the site's own fonts (Myungjo + Last Christmas subset to Latin for the web) */
+  @font-face{font-family:'AppleMyungjo';src:url('fonts/myungjo-latin.woff2?v=2') format('woff2');font-display:swap}
+  @font-face{font-family:'LastChristmas';src:url('fonts/lastchristmas.woff2') format('woff2');font-display:swap}
+  @font-face{font-family:'Lexend';src:url('fonts/Lexend-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-display:swap}
+  /* palette pulled from the IveyVisuals brand board */
+  :root{
+    --wine:#650c05; --red:#9b2321; --blush:#ecdcd5; --grey:#e7e6e5;
+    --cream:#f5f0ea; --paper:#fbf8f4; --ink:#141212; --muted:#776d6a; --line:#e2d7d0;
+    --serif:'AppleMyungjo', Georgia, serif; --script:'LastChristmas', cursive; --sans:'Lexend', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1360px;margin:0 auto;padding-inline:clamp(16px,3vw,40px)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--cream) 90%,transparent);backdrop-filter:blur(12px)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
+  header img{height:48px}
+  nav{display:flex;align-items:center;gap:34px;font-size:.92rem;font-weight:400;letter-spacing:.01em;}
+  nav a{position:relative}
+  nav a:not(.book)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--wine);transform:scaleX(0);transition:transform .3s}
+  nav a:not(.book):hover::after{transform:scaleX(1)}
+  nav .book{background:var(--wine);color:var(--cream);padding:.95em 1.6em;border-radius:999px}
+  nav .book:hover{background:var(--red)}
+  @media (max-width:760px){nav a:not(.book){display:none}}
+
+  /* hero carousel */
+  .hero{padding-top:12px}
+  .wall{display:flex;gap:16px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);padding:20px 0}
+  .wall .row{display:flex;gap:16px;align-items:center;animation:drift 70s linear infinite;flex-shrink:0}
+  .wall:hover .row{animation-play-state:paused}
+  .tile{height:min(44vh,400px);aspect-ratio:4/5;border-radius:14px;overflow:hidden;flex-shrink:0;position:relative;box-shadow:0 18px 40px -22px rgba(101,12,5,.35)}
+  .tile:nth-child(even){transform:translateY(22px)}
+  .tile img{width:100%;height:100%;object-fit:cover}
+  .tile.logo{background:var(--paper);display:grid;place-items:center}
+  .tile.logo.blush{background:var(--blush)}
+  .tile.logo img{width:72%;height:auto;object-fit:contain}
+  .tile.word{background:var(--wine);color:var(--cream);display:grid;place-items:center;text-align:center;font-family:var(--serif);font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1.05;padding:24px}
+  .tile.word em{display:block;color:var(--blush);font-family:var(--script);font-style:normal;font-size:1.15em}
+  .tile.word img{width:54px;margin:18px auto 0;border-radius:50%}
+  .tile span{position:absolute;left:12px;bottom:12px;background:rgba(251,248,244,.92);color:var(--ink);font-size:.64rem;letter-spacing:.02em;padding:6px 10px;border-radius:999px;opacity:0;transition:opacity .3s}
+  .tile:hover span{opacity:1}
+  @keyframes drift{to{transform:translateX(calc(-100% - 16px))}}
+
+  .hero-type{padding-block:36px 64px}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,9.6vw,9.6rem);line-height:.95;letter-spacing:-.04em}
+  h1 em{font-family:var(--script);font-style:normal;color:var(--wine);letter-spacing:0;font-size:1.08em;line-height:0}
+  .hero-foot{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-top:32px;flex-wrap:wrap}
+  .hero-foot p{max-width:44ch;color:var(--muted);font-size:1.06rem}
+  .btn{display:inline-flex;align-items:center;gap:12px;background:var(--wine);color:var(--cream);padding:1.15em 2.1em;font-size:.8rem;font-weight:400;letter-spacing:.02em;border-radius:999px;border:0;cursor:pointer;font-family:inherit;transition:background .25s}
+  .btn:hover{background:var(--red)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--cream)}
+
+  /* ribbon */
+  .ribbon{background:var(--wine);color:var(--cream);overflow:hidden;white-space:nowrap;padding:18px 0}
+  .ribbon div{display:inline-flex;align-items:center;animation:tick 34s linear infinite}
+  .ribbon span{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,2rem);margin:0 26px}
+  .ribbon span:nth-child(4n+3){font-family:var(--script);color:var(--blush);font-size:1.15em}
+  .ribbon img{width:30px;height:30px;border-radius:50%}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  section{padding-block:clamp(72px,10vw,140px);scroll-margin-top:84px}
+  .label{display:flex;align-items:center;gap:12px;font-size:.9rem;letter-spacing:.04em;color:var(--wine);margin-bottom:18px}
+  .label::before{content:"";width:32px;height:1px;background:currentColor}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5.6vw,5rem);line-height:1;letter-spacing:-.03em}
+  h2 em{font-family:var(--script);font-style:normal;color:var(--wine);letter-spacing:0;font-size:1.06em}
+
+  /* work */
+  .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+  .works{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .work{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:14px;background:var(--paper)}
+  .work img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .work.logo{display:grid;place-items:center}.work.logo img{width:70%;height:auto;object-fit:contain}
+  .work.blush{background:var(--blush)}
+  .work .meta{position:absolute;inset:auto 12px 12px;display:flex;justify-content:space-between;align-items:center;background:rgba(251,248,244,.94);border-radius:999px;padding:8px 14px;font-size:.68rem;letter-spacing:.02em;opacity:0;transform:translateY(8px);transition:.35s}
+  .work .meta i{font-style:normal;color:var(--wine)}
+  .work:hover img{transform:scale(1.04)}
+  .work:hover .meta{opacity:1;transform:none}
+  .work.wide{grid-column:span 2;aspect-ratio:auto}
+  @media (max-width:900px){.works{grid-template-columns:repeat(2,1fr)}}
+
+  /* services */
+  .services{background:var(--paper)}
+  .svc{border-top:1px solid var(--ink)}
+  .svc a{display:grid;grid-template-columns:70px 1fr minmax(0,32ch) 40px;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);transition:padding .35s}
+  .svc .no{font-size:.75rem;letter-spacing:.02em;color:var(--wine)}
+  .svc .nm{font-family:var(--serif);font-size:clamp(2rem,5.4vw,4.6rem);line-height:1;letter-spacing:-.03em;transition:color .3s}
+  .svc .nm em{font-family:var(--script);font-style:normal;font-size:.7em;margin-left:.15em;color:var(--red);opacity:0;transition:opacity .3s}
+  .svc small{font-size:.95rem;color:var(--muted);line-height:1.5}
+  .svc .ar{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.3s}
+  .svc a:hover{padding-left:16px}
+  .svc a:hover .nm{color:var(--wine)}
+  .svc a:hover .nm em{opacity:1}
+  .svc a:hover .ar{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+  @media (max-width:760px){.svc a{grid-template-columns:36px 1fr 36px}.svc small{display:none}}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,6vw,100px);align-items:center}
+  .photo{position:relative}
+  .photo img.h{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:14px}
+  .photo .seal{position:absolute;right:-18px;top:28px;width:110px;height:110px;border-radius:50%;background:var(--blush);display:grid;place-items:center;box-shadow:0 14px 30px -14px rgba(101,12,5,.4)}
+  .photo .seal img{width:64px;border-radius:50%}
+  .about p{color:var(--muted);font-size:1.05rem;margin-top:20px;max-width:50ch}
+  .about .sig{height:72px;margin-top:22px}
+  .stats{display:flex;gap:44px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .stats b{display:block;font-family:var(--serif);font-weight:400;font-size:2.8rem;line-height:1;color:var(--wine)}
+  .stats span{font-size:.7rem;letter-spacing:.02em;color:var(--muted)}
+  @media (max-width:860px){.about{grid-template-columns:1fr}.photo .seal{right:12px}}
+
+  /* contact */
+  .contact{background:var(--wine);color:var(--cream)}
+  .contact .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+  .contact .label{color:var(--blush)}
+  .contact h2 em{color:var(--blush)}
+  .contact p{color:#e6cfc8;margin-top:20px;max-width:36ch}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form .full{grid-column:1/-1}
+  input,select,textarea{width:100%;background:rgba(245,240,234,.06);border:1px solid rgba(236,220,213,.32);color:var(--cream);font:inherit;padding:16px 18px;border-radius:14px;outline:none}
+  select option{color:var(--ink)}
+  input:focus,select:focus,textarea:focus{border-color:var(--blush);background:rgba(245,240,234,.1)}
+  input::placeholder,textarea::placeholder{color:#cdb3ab}
+  .contact .btn{background:var(--cream);color:var(--wine);justify-self:start}
+  .contact .btn:hover{background:var(--blush)}
+  @media (max-width:860px){.contact .wrap,form{grid-template-columns:1fr}}
+
+  footer{padding:30px 0;font-size:.8rem;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  footer img{height:28px;border-radius:50%}
+
+  .switch{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;gap:4px;background:var(--ink);padding:4px;border-radius:999px;font:500 12px/1 system-ui}
+  .switch a{color:#fff;padding:8px 12px;border-radius:999px}.switch a.on{background:var(--cream);color:var(--ink)}
+
+  @media (prefers-reduced-motion:reduce){.wall .row,.ribbon div{animation:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="#"><img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co."></a>
+  <nav><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact" class="book">Book now</a></nav>
+</div></header>
+
+<main>
+  <div class="hero">
+    <div class="wall">
+      <div class="row">
+        <div class="tile"><img src="img/coverpage.jpg" alt=""><span>Brand · IveyVisuals</span></div>
+        <div class="tile"><img src="img/CHI_V3.jpg" alt=""><span>Poster · Lil Tjay</span></div>
+        <div class="tile logo blush"><img src="img/Maplevue_PrimaryLogo.png" alt="" style="mix-blend-mode:multiply"><span>Logo · Maplevue</span></div>
+        <div class="tile"><img src="img/motion.jpg" alt=""><span>Web · IveyVisuals</span></div>
+        <div class="tile"><img src="img/graphic.jpg" alt=""><span>Graphic · Invitation suite</span></div>
+        <div class="tile word">Brand.<br>Logo.<br>Web.<em>Graphic.</em>Motion.<img src="img/mark.png" alt=""></div>
+        <div class="tile"><img src="img/sycuts.jpg" alt=""><span>Logo · Sycuts Studio</span></div>
+        <div class="tile"><img src="img/menu.jpg" alt=""><span>Graphic · Menu</span></div>
+        <div class="tile"><img src="img/LilMosey_V2.jpg" alt=""><span>Poster · Lil Mosey</span></div>
+        <div class="tile"><img src="img/interlude.jpg" alt=""><span>App design</span></div>
+        <div class="tile logo"><img src="img/BrainyBrands_PrimaryLogo.png" alt="" style="mix-blend-mode:multiply"><span>Logo · Brainy Brands</span></div>
+        <div class="tile"><img src="img/branddesign.jpg" alt=""><span>Brand · Labels</span></div>
+        <div class="tile"><img src="img/merch.jpg" alt=""><span>Graphic · Merch</span></div>
+        <div class="tile"><img src="img/ChainsmokersAlt_V1.jpg" alt=""><span>Poster · Derby Days</span></div>
+      </div>
+      <div class="row" aria-hidden="true">
+        <div class="tile"><img src="img/coverpage.jpg" alt=""><span>Brand · IveyVisuals</span></div>
+        <div class="tile"><img src="img/CHI_V3.jpg" alt=""><span>Poster · Lil Tjay</span></div>
+        <div class="tile logo blush"><img src="img/Maplevue_PrimaryLogo.png" alt="" style="mix-blend-mode:multiply"><span>Logo · Maplevue</span></div>
+        <div class="tile"><img src="img/motion.jpg" alt=""><span>Web · IveyVisuals</span></div>
+        <div class="tile"><img src="img/graphic.jpg" alt=""><span>Graphic · Invitation suite</span></div>
+        <div class="tile word">Brand.<br>Logo.<br>Web.<em>Graphic.</em>Motion.<img src="img/mark.png" alt=""></div>
+        <div class="tile"><img src="img/sycuts.jpg" alt=""><span>Logo · Sycuts Studio</span></div>
+        <div class="tile"><img src="img/menu.jpg" alt=""><span>Graphic · Menu</span></div>
+        <div class="tile"><img src="img/LilMosey_V2.jpg" alt=""><span>Poster · Lil Mosey</span></div>
+        <div class="tile"><img src="img/interlude.jpg" alt=""><span>App design</span></div>
+        <div class="tile logo"><img src="img/BrainyBrands_PrimaryLogo.png" alt="" style="mix-blend-mode:multiply"><span>Logo · Brainy Brands</span></div>
+        <div class="tile"><img src="img/branddesign.jpg" alt=""><span>Brand · Labels</span></div>
+        <div class="tile"><img src="img/merch.jpg" alt=""><span>Graphic · Merch</span></div>
+        <div class="tile"><img src="img/ChainsmokersAlt_V1.jpg" alt=""><span>Poster · Derby Days</span></div>
+      </div>
+    </div>
+
+    <div class="wrap hero-type">
+      <h1>Illuminating<br>the <em>vision.</em></h1>
+      <div class="hero-foot">
+        <p>IveyVisuals Design Co. is a multidisciplinary studio for brand, logo, web, graphic and motion design. Clean, creative, and full of intention.</p>
+        <a href="#contact" class="btn">Let's design together →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ribbon" aria-hidden="true"><div>
+    <span>Brand Design</span><img src="img/mark.png" alt=""><span>Logo Design</span><img src="img/mark.png" alt=""><span>Web Design</span><img src="img/mark.png" alt=""><span>Graphic Design</span><img src="img/mark.png" alt=""><span>Motion Design</span><img src="img/mark.png" alt=""><span>Event Posters</span><img src="img/mark.png" alt="">
+    <span>Brand Design</span><img src="img/mark.png" alt=""><span>Logo Design</span><img src="img/mark.png" alt=""><span>Web Design</span><img src="img/mark.png" alt=""><span>Graphic Design</span><img src="img/mark.png" alt=""><span>Motion Design</span><img src="img/mark.png" alt=""><span>Event Posters</span><img src="img/mark.png" alt="">
+  </div></div>
+
+  <section id="work"><div class="wrap">
+    <div class="head"><div><div class="label">Selected work</div><h2>The <em>portfolio</em></h2></div><a class="btn ghost" href="#">All projects →</a></div>
+    <div class="works">
+      <a class="work" href="#"><img src="img/CHI_V3.jpg" alt="Lil Tjay poster"><div class="meta"><span>Lil Tjay</span><i>Poster</i></div></a>
+      <a class="work logo blush" href="#"><img src="img/Maplevue_PrimaryLogo.png" alt="Maplevue logo" style="mix-blend-mode:multiply"><div class="meta"><span>Maplevue</span><i>Logo</i></div></a>
+      <a class="work wide" href="#"><img src="img/motion.jpg" alt="IveyVisuals website on a laptop"><div class="meta"><span>IveyVisuals.com</span><i>Web</i></div></a>
+      <a class="work" href="#"><img src="img/graphic.jpg" alt="Passport invitation suite"><div class="meta"><span>Invitation suite</span><i>Graphic</i></div></a>
+      <a class="work" href="#"><img src="img/sycuts.jpg" alt="Sycuts Studio logo"><div class="meta"><span>Sycuts Studio</span><i>Logo</i></div></a>
+      <a class="work" href="#"><img src="img/TheOcho_Alt.jpg" alt="The Ocho poster"><div class="meta"><span>The Ocho</span><i>Poster</i></div></a>
+      <a class="work" href="#"><img src="img/menu.jpg" alt="Food truck menu"><div class="meta"><span>Menu design</span><i>Graphic</i></div></a>
+    </div>
+  </div></section>
+
+  <section id="services" class="services"><div class="wrap">
+    <div class="head"><div><div class="label">What I offer</div><h2>Five ways to<br>tell your <em>story.</em></h2></div></div>
+    <div class="svc">
+      <a href="#"><span class="no">01</span><span class="nm">Brand<em>design</em></span><small>Identity systems and style guides that make a bold first impression.</small><span class="ar">→</span></a>
+      <a href="#"><span class="no">02</span><span class="nm">Logo<em>design</em></span><small>The heart of your identity, in one clear and lasting mark.</small><span class="ar">→</span></a>
+      <a href="#"><span class="no">03</span><span class="nm">Web<em>design</em></span><small>Sites and apps that make it easy to explore, book, and come back.</small><span class="ar">→</span></a>
+      <a href="#"><span class="no">04</span><span class="nm">Graphic<em>design</em></span><small>Event posters, menus, merch and campaigns that feel uniquely you.</small><span class="ar">→</span></a>
+      <a href="#"><span class="no">05</span><span class="nm">Motion<em>design</em></span><small>Animated logos, from subtle 2D loops to bold 3D reveals.</small><span class="ar">→</span></a>
+    </div>
+  </div></section>
+
+  <section id="about"><div class="wrap about">
+    <div class="photo"><img class="h" src="img/headshot.jpg" alt="Isabella Villaroman in the studio"><div class="seal"><img src="img/mark.png" alt=""></div></div>
+    <div>
+      <div class="label">Meet the founder</div>
+      <h2>Hi, I'm <em>Isabella.</em></h2>
+      <p>I started IveyVisuals to move design away from looks alone and toward something more meaningful, collaborative and story-driven. Our imaginations are layered and complex, and your ideas deserve to shine in a way that feels true to you.</p>
+      <p>I can't wait to hear your story.</p>
+      <img class="sig" src="img/signature.png" alt="Isabella's signature">
+      <div class="stats"><div><b>5</b><span>Disciplines</span></div><div><b>13+</b><span>Event posters</span></div><div><b>1:1</b><span>Every project</span></div></div>
+    </div>
+  </div></section>
+
+  <section id="contact" class="contact"><div class="wrap">
+    <div><div class="label">Now booking</div><h2>Let's get to know<br>your <em>vision.</em></h2><p>Tell me about your brand, your event or your idea, and we'll find the right way to bring it to life.</p></div>
+    <form onsubmit="return false">
+      <input placeholder="Name"><input type="email" placeholder="Email">
+      <select class="full"><option>Which service?</option><option>Brand Design</option><option>Logo Design</option><option>Web Design</option><option>Graphic Design</option><option>Motion Design</option><option>Not sure yet</option></select>
+      <textarea class="full" rows="4" placeholder="Tell me about your project"></textarea>
+      <button class="btn full">Send inquiry →</button>
+    </form>
+  </div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 IveyVisuals Design Co.</span><img src="img/mark.png" alt=""><a href="https://instagram.com/iveyvisuals">Instagram ↗</a></div></footer>
+
+<div class="switch"><a href="a-editorial.html">A</a><a href="b-backstage.html">B</a><a href="c-studio.html">C</a><a href="d-atelier.html" class="on">D</a><a href="e-plan.html">E</a></div>
+</body>
+</html>

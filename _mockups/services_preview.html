@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Lexend';src:url('fonts/Lexend-VariableFont_wght.ttf') format('truetype');font-weight:100 900}
+  :root{--wine:#650c05;--blush:#ecdcd5;--cream:#f5f0ea;--ink:#141212;--muted:#6f6764;--serif:'Fraunces',Georgia,serif;--sans:'Lexend',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--sans);font-weight:300;background:var(--cream)}
+  .wrap{max-width:1240px;margin:0 auto;padding-inline:48px}
+  .story{background:var(--cream);padding-block:48px 64px}
+  .story-head{text-align:center;margin-bottom:48px}
+  .story-head h2{font-family:var(--serif);font-weight:400;font-size:3.8rem;line-height:1.08;color:var(--ink);letter-spacing:.01em;margin-bottom:14px}
+  .story-head h2 em{font-style:italic;color:var(--wine)}
+  .story-head p{font-size:1rem;color:var(--muted);max-width:52ch;margin:0 auto;line-height:1.65}
+  .svc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .svc-card{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:3/4}
+  .svc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .svc-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,4,4,.82) 0%,rgba(10,4,4,.3) 50%,transparent 100%)}
+  .svc-card-body{position:absolute;bottom:0;left:0;right:0;padding:32px}
+  .svc-card-num{font-size:.75rem;letter-spacing:.1em;color:rgba(255,255,255,.55);margin-bottom:10px;display:block}
+  .svc-card-body h3{font-family:var(--serif);font-weight:400;font-size:1.8rem;color:var(--cream);margin-bottom:10px;line-height:1.1}
+  .svc-card-body p{font-size:.83rem;line-height:1.6;color:rgba(255,255,255,.75);margin-bottom:14px}
+  .svc-card-body a{font-size:.78rem;color:var(--blush);letter-spacing:.04em;border-bottom:1px solid rgba(236,220,213,.4);padding-bottom:2px}
+</style></head><body>
+<section class="story"><div class="wrap">
+  <div class="story-head">
+    <h2>You Found <em>The Right Place.</em></h2>
+    <p>We build your brand through website design, graphic design, and content creation — all in one place.</p>
+  </div>
+  <div class="svc-cards">
+    <div class="svc-card"><img src="img/webdesign_poster1.jpg"><div class="svc-card-overlay"></div><div class="svc-card-body"><span class="svc-card-num">01</span><h3>Web Design</h3><p>Websites that look stunning and make it easy for customers to explore, book, and keep coming back.</p><a href="#">Learn more →</a></div></div>
+    <div class="svc-card"><img src="img/graphicdesign_poster1.jpg"><div class="svc-card-overlay"></div><div class="svc-card-body"><span class="svc-card-num">02</span><h3>Graphic Design</h3><p>Posters, menus, invitations and campaigns crafted to feel cohesive, intentional and uniquely you.</p><a href="#">Learn more →</a></div></div>
+    <div class="svc-card"><img src="img/branding.jpg"><div class="svc-card-overlay"></div><div class="svc-card-body"><span class="svc-card-num">03</span><h3>Content Creation</h3><p>Styled photos and social content that bring your brand to life and keep your feed looking polished.</p><a href="#">Learn more →</a></div></div>
+  </div>
+</div></section>
+</body></html>

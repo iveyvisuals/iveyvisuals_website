@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A · Editorial — IveyVisuals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f3eee8; --paper:#faf7f3; --ink:#231f20; --muted:#6b6261;
+    --wine:#6d0000; --wine-soft:#e9d9d4; --line:#d8cfc6;
+    --serif:'Nanum Myeongjo', 'AppleMyungjo', Georgia, serif;
+    --sans:'Lexend', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--cream) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+  header img{height:46px}
+  nav{display:flex;gap:32px;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+  nav a:hover{color:var(--wine)}
+  .pill{border:1px solid var(--ink);border-radius:999px;padding:.55em 1.3em}
+  .pill:hover{background:var(--ink);color:var(--cream)}
+  @media (max-width:760px){nav a:not(.pill){display:none}}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,72px);align-items:end;padding-block:clamp(40px,7vw,96px) clamp(48px,6vw,80px)}
+  .eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--wine);margin-bottom:28px;display:flex;gap:12px;align-items:center}
+  .eyebrow::before{content:"";width:36px;height:1px;background:var(--wine)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,8.4vw,7.6rem);line-height:.95;letter-spacing:-.03em}
+  h1 em{font-style:italic;color:var(--wine)}
+  .hero p.lede{max-width:34ch;margin-top:32px;font-size:1.1rem;color:var(--muted)}
+  .hero .ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:1em 1.8em;border-radius:999px;font-size:.9rem;font-weight:400}
+  .btn.solid{background:var(--wine);color:var(--cream)}
+  .btn.solid:hover{background:var(--ink)}
+  .btn.line{border:1px solid var(--ink)}
+  .hero figure{position:relative}
+  .hero figure img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:2px}
+  .hero figcaption{position:absolute;left:-28px;bottom:32px;background:var(--paper);padding:14px 18px;font-size:.75rem;letter-spacing:.06em;box-shadow:0 10px 30px rgba(35,31,32,.1)}
+  .hero figcaption b{display:block;font-family:var(--serif);font-size:1.4rem;font-weight:400;letter-spacing:0;color:var(--wine)}
+  @media (max-width:860px){.hero{grid-template-columns:1fr}.hero figcaption{left:12px}}
+
+  /* marquee of disciplines */
+  .strip{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:22px 0;font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem)}
+  .strip div{display:inline-block;animation:slide 40s linear infinite}
+  .strip span{margin:0 28px}
+  .strip i{color:var(--wine);font-style:normal}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* services index */
+  section{padding:clamp(64px,10vw,140px) 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,5vw,4rem);line-height:1;letter-spacing:-.02em}
+  h2 em{color:var(--wine)}
+  .sec-head p{max-width:36ch;color:var(--muted)}
+  .index{list-style:none;border-top:1px solid var(--ink)}
+  .index li a{display:grid;grid-template-columns:60px 1fr 1.2fr 40px;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);transition:padding .35s ease, background .35s}
+  .index .no{font-size:.8rem;color:var(--wine);letter-spacing:.1em}
+  .index .name{font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,3rem);line-height:1}
+  .index .desc{color:var(--muted);font-size:.95rem}
+  .index .arr{font-size:1.4rem;transition:transform .3s}
+  .index li a:hover{padding-left:18px;background:var(--paper)}
+  .index li a:hover .arr{transform:translateX(6px);color:var(--wine)}
+  @media (max-width:760px){.index li a{grid-template-columns:40px 1fr 24px}.index .desc{display:none}}
+
+  /* work grid */
+  .work{background:var(--paper)}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+  .card{position:relative;overflow:hidden}
+  .card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .card:hover img{transform:scale(1.04)}
+  .card .tag{position:absolute;left:14px;bottom:14px;background:var(--cream);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px}
+  .c1{grid-column:1/6;aspect-ratio:4/5}
+  .c2{grid-column:6/13;aspect-ratio:16/10;align-self:start}
+  .c3{grid-column:6/9;aspect-ratio:4/5;margin-top:-22%}
+  .c4{grid-column:9/13;aspect-ratio:1;margin-top:-22%;background:#fff;display:grid;place-items:center}
+  .c4 img{object-fit:contain;padding:12%}
+  .c5{grid-column:1/5;aspect-ratio:4/5}
+  .c6{grid-column:5/9;aspect-ratio:4/5}
+  .c7{grid-column:9/13;aspect-ratio:4/5}
+  @media (max-width:760px){.grid>*{grid-column:1/-1!important;margin-top:0!important}}
+
+  /* about */
+  .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:center}
+  .about img.head{aspect-ratio:3/4;object-fit:cover;width:100%}
+  .about blockquote{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.2;margin:24px 0 28px}
+  .about blockquote em{color:var(--wine)}
+  .about p{color:var(--muted);max-width:52ch;margin-bottom:14px}
+  .about .sig{height:70px;margin-top:20px}
+  @media (max-width:860px){.about{grid-template-columns:1fr}}
+
+  /* contact */
+  .contact{background:var(--wine);color:var(--cream)}
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .contact h2{font-size:clamp(2.6rem,6vw,5.4rem)}
+  .contact h2 em{color:var(--wine-soft)}
+  form{display:grid;gap:22px}
+  label{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+  input,select,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid color-mix(in srgb,var(--cream) 45%,transparent);color:var(--cream);font:inherit;font-size:1.05rem;padding:10px 0;outline:none}
+  select option{color:var(--ink)}
+  input:focus,textarea:focus,select:focus{border-color:var(--cream)}
+  .contact .btn{background:var(--cream);color:var(--wine);justify-self:start;border:0;cursor:pointer}
+  @media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+  footer{padding:32px 0;font-size:.8rem;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  .switch{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;gap:4px;background:#111;padding:4px;border-radius:999px;font:500 12px/1 system-ui}
+  .switch a{color:#fff;padding:8px 12px;border-radius:999px}.switch a.on{background:#fff;color:#111}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a href="#"><img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co."></a>
+  <nav><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact" class="pill">Book a call</a></nav>
+</div></header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">IveyVisuals Design Co.</div>
+      <h1>Illuminating <em>the vision</em> behind your brand.</h1>
+      <p class="lede">A multidisciplinary studio for brand, logo, web, graphic and motion design: clean, creative, and full of intention.</p>
+      <div class="ctas"><a href="#contact" class="btn solid">Let's design together →</a><a href="#work" class="btn line">See the work</a></div>
+    </div>
+    <figure>
+      <img src="img/coverpage.jpg" alt="IveyVisuals brand prints scattered on the floor">
+      <figcaption>Now booking<b>Winter 2026</b></figcaption>
+    </figure>
+  </div>
+
+  <div class="strip" aria-hidden="true"><div>
+    <span>Brand</span><i>✦</i><span>Logo</span><i>✦</i><span>Web</span><i>✦</i><span>Graphic</span><i>✦</i><span>Motion</span><i>✦</i>
+    <span>Brand</span><i>✦</i><span>Logo</span><i>✦</i><span>Web</span><i>✦</i><span>Graphic</span><i>✦</i><span>Motion</span><i>✦</i>
+  </div></div>
+
+  <section id="services"><div class="wrap">
+    <div class="sec-head"><h2>Five ways to<br><em>tell your story.</em></h2><p>Every project starts with your story. The deliverables follow from it.</p></div>
+    <ul class="index">
+      <li><a href="#"><span class="no">01</span><span class="name">Brand Design</span><span class="desc">Identity systems and style guides that make a bold first impression.</span><span class="arr">→</span></a></li>
+      <li><a href="#"><span class="no">02</span><span class="name">Logo Design</span><span class="desc">The heart of your identity, in one clear and lasting mark.</span><span class="arr">→</span></a></li>
+      <li><a href="#"><span class="no">03</span><span class="name">Web Design</span><span class="desc">Sites and apps that make it easy to explore, book, and come back.</span><span class="arr">→</span></a></li>
+      <li><a href="#"><span class="no">04</span><span class="name">Graphic Design</span><span class="desc">Posters, menus and campaigns that feel cohesive and uniquely you.</span><span class="arr">→</span></a></li>
+      <li><a href="#"><span class="no">05</span><span class="name">Motion Design</span><span class="desc">Animated logos and reveals, from subtle 2D loops to bold 3D.</span><span class="arr">→</span></a></li>
+    </ul>
+  </div></section>
+
+  <section id="work" class="work"><div class="wrap">
+    <div class="sec-head"><h2>Selected <em>work</em></h2><a href="#" class="btn line">View all projects →</a></div>
+    <div class="grid">
+      <a class="card c1" href="#"><img src="img/CHI_V3.jpg" alt="Lil Tjay event poster"><span class="tag">Poster · Lil Tjay</span></a>
+      <a class="card c2" href="#"><img src="img/motion.jpg" alt="IveyVisuals site on a laptop"><span class="tag">Web · IveyVisuals</span></a>
+      <a class="card c3" href="#"><img src="img/LilMosey_V2.jpg" alt="Lil Mosey event poster"><span class="tag">Poster · Lil Mosey</span></a>
+      <a class="card c4" href="#"><img src="img/Maplevue_PrimaryLogo.png" alt="Maplevue logo"><span class="tag">Logo · Maplevue</span></a>
+      <a class="card c5" href="#"><img src="img/interlude.jpg" alt="Mobile app on two phones"><span class="tag">App · Web</span></a>
+      <a class="card c6" href="#"><img src="img/TheOcho_Alt.jpg" alt="The Ocho poster"><span class="tag">Poster · The Ocho</span></a>
+      <a class="card c7" href="#"><img src="img/menu.jpg" alt="Menu design"><span class="tag">Graphic · Menu</span></a>
+    </div>
+  </div></section>
+
+  <section id="about"><div class="wrap about">
+    <img class="head" src="img/headshot.jpg" alt="Isabella Villaroman in the studio">
+    <div>
+      <div class="eyebrow">Meet the founder</div>
+      <blockquote>“Design shouldn't only be about looks. It should be <em>meaningful, collaborative, and story-driven.</em>”</blockquote>
+      <p>Hi, I'm Isabella. I started IveyVisuals to bring a new approach to design. Our imaginations are layered and complex, and your ideas deserve to shine in a way that feels true to you.</p>
+      <p>I can't wait to hear your story.</p>
+      <img class="sig" src="img/signature.png" alt="Isabella's signature">
+    </div>
+  </div></section>
+
+  <section id="contact" class="contact"><div class="wrap">
+    <h2>Let's get to know <em>your vision.</em></h2>
+    <form onsubmit="return false">
+      <div><label for="n">Name</label><input id="n"></div>
+      <div><label for="e">Email</label><input id="e" type="email"></div>
+      <div><label for="s">Service</label><select id="s"><option>Brand Design</option><option>Logo Design</option><option>Web Design</option><option>Graphic Design</option><option>Motion Design</option><option>Not sure yet</option></select></div>
+      <div><label for="m">Tell me about your project</label><textarea id="m" rows="3"></textarea></div>
+      <button class="btn">Send inquiry →</button>
+    </form>
+  </div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 IveyVisuals Design Co.</span><a href="https://instagram.com/iveyvisuals">Instagram ↗</a></div></footer>
+
+<div class="switch"><a href="a-editorial.html" class="on">A</a><a href="b-backstage.html">B</a><a href="c-studio.html">C</a><a href="d-atelier.html">D</a><a href="e-plan.html">E</a></div>
+</body>
+</html>
