@@ -72,12 +72,16 @@
   .intro p{color:var(--muted);max-width:56ch;margin:18px auto 0;font-size:1.04rem}
 
   /* ---------- filter menu ---------- */
-  .filters{position:sticky;top:96px;z-index:10;background:transparent;padding-block:20px;display:flex;justify-content:center;padding-inline:clamp(16px,4vw,0px)}
-  @media(max-width:600px){.filters{justify-content:flex-start;padding-inline:clamp(16px,4vw,24px)}.filters .wrap{max-width:calc(100vw - 32px)}}
+  /* ---------- filter menu ---------- */
+  .filters{position:sticky;top:96px;z-index:10;background:transparent;padding-block:20px;display:flex;justify-content:center}
+  .filters-outer{position:relative;display:flex;justify-content:center}
+  .filters-outer::after{content:"";position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(90deg,transparent,var(--cream));pointer-events:none;border-radius:0 999px 999px 0;display:none}
+  @media(max-width:640px){.filters{padding-inline:16px}.filters-outer{width:100%}.filters-outer::after{display:block}.filters .wrap{width:100%;justify-content:flex-start}}
   .filters .wrap{position:relative;display:inline-flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;background:rgba(236,220,213,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;padding:6px}
   .filters .wrap::-webkit-scrollbar{display:none}
   .filter-pill{position:absolute;top:6px;height:calc(100% - 12px);background:#fff;border-radius:999px;box-shadow:0 2px 8px rgba(20,18,18,.1);transition:left .28s cubic-bezier(.4,0,.2,1),width .28s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:0}
   .filters button{position:relative;z-index:1;background:none;border:0;font:inherit;font-size:.9rem;letter-spacing:.02em;color:var(--muted);padding:.55em 1.3em;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .2s;font-weight:300}
+  @media(max-width:640px){.filters button{font-size:.82rem;padding:.5em .95em}}
   .filters button:hover{color:var(--ink)}
   .filters button[aria-pressed="true"]{color:var(--ink);font-weight:400}
 
@@ -156,13 +160,13 @@
   <p>A collection of web design, graphic design and content creation projects for small businesses, brands, events and creatives.</p>
 </div></section>
 
-<nav class="filters" aria-label="Filter projects"><div class="wrap">
+<div class="filters-outer"><nav class="filters" aria-label="Filter projects"><div class="wrap">
   <span class="filter-pill" id="filterPill"></span>
   <button data-filter="all" aria-pressed="true">All</button>
   <button data-filter="web" aria-pressed="false">Web Design</button>
   <button data-filter="graphic" aria-pressed="false">Graphic Design</button>
   <button data-filter="content" aria-pressed="false">Content Creation</button>
-</div></nav>
+</div></nav></div>
 
 <section class="projects"><div class="wrap grid">
   <!-- web design -->
