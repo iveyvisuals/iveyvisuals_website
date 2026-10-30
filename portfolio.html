@@ -72,7 +72,8 @@
   .intro p{color:var(--muted);max-width:56ch;margin:18px auto 0;font-size:1.04rem}
 
   /* ---------- filter menu ---------- */
-  .filters{position:sticky;top:96px;z-index:10;background:transparent;padding-block:20px;display:flex;justify-content:center}
+  .filters{position:sticky;top:96px;z-index:10;background:transparent;padding-block:20px;display:flex;justify-content:center;padding-inline:clamp(16px,4vw,0px)}
+  @media(max-width:600px){.filters{justify-content:flex-start;padding-inline:clamp(16px,4vw,24px)}.filters .wrap{max-width:calc(100vw - 32px)}}
   .filters .wrap{position:relative;display:inline-flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;background:rgba(236,220,213,.75);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;padding:6px}
   .filters .wrap::-webkit-scrollbar{display:none}
   .filter-pill{position:absolute;top:6px;height:calc(100% - 12px);background:#fff;border-radius:999px;box-shadow:0 2px 8px rgba(20,18,18,.1);transition:left .28s cubic-bezier(.4,0,.2,1),width .28s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:0}
@@ -95,7 +96,7 @@
   .card p b{font-weight:400;color:var(--ink)}
   .card .img{position:relative}
   .card-overlay{position:absolute;inset:0;background:rgba(101,12,5,.88);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(16px,2.5vw,28px);opacity:0;transition:opacity .3s ease;border-radius:4px}
-  .card:hover .card-overlay{opacity:1}
+  .card:hover .card-overlay,.card.overlay-open .card-overlay{opacity:1}
   .card-overlay-tag{font-family:var(--sans);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(236,220,213,.6);margin-bottom:8px}
   .card-overlay-title{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.8rem);color:var(--cream);line-height:1.1;margin-bottom:8px}
   .card-overlay-desc{font-family:var(--sans);font-size:.82rem;color:rgba(236,220,213,.75);line-height:1.55;margin-bottom:16px}
@@ -285,6 +286,24 @@
   window.addEventListener('hashchange', () => show(location.hash.slice(1) || 'all', false));
   // init pill position after fonts/layout settle
   requestAnimationFrame(() => movePill(buttons.find(b => b.getAttribute('aria-pressed') === 'true')));
+
+  // tap-to-reveal overlay on touch devices
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (!window.matchMedia('(hover:none)').matches) return;
+      const link = e.target.closest('.card-overlay-link');
+      if (link) return;
+      e.preventDefault();
+      const isOpen = card.classList.contains('overlay-open');
+      document.querySelectorAll('.card.overlay-open').forEach(c => c.classList.remove('overlay-open'));
+      if (!isOpen) card.classList.add('overlay-open');
+    });
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.card')) {
+      document.querySelectorAll('.card.overlay-open').forEach(c => c.classList.remove('overlay-open'));
+    }
+  });
 </script>
 <script>
 (function(){
