@@ -93,6 +93,14 @@
   .card .img.logo img{width:62%;height:auto;object-fit:contain}
   .card p{display:flex;justify-content:space-between;gap:12px;padding:12px 2px 0;font-size:.86rem;color:var(--muted)}
   .card p b{font-weight:400;color:var(--ink)}
+  .card .img{position:relative}
+  .card-overlay{position:absolute;inset:0;background:rgba(101,12,5,.88);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(16px,2.5vw,28px);opacity:0;transition:opacity .3s ease;border-radius:4px}
+  .card:hover .card-overlay{opacity:1}
+  .card-overlay-tag{font-family:var(--sans);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(236,220,213,.6);margin-bottom:8px}
+  .card-overlay-title{font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.8rem);color:var(--cream);line-height:1.1;margin-bottom:8px}
+  .card-overlay-desc{font-family:var(--sans);font-size:.82rem;color:rgba(236,220,213,.75);line-height:1.55;margin-bottom:16px}
+  .card-overlay-link{display:inline-flex;align-items:center;gap:6px;background:var(--cream);color:var(--wine);font-family:var(--sans);font-size:.78rem;font-weight:500;padding:.5em 1.1em;border-radius:999px;width:fit-content;transition:background .2s}
+  .card-overlay-link:hover{background:var(--blush)}
   @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
   @media (max-width:540px){.grid{grid-template-columns:1fr}}
 
@@ -184,9 +192,9 @@
 
   <!-- content creation -->
   <figure class="card" data-cat="content"><div class="img"><img src="img/Content10.jpg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio1.jpg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio2.jpg" alt="Content creation" loading="lazy"></div></figure>
-  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio3.jpg" alt="Content creation" loading="lazy"></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio1.jpg" alt="Kevin Linn Homes content creation by IveyVisuals" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Real Estate</div><div class="card-overlay-title">Kevin Linn Homes</div><div class="card-overlay-desc">Lifestyle and property content that captures the luxury feel of Kevin's brand and connects with high-end buyers.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio2.jpg" alt="Tony's Burgers content creation by IveyVisuals" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Food &amp; Beverage</div><div class="card-overlay-title">Tony's Burgers</div><div class="card-overlay-desc">Mouth-watering food content and social videos that bring the restaurant's energy to life online.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
+  <figure class="card" data-cat="content"><div class="img"><img src="img/contentcreation_portfolio3.jpg" alt="Liar's Barrie content creation by IveyVisuals" loading="lazy"><div class="card-overlay"><div class="card-overlay-tag">Content Creation · Hospitality</div><div class="card-overlay-title">Liar's Barrie</div><div class="card-overlay-desc">Atmospheric behind-the-scenes and event content that captures the vibe of Barrie's favourite spot.</div><a href="#" class="card-overlay-link">Watch Video ↗</a></div></div></figure>
   <figure class="card" data-cat="content"><div class="img"><img src="img/Content5.jpeg" alt="Content creation" loading="lazy"></div></figure>
   <figure class="card" data-cat="content"><div class="img"><img src="img/Content6.jpeg" alt="Content creation" loading="lazy"></div></figure>
   <figure class="card" data-cat="content"><div class="img"><img src="img/Content7.jpeg" alt="Content creation" loading="lazy"></div></figure>
