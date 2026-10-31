@@ -21,6 +21,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   em{font-style:normal}
+  html{overflow-x:hidden}
   body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;position:relative}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
@@ -82,7 +83,13 @@
   .filter-pill{position:absolute;top:6px;height:calc(100% - 12px);background:#fff;border-radius:999px;box-shadow:0 2px 8px rgba(20,18,18,.1);transition:left .28s cubic-bezier(.4,0,.2,1),width .28s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:0}
   .filters button{position:relative;z-index:1;background:none;border:0;font:inherit;font-size:.9rem;letter-spacing:.02em;color:var(--muted);padding:.55em 1.3em;border-radius:999px;cursor:pointer;white-space:nowrap;transition:color .2s;font-weight:300}
   .filters button .fs{display:none}
-  @media(max-width:860px){.filters button{font-size:.85rem;padding:.5em 1em}.filters button .fl{display:none}.filters button .fs{display:inline}}
+  @media(max-width:860px){
+    .filters button{font-size:.85rem;padding:.5em 1em}
+    .filters button .fl{display:none}
+    .filters button .fs{display:inline}
+    .filter-pill{display:none}
+    .filters button[aria-pressed="true"]{background:rgba(255,255,255,.9);border-radius:999px}
+  }
   .filters button:hover{color:var(--ink)}
   .filters button[aria-pressed="true"]{color:var(--ink);font-weight:400}
 
