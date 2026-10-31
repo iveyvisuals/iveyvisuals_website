@@ -107,7 +107,7 @@
   .stat-label{font-family:var(--sans);font-size:.75rem;color:rgba(236,220,213,.55);letter-spacing:.1em;text-transform:uppercase;margin-top:10px}
   .stat{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
   .stat.in{opacity:1;transform:none}
-  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(2,1fr)}.stat+.stat{border-left:none}.stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}.stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2);padding-top:32px}}
+  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(2,1fr);gap:0}.stat{padding:clamp(24px,4vw,36px) clamp(16px,4vw,28px)}.stat+.stat{border-left:none}.stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}.stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}}
   @media(max-width:860px){.hero{grid-template-columns:1fr;padding-inline:clamp(20px,5vw,48px)}.hero .photo{order:-1}.hero .photo img{aspect-ratio:3/2}.hero-badge,.hero-mark{display:none}}
 
   /* ---------- 2. portfolio carousel ---------- */
