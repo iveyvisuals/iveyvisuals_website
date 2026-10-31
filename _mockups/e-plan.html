@@ -21,8 +21,8 @@
   *{box-sizing:border-box;margin:0;padding:0}
   em{font-style:normal}
   html{scroll-behavior:smooth}
-  html{overflow-x:hidden}
-  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+  html{overflow-x:clip}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:clip}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
@@ -153,7 +153,7 @@
   .statement p{font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.6;color:rgba(236,220,213,.75);max-width:560px;margin:0 auto}
 
   /* ---------- pain points ---------- */
-  .pain-section{position:relative;z-index:1;background:var(--cream)}
+  .pain-section{position:relative;z-index:1;background:var(--ink)}
   /* inner sticky container — sticks for the whole scroll journey */
   .pain-sticky{
     position:sticky;top:96px;height:calc(100vh - 96px);
@@ -288,7 +288,7 @@
 
 
   @media(max-width:860px){
-    .pain-section{background:var(--cream)}
+    .pain-section{background:var(--ink)}
     .pain-sticky{position:relative!important;top:0!important;height:auto!important;background:url('img/studio_wall.jpg') center center / cover no-repeat!important;display:block!important}
     .pain-sticky::before{display:block!important;content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(135deg,rgba(15,7,7,.82) 0%,rgba(101,12,5,.65) 100%)!important;z-index:0!important}
     .pain-header{padding-block:clamp(40px,6vw,56px);padding-inline:clamp(20px,5vw,40px);position:relative;z-index:1}
