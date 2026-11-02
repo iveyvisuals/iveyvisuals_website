@@ -98,7 +98,7 @@
   .hero .rotator{display:none}
   .tw-cursor{display:inline-block;width:3px;height:.85em;background:var(--wine);margin-left:3px;vertical-align:middle;border-radius:1px;animation:blink .7s step-end infinite}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-  .stats-bar{background:var(--wine);padding:clamp(24px,3.5vw,40px) clamp(24px,6vw,80px);display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .stats-bar{background:var(--wine);padding:clamp(24px,3.5vw,40px) clamp(24px,6vw,80px);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .stat{text-align:center}
   .stat+.stat{border-left:1px solid rgba(255,255,255,.2)}
   .stat-num{font-family:var(--sans);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;color:var(--cream);line-height:1;letter-spacing:-.02em}
@@ -107,7 +107,7 @@
   .stat-label{font-family:var(--sans);font-size:.75rem;color:rgba(236,220,213,.55);letter-spacing:.1em;text-transform:uppercase;margin-top:10px}
   .stat{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
   .stat.in{opacity:1;transform:none}
-  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(2,1fr);gap:0}.stat{padding:clamp(24px,4vw,36px) clamp(16px,4vw,28px)}.stat+.stat{border-left:none}.stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.2)}.stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.2)}}
+  @media(max-width:700px){.stats-bar{grid-template-columns:repeat(3,1fr);gap:0}.stat{padding:clamp(16px,3vw,24px) clamp(8px,2vw,14px)}.stat+.stat{border-left:1px solid rgba(255,255,255,.2)}}
   @media(max-width:860px){.hero{grid-template-columns:1fr;padding-inline:clamp(20px,5vw,48px)}.hero .photo{order:-1}.hero .photo img{aspect-ratio:3/2}.hero-badge,.hero-mark{display:none}}
 
   /* ---------- 2. portfolio carousel ---------- */
@@ -415,16 +415,12 @@
     <div class="stat-label">Projects Delivered</div>
   </div>
   <div class="stat">
-    <div class="stat-num">5<span class="star">★</span></div>
-    <div class="stat-label">Client Rating</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">5</div>
+    <div class="stat-num">3</div>
     <div class="stat-label">Services Offered</div>
   </div>
   <div class="stat">
-    <div class="stat-num">100<em>%</em></div>
-    <div class="stat-label">Story-Driven</div>
+    <div class="stat-num" style="font-size:clamp(1.1rem,2.2vw,1.9rem);letter-spacing:0">Barrie &amp; GTA</div>
+    <div class="stat-label">Based In</div>
   </div>
 </div>
 
