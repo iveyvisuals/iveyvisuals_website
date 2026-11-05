@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — IveyVisuals Design Co.</title>
+<meta name="description" content="Privacy policy for IveyVisuals Design Co. — how we handle your information.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Lexend';src:url('fonts/Lexend-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-display:swap}
+  :root{--wine:#650c05;--blush:#ecdcd5;--cream:#f5f0ea;--ink:#141212;--muted:#6f6764;--line:#e0d5ce;--serif:'Fraunces',Georgia,serif;--sans:'Lexend',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{overflow-x:clip}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:clip}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+
+  header{position:sticky;top:0;z-index:20;background:var(--cream)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:96px;max-width:none;padding-inline:clamp(20px,4.5vw,72px);gap:24px}
+  header .logo img{height:52px}
+  .menu{display:flex;gap:clamp(20px,3vw,48px);font-size:1.02rem;letter-spacing:.02em;color:#5f5a57}
+  .menu a{position:relative;padding:8px 0;transition:color .25s}
+  .menu a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--wine);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+  .menu a:hover{color:var(--ink)}
+  .menu a:hover::after{transform:scaleX(1)}
+  .nav-cta{display:inline-flex;align-items:center;background:var(--wine);color:var(--cream);padding:.6em 1.4em;border-radius:999px;font-size:.86rem;white-space:nowrap;transition:background .25s}
+  .nav-cta:hover{background:var(--ink);color:var(--cream)}
+  .toggle{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+  .toggle span,.toggle::before,.toggle::after{content:"";position:absolute;left:8px;right:8px;height:1.5px;background:var(--ink)}
+  .toggle::before{top:13px}.toggle span{top:19px}.toggle::after{top:25px}
+  @media(max-width:860px){
+    .toggle{display:block}
+    .nav-cta{display:none}
+    .menu{position:absolute;top:96px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);padding:8px clamp(16px,4vw,48px) 24px;border-bottom:1px solid var(--line);display:none}
+    .menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+    .menu a::after{display:none}
+    header.open .menu{display:flex}
+  }
+
+  .page-intro{padding-block:clamp(56px,8vw,100px) clamp(40px,5vw,64px);border-bottom:1px solid var(--line)}
+  .page-intro .label{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);margin-bottom:16px}
+  .page-intro h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5vw,4rem);line-height:1.08;color:var(--ink)}
+  .page-intro p{color:var(--muted);margin-top:14px;font-size:.92rem}
+
+  .policy{padding-block:clamp(48px,6vw,80px) clamp(80px,10vw,130px)}
+  .policy-body{max-width:720px}
+  .policy-body h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.4rem,2.5vw,2rem);color:var(--ink);margin-top:clamp(40px,5vw,56px);margin-bottom:12px}
+  .policy-body h2:first-child{margin-top:0}
+  .policy-body p{color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:14px}
+  .policy-body ul{color:var(--muted);font-size:.95rem;line-height:1.75;padding-left:1.4em;margin-bottom:14px}
+  .policy-body ul li{margin-bottom:6px}
+  .policy-body a{color:var(--wine);text-decoration:underline;text-underline-offset:3px}
+  .policy-body a:hover{opacity:.75}
+
+  .site-footer{background:var(--wine);padding-block:clamp(56px,7vw,90px) clamp(32px,4vw,48px)}
+  .footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.4fr;gap:clamp(32px,4vw,64px);margin-bottom:clamp(48px,6vw,72px)}
+  .footer-brand .footer-logo{height:48px;filter:brightness(0) invert(1);opacity:.92;margin-bottom:14px}
+  .footer-brand p{color:rgba(245,240,234,.5);font-size:.88rem;line-height:1.65;max-width:26ch}
+  .footer-col{display:flex;flex-direction:column;gap:10px}
+  .footer-col-label{font-size:.7rem;letter-spacing:.12em;color:rgba(245,240,234,.35);text-transform:uppercase;margin-bottom:6px}
+  .footer-col a{font-size:.88rem;color:rgba(245,240,234,.65);transition:color .2s;line-height:1.4}
+  .footer-col a:hover{color:var(--cream)}
+  .footer-btn{display:inline-flex;align-items:center;background:var(--cream);color:var(--wine)!important;padding:.55em 1.3em;border-radius:999px;font-size:.82rem;margin-top:6px;width:fit-content;transition:background .25s!important}
+  .footer-btn:hover{background:var(--blush)!important}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:clamp(24px,3vw,36px);border-top:1px solid rgba(245,240,234,.08);font-size:.76rem;color:rgba(245,240,234,.35)}
+  .footer-bottom img{height:22px;opacity:.3;filter:brightness(0) invert(1)}
+  @media(max-width:860px){.footer-top{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+  @media(max-width:480px){.footer-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="logo" href="index.html"><img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co."></a>
+  <button class="toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
+  <nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="contact.html" class="nav-cta">Start a Project</a>
+</div></header>
+
+<section class="page-intro"><div class="wrap">
+  <p class="label">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p>Last updated: November 2026</p>
+</div></section>
+
+<section class="policy"><div class="wrap">
+<div class="policy-body">
+
+  <h2>Who We Are</h2>
+  <p>This privacy policy applies to IveyVisuals Design Co. ("we", "us", or "our"), a creative services studio based in Barrie, Ontario, Canada. Our website is <a href="https://iveyvisuals.com">iveyvisuals.com</a>.</p>
+
+  <h2>What Information We Collect</h2>
+  <p>We only collect information you choose to give us directly. This includes:</p>
+  <ul>
+    <li>Your name, email address, and business name when you fill out our contact form</li>
+    <li>Project details and messages you submit through our inquiry form</li>
+    <li>Booking information when you schedule a call through Calendly</li>
+  </ul>
+  <p>We do not use cookies, tracking pixels, or analytics tools on this website. We do not collect any information passively.</p>
+
+  <h2>How We Use Your Information</h2>
+  <p>Any information you submit is used solely to respond to your inquiry or schedule a discovery call. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+  <h2>Third-Party Services</h2>
+  <p>Our website uses a small number of third-party services that may process data independently:</p>
+  <ul>
+    <li><strong>Calendly</strong> — used for scheduling calls. When you book through the embedded calendar, Calendly's own privacy policy applies. You can review it at <a href="https://calendly.com/privacy" target="_blank" rel="noopener">calendly.com/privacy</a>.</li>
+    <li><strong>Google Fonts</strong> — our site loads fonts from Google's servers, which may log your IP address as part of a standard web request. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
+    <li><strong>GitHub Pages</strong> — our website is hosted on GitHub Pages. GitHub may collect basic server log data (such as IP addresses) as part of normal hosting operations. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy statement</a>.</li>
+  </ul>
+
+  <h2>Data Retention</h2>
+  <p>We retain contact form submissions and email correspondence only as long as needed to complete your project or inquiry. You may request deletion of your information at any time by emailing us.</p>
+
+  <h2>Your Rights</h2>
+  <p>If you are located in Canada or the European Union, you have the right to access, correct, or request deletion of any personal information we hold about you. To make a request, contact us at <a href="mailto:isabella@iveyvisuals.com">isabella@iveyvisuals.com</a>.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this privacy policy from time to time. The date at the top of this page reflects when it was last revised. Continued use of the site after changes are posted constitutes your acceptance of the updated policy.</p>
+
+  <h2>Contact</h2>
+  <p>If you have any questions about this policy, you can reach us at:<br>
+  <a href="mailto:isabella@iveyvisuals.com">isabella@iveyvisuals.com</a></p>
+
+</div>
+</div></section>
+
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/IveyVisualsLogo.png" alt="IveyVisuals Design Co." class="footer-logo">
+      <p>Creative services for brands ready to show up — websites, graphics, and content that work together.</p>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Pages</span>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Services</span>
+      <a href="services.html">Web Design</a>
+      <a href="services.html">Graphic Design</a>
+      <a href="services.html">Content Creation</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Connect</span>
+      <a href="mailto:isabella@iveyvisuals.com">isabella@iveyvisuals.com</a>
+      <a href="https://instagram.com/iveyvisuals">Instagram ↗</a>
+      <a href="contact.html" class="footer-btn">Start a Project →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 IveyVisuals Design Co. All rights reserved. · <a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy Policy</a></span>
+    <img src="img/mark.png" alt="">
+  </div>
+</div></footer>
+
+<script>
+  const header = document.querySelector('header'), toggle = document.querySelector('.toggle');
+  toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', header.classList.toggle('open')));
+</script>
+</body>
+</html>
